@@ -9,5 +9,7 @@ Depends:
 License: CC0
 LazyData: true
 Suggests:
-    dplyr
+    dplyr,
+    gdata,
+    ggplot2
 URL: https://github.com/jennybc/gapminder
