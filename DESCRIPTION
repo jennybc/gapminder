@@ -1,0 +1,13 @@
+Package: gapminder
+Title: Gapminder data
+Version: 0.1
+Authors@R: 'Jennifer Bryan <jenny@stat.ubc.ca> [aut,cre]'
+Description: Excerpt of the Gapminder data on life expectancy, GDP per capita,
+    and population by country from 1952 to 2007.
+Depends:
+    R (>= 3.1.0)
+License: CC0
+LazyData: true
+Suggests:
+    dplyr
+URL: https://github.com/jennybc/gapminder
