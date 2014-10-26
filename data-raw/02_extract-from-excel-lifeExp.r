@@ -1,16 +1,21 @@
 library(gdata)     # read.xls()
 library(dplyr)
 library(ggplot2)
-library(stringr)
+library(stringr)   # str_detect()
 
 ## extract the life expectancy data
 
+## this is the Excel file downloaded 2009-04-21 from gapminder.org
+## Yes, it was painful coming up with all the argument values necessary to
+## successfully import this data. See comments at end of file.
 le_xls <-
   read.xls("xls/life-expectancy-reference-spreadsheet-20090204-xls-format.xls",
            sheet = "Data and metadata",
            verbose = TRUE, quote = "", method = "tab", 
            fileEncoding =  "ISO-8859-1",
            colClasses = c(rep("character", 4), rep("NULL", 5)))
+## many instances of this warning:
+#Wide character in print at /Users/jenny/resources/R/libraryCRAN/gdata/perl/xls2tab.pl line 270.
 le_xls %>% str
 # 'data.frame':  52419 obs. of  4 variables:
 # $ X.Continent.average.used..see.documentation..                                                    : chr  "\"Asia\"" "\"Asia\"" "\"Asia\"" "\"Asia\"" ...
@@ -34,14 +39,12 @@ le_raw %>% str
 ## Note: I did not use gdata::read.xls() in 2010; rather, I exported a text file
 ## from Excel 'by hand'.
 le_raw %>% head
+le_raw %>% tail
 
 ## get rid of the escaped double quotes
 remove_quotes <- function(x) gsub("\"", "", x)
 le_raw <- le_raw %>%
-  mutate(country = remove_quotes(country),
-         continent = remove_quotes(continent),
-         year_raw = remove_quotes(year_raw),
-         lifeExp_raw = remove_quotes(lifeExp_raw))
+  mutate_each(funs(remove_quotes))
 le_raw %>% str
 # 'data.frame':  52419 obs. of  4 variables:
 # $ country    : chr  "Abkhazia" "Abkhazia" "Abkhazia" "Abkhazia" ...
@@ -68,11 +71,12 @@ le_raw$year_raw %>% n_distinct #209
 le_raw$year_raw %>% unique
 ## nothing obviously crazy remains
 
-## convert year to numeric
+## convert year to integer
 le_raw <- le_raw %>%
-  mutate(year = year_raw %>% as.numeric)
+  mutate(year = year_raw %>% as.integer)
 le_raw$year %>% n_distinct #209
 le_raw$year %>% unique
+all.equal(sort(unique(le_raw$year[!is.na(le_raw$year)])), 1800:2007)
 ## Integers between 1800 and 2007. Yay.
 
 ## drop year_raw, in favor of year
@@ -116,6 +120,8 @@ str(le_raw)
 # $ lifeExp_raw: chr  "28.801" "28.801" "30.332" "31.997" ...
 # $ year       : num  1800 1952 1957 1962 1967 ...
 
+## while lifeExp_raw is still character, check to see if it contains only digits
+## and the decimal sign
 le_seems_ok <- le_raw$lifeExp_raw %>% str_detect("[0-9\\.]")
 le_seems_ok %>% table
 # TRUE 
@@ -125,6 +131,10 @@ le_seems_ok %>% table
 ## convert lifeExp to numeric
 le_raw <- le_raw %>%
   mutate(lifeExp = lifeExp_raw %>% as.numeric)
+
+le_raw$lifeExp %>% summary
+#  Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+# 11.60   45.21   61.17   58.02   70.90   82.67 
 
 ## drop lifeExp_raw, in favor of lifeExp
 le_raw <- le_raw %>%
@@ -239,8 +249,8 @@ write.table(le_raw,
 #             sep = "\t", row.names = FALSE)
 
 ## and determined that I needed to figure out this file's encoding and deal with
-## the quoting problem --> that meant I should switch to tab-delimited as the
-## intermediate file format
+## the embedded quotes problem --> that meant I should switch to tab-delimited
+## as the intermediate file format
 
 ## so I tried making the intermediate file explicitly and then importing it with
 ## read.table()
@@ -273,7 +283,9 @@ write.table(le_raw,
 ## around now is where I also figure out the correct encoding: realized a
 ## curly equals sign or \305 was appearing instead of capital A with a circle on
 ## top, which I then googled
-## I should try to do that more systematically!
+## the country affected: Åland
+## http://www.ic.unicamp.br/~stolfi/EXPORT/www/ISO-8859-1-Encoding.html
+## look into how to determine encoding more automatically?
 # foo <- read.delim(temp_file, quote = "",
 #                   fileEncoding =  "ISO-8859-1",
 #                   colClasses = c(rep("character", 4), rep("NULL", 5)))
