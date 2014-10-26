@@ -34,7 +34,8 @@ year_freq <- pop_raw %>%
   group_by(year) %>%
   tally
 
-(p <- ggplot(year_freq, aes(x = year, y = n)) + geom_bar(stat = "identity"))
+(p <- ggplot(year_freq, aes(x = year, y = n)) +
+   geom_bar(stat = "identity"))
 p + xlim(c(1800, 2010))
 p + xlim(c(1945, 1955)) # huge increase at 1950
 p + xlim(c(2000, 2015)) # huge drop at 2009 (data contains some extrapolation)
