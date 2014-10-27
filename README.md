@@ -32,5 +32,5 @@ Visualization of the temporal trends in life expectancy, by country, is particul
 
 <blockquote class="twitter-tweet" lang="en"><p>Data cleaning code cannot be clean. It&#39;s a sort of sin eater.</p>&mdash; Stat Fact (@StatFact) <a href="https://twitter.com/StatFact/status/492753200190341120">July 25, 2014</a></blockquote>
 
-The `data-raw` directory contains all of the scripts used to extract the data from the Excel spreadsheets I downloaded from [Gapminder](http://www.gapminder.org) in 2008. I explicitly use this package to teach data cleaning, so have refactored my old cleaning code into several scripts and also include compiled Markdown reports. In hindsight, I wouldn't necessarily clean it the same way again, but at this point the pros of reproducing the data I've been using for ~5 years outweigh the cons.
+The `data-raw` directory contains all of the scripts used to extract the data from the Excel spreadsheets I downloaded from [Gapminder](http://www.gapminder.org) in 2008 and 2009. I explicitly use this package to teach data cleaning, so have refactored my old cleaning code into several scripts and also include compiled Markdown reports. In hindsight, I wouldn't necessarily clean it the same way again (and I would download more recent data!), but at this point there is great value in reproducing the data I've been using for ~5 years.
 
