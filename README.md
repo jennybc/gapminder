@@ -54,7 +54,7 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
 
 ### Description of the dataset
 
-I have used this excerpt in [STAT 545](http://stat545-ubc.github.io) since 2008 and, more recently, in [R-flavored Software Carpentry Workshops](http://jennybc.github.io/2014-05-12-ubc/). I've been amazed at how useful and durable this dataset is for teaching data analysis with R.
+I have used this excerpt in [STAT 545](http://stat545-ubc.github.io) since 2008 and, more recently, in [R-flavored Software Carpentry Workshops](http://jennybc.github.io/2014-05-12-ubc/) and a [`ggplot2` tutorial](https://github.com/jennybc/ggplot2-tutorial). I've been amazed at how useful and durable this dataset is for teaching data analysis with R.
 
 Description:
 
