@@ -1,0 +1,23 @@
+Bahamas	Bahamas, The
+Central African Rep.	Central African Republic
+Congo, Dem. Rep.	Congo, Rep.
+Cook Is	    Cook Islands
+Czech Rep.  Czech Republic	Czechoslovakia
+Dominican Rep.	  Dominican Republic
+East Germany	  Germany   West Germany
+Egypt		  Egypt, Arab Rep.
+Eritrea		  Eritrea and Ethiopia	Ethiopia
+Falkland Is (Malvinas)	  Falkland Islands (Malvinas)
+Gambia	 Gambia, The
+Iran	 Iran, Islamic Rep.
+Korea, Dem. Rep.       Korea, Rep.	Korea, United
+Kyrgyz Republic	       Kyrgyzstan
+Lao PDR		       Laos
+Russia		       Russian Federation	USSR
+Serbia		       Serbia and Montenegro	Serbia excluding Kosovo
+Saint Kitts and Nevis  St. Kitts and Nevis
+Saint Lucia St. Lucia
+Saint Vincent and the Grenadines	St. Vincent and the Grenadines
+Syria Syrian Arab Republic
+Venezuela    Venezuela, RB
+Yemen Arab Republic (Former)	Yemen Democratic (Former)	Yemen, Rep.
