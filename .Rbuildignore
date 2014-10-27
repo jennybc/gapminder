@@ -1,4 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^data-raw$
-^test-drive-stripplot.png$
+^README\.Rmd$
+^README\.html$
+^README_files/*
