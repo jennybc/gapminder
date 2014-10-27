@@ -95,6 +95,10 @@ gap_dat$continent %>% summary
 # Africa Americas     Asia   Europe      FSU  Oceania 
 #    637      470      577     1302      139      187 
 
+my_vars <- c('country', 'continent', 'year',
+             'lifeExp', 'pop', 'gdpPercap')
+gap_dat <- gap_dat[my_vars]
+
 write.table(gap_dat,
             "06_gap-merged-with-continent.tsv",
             quote = FALSE, sep = "\t", row.names = FALSE)

@@ -164,6 +164,10 @@ gap_dat %>% str
 ##   * at this point in 2010 cleaning, I had an unused level for the country
 ##     factor (Tokelau), which has no downstream effects
 
+my_vars <- c('country', 'continent', 'year',
+             'lifeExp', 'pop', 'gdpPercap')
+gap_dat <- gap_dat[my_vars]
+
 write.table(gap_dat,
             "04_gap-merged.tsv",
             quote = FALSE, sep = "\t", row.names = FALSE)
