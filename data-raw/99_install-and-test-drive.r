@@ -15,3 +15,7 @@ if (require("dplyr")) {
     group_by(continent) %>%
     summarise(lifeExp = median(lifeExp))
 }
+
+
+library(devtools)
+install_github("jennybc/gapminder")
