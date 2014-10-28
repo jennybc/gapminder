@@ -3,13 +3,13 @@ gapminder
 
 
 
-Excerpt from the Gapminder data, as an R data package and in plain text delimited form.
+Excerpt from the Gapminder data, as an R data package and in plain text delimited form. Premade color schemes for the countries and continents.
 
 According to [Gapminder](http://www.gapminder.org/data/), this data can be reused freely, but with attribution.
 
 ### Install and test drive
 
-Install it from GitHub:
+Install `gapminder` from GitHub:
 
 
 ```r
@@ -50,7 +50,18 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
 ```
 
-![](./README_files/figure-html/test-drive.png) 
+![](./README_files/figure-html/test-drive1.png) 
+
+```r
+
+ggplot(subset(gapminder, continent != "Oceania"),
+       aes(x = year, y = lifeExp, group = country, color = country)) +
+  geom_line(lwd = 1, show_guide = FALSE) + facet_wrap(~ continent) +
+  scale_color_manual(values = country_colors) +
+  theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
+```
+
+![](./README_files/figure-html/test-drive2.png) 
 
 ### Description of the dataset
 
@@ -138,3 +149,24 @@ gap_bigger_tsv %>% # Bhutan IS here though! :)
 ## 8  Bhutan      Asia 2007  65.625 2327849 4744.6400
 ```
 
+## Color schemes
+
+Continent specific colors were selected from `RColorBrewer` palettes.
+
+These were then expanded into a larger set of colors to cover all the countries in each continent, where darker colors correspond to countries with a larger population.
+
+The schemes are provided as named character vectors:
+
+
+```r
+head(country_colors, 4)
+##          Nigeria            Egypt         Ethiopia Congo, Dem. Rep. 
+##        "#7F3B08"        "#833D07"        "#873F07"        "#8B4107"
+head(continent_colors)
+##    Africa  Americas      Asia    Europe   Oceania 
+## "#7F3B08" "#A50026" "#40004B" "#276419" "#313695"
+```
+
+The country scheme is available in this repo as [PNG](data-raw/gapminder-color-scheme-ggplot2.png) and [PDF](data-raw/gapminder-color-scheme-base.pdf).
+
+![](data-raw/gapminder-color-scheme-ggplot2.png)
