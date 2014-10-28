@@ -34,11 +34,11 @@ library(ggplot2)
 ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_boxplot(outlier.colour = "hotpink") +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
-#ggsave("../test-drive-stripplot.png")
+#ggsave("test-drive-stripplot.png")
 
 ggplot(subset(gapminder, continent != "Oceania"),
        aes(x = year, y = lifeExp, group = country, color = country)) +
   geom_line(lwd = 1, show_guide = FALSE) + facet_wrap(~ continent) +
   scale_color_manual(values = country_colors) +
   theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
-#ggsave("../test-drive-spaghettiplot.png")
+ggsave("test-drive-spaghettiplot.png")
