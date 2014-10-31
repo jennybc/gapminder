@@ -2,5 +2,4 @@
 ^\.Rproj\.user$
 ^data-raw$
 ^README\.Rmd$
-^README\.html$
 ^README_files/*
