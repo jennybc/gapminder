@@ -41,4 +41,4 @@ ggplot(subset(gapminder, continent != "Oceania"),
   geom_line(lwd = 1, show_guide = FALSE) + facet_wrap(~ continent) +
   scale_color_manual(values = country_colors) +
   theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
-ggsave("test-drive-spaghettiplot.png")
+#ggsave("test-drive-spaghettiplot.png")
