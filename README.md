@@ -1,8 +1,6 @@
 gapminder
 =========
 
-
-
 Excerpt from the Gapminder data, as an R data package and in plain text delimited form. Premade color schemes for the countries and continents.
 
 According to [Gapminder](http://www.gapminder.org/data/), this data can be reused freely, but with attribution.
@@ -11,15 +9,13 @@ According to [Gapminder](http://www.gapminder.org/data/), this data can be reuse
 
 Install `gapminder` from GitHub:
 
-
-```r
+``` {.r}
 devtools::install_github("jennybc/gapminder")
 ```
 
 Load it and test drive with some data aggregation and plotting:
 
-
-```r
+``` {.r}
 library(gapminder)
 
 aggregate(lifeExp ~ continent, gapminder, median)
@@ -50,9 +46,9 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
 ```
 
-![](./README_files/figure-html/test-drive1.png) 
+![](./README_files/figure-markdown_github/test-drive1.png)
 
-```r
+``` {.r}
 
 ggplot(subset(gapminder, continent != "Oceania"),
        aes(x = year, y = lifeExp, group = country, color = country)) +
@@ -61,7 +57,7 @@ ggplot(subset(gapminder, continent != "Oceania"),
   theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
 ```
 
-![](./README_files/figure-html/test-drive2.png) 
+![](./README_files/figure-markdown_github/test-drive2.png)
 
 ### Description of the dataset
 
@@ -69,14 +65,14 @@ I have used this excerpt in [STAT 545](http://stat545-ubc.github.io) since 2008 
 
 Description:
 
-  * 1704 observations; fills a size niche between `iris` (150 rows) and the likes of `diamonds` (54K rows)
-  * 6 variables
-    - `country` a factor with 142 levels
-    - `continent`, a factor with 5 levels
-    - `year`: going from 1952 to 2007 in increments of 5 years
-    - `pop`: population
-    - `gdpPercap`: GDP per capita
-    - `lifeExp`: life expectancy
+-   1704 observations; fills a size niche between `iris` (150 rows) and the likes of `diamonds` (54K rows)
+-   6 variables
+    -   `country` a factor with 142 levels
+    -   `continent`, a factor with 5 levels
+    -   `year`: going from 1952 to 2007 in increments of 5 years
+    -   `pop`: population
+    -   `gdpPercap`: GDP per capita
+    -   `lifeExp`: life expectancy
 
 There are 12 rows for each country, i.e. complete data for 1952, 1955, ..., 2007.
 
@@ -88,33 +84,36 @@ Visualization of the temporal trends in life expectancy, by country, is particul
 
 ### How this sausage was made
 
-<blockquote class="twitter-tweet" lang="en"><p>Data cleaning code cannot be clean. It&#39;s a sort of sin eater.</p>&mdash; Stat Fact (@StatFact) <a href="https://twitter.com/StatFact/status/492753200190341120">July 25, 2014</a></blockquote>
+<blockquote class="twitter-tweet" lang="en"><p>
+Data cleaning code cannot be clean. It's a sort of sin eater.
+</p>
+— Stat Fact (@StatFact) <a href="https://twitter.com/StatFact/status/492753200190341120">July 25, 2014</a>
+</blockquote>
 
 The [`data-raw`](data-raw) directory contains all of the scripts used to extract the data from the Excel spreadsheets downloaded from [Gapminder](http://www.gapminder.org) in 2008 and 2009. All underlying and intermediate data is there as well, going back to the Excel files themselves.
 
-I explicitly use this package to teach data cleaning, so have refactored my old cleaning code into several scripts and also include compiled Markdown reports *(no Markdown yet; see [iss#1](https://github.com/jennybc/gapminder/issues/1))*. In hindsight, I wouldn't necessarily clean it the same way again (and I would download more recent data!), but at this point there is great value in reproducing the data I've been using for ~5 years.
+I explicitly use this package to teach data cleaning, so have refactored my old cleaning code into several scripts and also include compiled Markdown reports *(no Markdown yet; see [iss\#1](https://github.com/jennybc/gapminder/issues/1))*. In hindsight, I wouldn't necessarily clean it the same way again (and I would download more recent data!), but at this point there is great value in reproducing the data I've been using for \~5 years.
 
 ### Plain text delimited files
 
 I make available two plain text, tab delimited `.tsv` files:
 
-  * [`gapminder.tsv`](inst/gapminder.tsv): the same dataset available via `library(gapminder); gapminder`. Each of the 142 countries presents complete data for 12 years: 1952, 1957, ..., 2007.
-  * [`gapminder-unfiltered.tsv`](inst/gapminder-unfiltered.tsv): the larger dataset that, __when filtered__, yields [`gapminder.tsv`](inst/gapminder.tsv). In this file, I have NOT filtered for the years 1952, 1957, ..., 2007, I retain countries with incomplete data, and I did not impute data for China in 1952.
-  
-The main package dataset has 142 * 12 = 1704 rows, whereas the larger, unfiltered dataset contains 3312 rows, almost twice as much data.
+-   [`gapminder.tsv`](inst/gapminder.tsv): the same dataset available via `library(gapminder); gapminder`. Each of the 142 countries presents complete data for 12 years: 1952, 1957, ..., 2007.
+-   [`gapminder-unfiltered.tsv`](inst/gapminder-unfiltered.tsv): the larger dataset that, **when filtered**, yields [`gapminder.tsv`](inst/gapminder.tsv). In this file, I have NOT filtered for the years 1952, 1957, ..., 2007, I retain countries with incomplete data, and I did not impute data for China in 1952.
+
+The main package dataset has 142 \* 12 = 1704 rows, whereas the larger, unfiltered dataset contains 3312 rows, almost twice as much data.
 
 Here in this repo, these delimited files can be found:
 
-  * in the [`inst/`](inst) sub-directory
-  
-Once you've installed the `gapminder` package they can be found locally and used like so:
-  
+-   in the [`inst/`](inst) sub-directory
 
-```r
+Once you've installed the `gapminder` package they can be found locally and used like so:
+
+``` {.r}
 gap_tsv <- system.file("gapminder.tsv", package = "gapminder")
 gap_tsv <- read.delim(gap_tsv)
 str(gap_tsv)
-## 'data.frame':	1704 obs. of  6 variables:
+## 'data.frame':    1704 obs. of  6 variables:
 ##  $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
 ##  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
@@ -129,7 +128,7 @@ gap_tsv %>% # Bhutan did not make the cut because data for only 8 years :(
 gap_bigger_tsv <- system.file("gapminder-unfiltered.tsv", package = "gapminder")
 gap_bigger_tsv <- read.delim(gap_bigger_tsv)
 str(gap_bigger_tsv)
-## 'data.frame':	3312 obs. of  6 variables:
+## 'data.frame':    3312 obs. of  6 variables:
 ##  $ country  : Factor w/ 187 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
 ##  $ continent: Factor w/ 6 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
 ##  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
@@ -149,7 +148,8 @@ gap_bigger_tsv %>% # Bhutan IS here though! :)
 ## 8  Bhutan      Asia 2007  65.625 2327849 4744.6400
 ```
 
-## Color schemes
+Color schemes
+-------------
 
 Continent specific colors were selected from `RColorBrewer` palettes.
 
@@ -157,8 +157,7 @@ These were then expanded into a larger set of colors to cover all the countries 
 
 The schemes are provided as named character vectors:
 
-
-```r
+``` {.r}
 head(country_colors, 4)
 ##          Nigeria            Egypt         Ethiopia Congo, Dem. Rep. 
 ##        "#7F3B08"        "#833D07"        "#873F07"        "#8B4107"
