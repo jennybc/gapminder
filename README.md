@@ -1,7 +1,7 @@
 gapminder
 =========
 
-Excerpt from the Gapminder data, as an R data package and in plain text delimited form. Premade color schemes for the countries and continents.
+Excerpt from the [Gapminder](http://www.gapminder.org/data/) data, as an R data package and in plain text delimited form. Premade color schemes for the countries and continents.
 
 ### Install and test drive
 
@@ -44,7 +44,7 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
 ```
 
-![](./README_files/figure-markdown_github/test-drive1.png)
+![](README_files/figure-markdown_github/test-drive-1.png)
 
 ``` {.r}
 
@@ -55,7 +55,7 @@ ggplot(subset(gapminder, continent != "Oceania"),
   theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
 ```
 
-![](./README_files/figure-markdown_github/test-drive2.png)
+![](README_files/figure-markdown_github/test-drive-2.png)
 
 ### Description of the dataset
 
@@ -168,5 +168,4 @@ The country scheme is available in this repo as [PNG](data-raw/gapminder-color-s
 
 ![](data-raw/gapminder-color-scheme-ggplot2.png)
 
-Gapminder's data is released under the Creative Commons Attribution 3.0 Unported license. See their [terms of use](https://docs.google.com/document/pub?id=1POd-pBMc5vDXAmxrpGjPLaCSDSWuxX6FLQgq5DhlUhM). 
-
+Gapminder's data is released under the Creative Commons Attribution 3.0 Unported license. See their [terms of use](https://docs.google.com/document/pub?id=1POd-pBMc5vDXAmxrpGjPLaCSDSWuxX6FLQgq5DhlUhM).
