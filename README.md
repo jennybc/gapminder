@@ -3,8 +3,6 @@ gapminder
 
 Excerpt from the Gapminder data, as an R data package and in plain text delimited form. Premade color schemes for the countries and continents.
 
-According to [Gapminder](http://www.gapminder.org/data/), this data can be reused freely, but with attribution.
-
 ### Install and test drive
 
 Install `gapminder` from GitHub:
@@ -169,3 +167,6 @@ head(continent_colors)
 The country scheme is available in this repo as [PNG](data-raw/gapminder-color-scheme-ggplot2.png) and [PDF](data-raw/gapminder-color-scheme-base.pdf).
 
 ![](data-raw/gapminder-color-scheme-ggplot2.png)
+
+Gapminder's data is released under the Creative Commons Attribution 3.0 Unported license. See their [terms of use](https://docs.google.com/document/pub?id=1POd-pBMc5vDXAmxrpGjPLaCSDSWuxX6FLQgq5DhlUhM). 
+
