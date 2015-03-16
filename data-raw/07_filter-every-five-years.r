@@ -74,13 +74,17 @@ ggplot(china_tidy, aes(x = year, y = value)) +
 china_gdp_fit <- lm(gdpPercap ~ year, gap_dat,
                     subset = country == 'China' & year <= 1982)
 summary(china_gdp_fit)
-(china_gdp_1952 <- predict(china_gdp_fit, data.frame(year = 1952)))
+(china_gdp_1952 <- china_gdp_fit %>%
+   predict(data.frame(year = 1952)) %>% 
+   round(6))
 ## 400.4486 
 
 china_pop_fit <- lm(pop ~ year, gap_dat, subset = country == 'China')
 summary(china_pop_fit)
-(china_pop_1952 <- predict(china_pop_fit, data.frame(year = 1952)))
-## 556263528
+(china_pop_1952 <- china_pop_fit %>%
+   predict(data.frame(year = 1952)) %>% 
+   floor)
+## 556263527
 
 china_lifeExp_1952 <- 44 # fiction, but no simple linear fit seems appropriate
 
