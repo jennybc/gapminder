@@ -9,11 +9,12 @@ Depends:
     R (>= 3.1.0)
 License: CC0
 LazyData: true
+URL: https://github.com/jennybc/gapminder,
+    http://www.gapminder.org/data/
+BugReports: https://github.com/jennybc/gapminder/issues
 Suggests: 
     dplyr,
     gdata,
     ggplot2,
     tidyr,
     testthat
-URL: https://github.com/jennybc/gapminder,
-    http://www.gapminder.org/data/
