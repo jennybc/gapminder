@@ -1,6 +1,10 @@
 ## Resubmission
 This is a resubmission. In this version I:
 
+* Do not begin the Description field with "This package ..." but instead with "An excerpt of the data ...".
+
+In a previous submission, I made these changes:
+
 * Reference Gapminder.org in the Description field of DESCRIPTION file. It was
 already provided in the URL field.
 * Mention that the data is for specific countries, before I describe the variables, e.g. GDP per capita.
