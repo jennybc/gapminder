@@ -1,3 +1,10 @@
+## Resubmission
+This is a resubmission. In this version I:
+
+* Reference Gapminder.org in the Description field of DESCRIPTION file. It was
+already provided in the URL field.
+* Mention that the data is for specific countries, before I describe the variables, e.g. GDP per capita.
+
 ## Test environments
 * local OS X install, R 3.1.2
 * win-builder (devel and release)
@@ -7,15 +14,11 @@ There were no ERRORs or WARNINGs.
 
 There was 1 NOTE:
 
-* Maintainer: 'Jennifer Bryan <jenny@stat.ubc.ca>'
-New submission
-Possibly mis-spelled words in DESCRIPTION:
+* Possibly mis-spelled words in DESCRIPTION:
   Gapminder (2:8, 6:29)
   capita (6:72)
 
-It's my impression that 1 NOTE is inevitable at first submission.
-
-I can also affirm that my spelling of "Gapminder" and "capita", as in "GDP per capita", are intentional and correct.
+I can affirm that my spelling of "Gapminder" and "capita", as in "GDP per capita", is intentional and correct.
 
 ## License
 
