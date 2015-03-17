@@ -29,17 +29,17 @@ devtools::install_github("jennybc/gapminder")
 Load it and test drive with some data aggregation and plotting:
 
 ```{r test-drive}
-library(gapminder)
+library("gapminder")
 
 aggregate(lifeExp ~ continent, gapminder, median)
 
-suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library("dplyr"))
 gapminder %>%
     filter(year == 2007) %>%
     group_by(continent) %>%
     summarise(lifeExp = median(lifeExp))
     
-library(ggplot2)
+library("ggplot2")
 ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_boxplot(outlier.colour = "hotpink") +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
@@ -57,7 +57,7 @@ gap_with_colors <-
                                          names(country_colors))]))
 
 # bubble plot, focus just on Africa and Europe in 2007
-keepers <- with(gapminder,
+keepers <- with(gap_with_colors,
                 continent %in% c("Africa", "Europe") & year == 2007)
 plot(lifeExp ~ gdpPercap, gap_with_colors,
      subset = keepers, log = "x", pch = 21,
@@ -138,7 +138,7 @@ I explicitly use this package to teach data cleaning, so have refactored my old 
 
 I make available two plain text, tab delimited `.tsv` files:
 
-  * [`gapminder.tsv`](inst/gapminder.tsv): the same dataset available via `library(gapminder); gapminder`. Each of the 142 countries presents complete data for 12 years: 1952, 1957, ..., 2007.
+  * [`gapminder.tsv`](inst/gapminder.tsv): the same dataset available via `library("gapminder"); gapminder`. Each of the 142 countries presents complete data for 12 years: 1952, 1957, ..., 2007.
   * [`gapminder-unfiltered.tsv`](inst/gapminder-unfiltered.tsv): the larger dataset that, __when filtered__, yields [`gapminder.tsv`](inst/gapminder.tsv). In this file, I have NOT filtered for the years 1952, 1957, ..., 2007, I retain countries with incomplete data, and I did not impute data for China in 1952.
   
 The main package dataset has 142 * 12 = 1704 rows, whereas the larger, unfiltered dataset contains 3312 rows, almost twice as much data.
