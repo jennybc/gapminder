@@ -1,6 +1,6 @@
 Package: gapminder
 Title: Gapminder Data
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: person("Jennifer", "Bryan", email = "jenny@stat.ubc.ca",
                   role = c('aut', 'cre'))
 Description: An excerpt of the data available at Gapminder.org. For each of 142

@@ -1,19 +1,25 @@
 gapminder
 =========
 
-Excerpt from the [Gapminder](http://www.gapminder.org/data/) data, as an R data package and in plain text delimited form. Premade color schemes for the countries and continents.
+Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. This R data package provides the data as a data.frame and in plain text delimited form. Package includes premade color schemes for the countries and continents.
 
 ### Install and test drive
 
-Install `gapminder` from GitHub:
+Install `gapminder` from CRAN:
 
-``` {.r}
+``` r
+install.packages("gapminder")
+```
+
+Or you can install `gapminder` from GitHub:
+
+``` r
 devtools::install_github("jennybc/gapminder")
 ```
 
 Load it and test drive with some data aggregation and plotting:
 
-``` {.r}
+``` r
 library(gapminder)
 
 aggregate(lifeExp ~ continent, gapminder, median)
@@ -46,7 +52,52 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
 
 ![](README_files/figure-markdown_github/test-drive-1.png)
 
-``` {.r}
+The package also includes two color schemes, `country_colors` and `continent_colors`. See an image of the full scheme at the bottom of this page. Here's how to exploit the country color scheme in your own graphs, using base graphics:
+
+``` r
+# using country_colors with base graphics
+
+# for convenience, integrate the country colors into the data.frame
+gap_with_colors <-
+  data.frame(gapminder,
+             cc = I(country_colors[match(gapminder$country,
+                                         names(country_colors))]))
+
+# bubble plot, focus just on Africa and Europe in 2007
+keepers <- with(gapminder,
+                continent %in% c("Africa", "Europe") & year == 2007)
+plot(lifeExp ~ gdpPercap, gap_with_colors,
+     subset = keepers, log = "x", pch = 21,
+     cex = sqrt(gap_with_colors$pop[keepers]/pi)/1500,
+     bg = gap_with_colors$cc[keepers])
+```
+
+![](README_files/figure-markdown_github/demo-country-colors-base-1.png)
+
+With `ggplot2`, you can use the country colors by providing `country_colors` to `scale_color_manual()` like so:
+
+``` r
+... + scale_color_manual(values = country_colors) + ...
+```
+
+Here are some `ggplot2` examples:
+
+``` r
+library("ggplot2")
+
+# simple line plot for 5 countries
+h_countries <- c("Egypt", "Haiti", "Romania", "Thailand", "Venezuela")
+h_dat <- droplevels(subset(gapminder, country %in% h_countries))
+h_dat$country <- with(h_dat, reorder(country, lifeExp, max))
+ggplot(h_dat, aes(x = year, y = lifeExp)) +
+  geom_line(aes(color = country)) +
+  scale_colour_manual(values = country_colors) +
+  guides(color = guide_legend(reverse = TRUE))
+```
+
+![](README_files/figure-markdown_github/demo-country-colors-ggplot2-1.png)
+
+``` r
 
 ggplot(subset(gapminder, continent != "Oceania"),
        aes(x = year, y = lifeExp, group = country, color = country)) +
@@ -55,7 +106,21 @@ ggplot(subset(gapminder, continent != "Oceania"),
   theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
 ```
 
-![](README_files/figure-markdown_github/test-drive-2.png)
+![](README_files/figure-markdown_github/demo-country-colors-ggplot2-2.png)
+
+``` r
+  
+ggplot(subset(gapminder, year == 2007 & continent != "Oceania"),
+       aes(x = gdpPercap, y = lifeExp)) +
+       scale_x_log10(limits = c(150, 115000)) + ylim(c(16, 96)) +
+       geom_point(aes(size = sqrt(pop/pi)), pch = 21, color = 'grey20',
+       show_guide = FALSE) + scale_size_continuous(range=c(1,40)) +
+       facet_wrap(~ continent) + coord_fixed(ratio = 1/43) +
+       aes(fill = country) + scale_fill_manual(values = country_colors) +
+       theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
+```
+
+![](README_files/figure-markdown_github/demo-country-colors-ggplot2-3.png)
 
 ### Description of the dataset
 
@@ -82,15 +147,15 @@ Visualization of the temporal trends in life expectancy, by country, is particul
 
 ### How this sausage was made
 
-<blockquote class="twitter-tweet" lang="en"><p>
+<blockquote class="twitter-tweet" lang="en">
+<p>
 Data cleaning code cannot be clean. It's a sort of sin eater.
 </p>
 — Stat Fact (@StatFact) <a href="https://twitter.com/StatFact/status/492753200190341120">July 25, 2014</a>
 </blockquote>
-
 The [`data-raw`](data-raw) directory contains all of the scripts used to extract the data from the Excel spreadsheets downloaded from [Gapminder](http://www.gapminder.org) in 2008 and 2009. All underlying and intermediate data is there as well, going back to the Excel files themselves.
 
-I explicitly use this package to teach data cleaning, so have refactored my old cleaning code into several scripts and also include compiled Markdown reports *(no Markdown yet; see [iss\#1](https://github.com/jennybc/gapminder/issues/1))*. In hindsight, I wouldn't necessarily clean it the same way again (and I would download more recent data!), but at this point there is great value in reproducing the data I've been using for \~5 years.
+I explicitly use this package to teach data cleaning, so have refactored my old cleaning code into several scripts and also include compiled Markdown reports *(no Markdown yet; see [iss\#1](https://github.com/jennybc/gapminder/issues/1))*. In hindsight, I wouldn't necessarily clean it the same way again (and I would download more recent data!), but at this point there is great value in reproducing the data I've been using for ~5 years.
 
 ### Plain text delimited files
 
@@ -107,7 +172,7 @@ Here in this repo, these delimited files can be found:
 
 Once you've installed the `gapminder` package they can be found locally and used like so:
 
-``` {.r}
+``` r
 gap_tsv <- system.file("gapminder.tsv", package = "gapminder")
 gap_tsv <- read.delim(gap_tsv)
 str(gap_tsv)
@@ -155,7 +220,7 @@ These were then expanded into a larger set of colors to cover all the countries 
 
 The schemes are provided as named character vectors:
 
-``` {.r}
+``` r
 head(country_colors, 4)
 ##          Nigeria            Egypt         Ethiopia Congo, Dem. Rep. 
 ##        "#7F3B08"        "#833D07"        "#873F07"        "#8B4107"
