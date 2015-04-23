@@ -21,7 +21,7 @@
 #'                                          names(country_colors))]))
 #'
 #' # bubble plot, focus just on Africa and Europe in 2007
-#' keepers <- with(gapminder,
+#' keepers <- with(gap_with_colors,
 #'                 continent %in% c("Africa", "Europe") & year == 2007)
 #' plot(lifeExp ~ gdpPercap, gap_with_colors,
 #'      subset = keepers, log = "x", pch = 21,

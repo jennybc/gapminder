@@ -3,6 +3,9 @@ output:
   md_document:
     variant: markdown_github
 ---
+
+![](http://cranlogs-dev.r-pkg.org/badges/gapminder)
+
 gapminder
 =========
 
