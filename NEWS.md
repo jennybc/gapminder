@@ -1,7 +1,7 @@
-# gapminder 0.2
+# gapminder 0.1.0.9000
 
-* put changes here
+  * Added description of the "international dollars" in which GDP per capita is reported (thanks @aammd, #5).
 
 # gapminder 0.1.0
 
-* Initial CRAN release
+  * Initial CRAN release

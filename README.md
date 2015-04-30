@@ -5,6 +5,23 @@ gapminder
 
 Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. This R data package provides the data as a data.frame and in plain text delimited form. Package includes premade color schemes for the countries and continents.
 
+This data.frame includes six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
+
+| variable  | meaning                  |
+|:----------|:-------------------------|
+| country   |                          |
+| continent |                          |
+| year      |                          |
+| lifeExp   | life expectancy at birth |
+| pop       | total population         |
+| gdpPercap | per-capita GDP           |
+
+Per-capita GDP (Gross domestic product) is given in units of [international dollars](http://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar). From Wikipedia:
+
+> [...] the international dollar is a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time
+
+In gapminder, the currency matches the US dollar in 2005.
+
 ### Install and test drive
 
 Install `gapminder` from CRAN:

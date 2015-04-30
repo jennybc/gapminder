@@ -15,16 +15,16 @@ knitr::opts_chunk$set(collapse = TRUE)
 
 Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. This R data package provides the data as a data.frame and in plain text delimited form. Package includes premade color schemes for the countries and continents.
 
-This data.frame includes six columns, ([documentation page here](http://www.gapminder.org/data/documentation/gd001/)):
+This data.frame includes six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
 
-| column name | meaning         | 
-|:------------|:----------------|
-|country      | country name    | 
-|continent    | contient name   |
-|year         |                 |
-|lifeExp      | Life Expectancy |
-|pop          | Population      |
-|gdpPercap    | per-capita GDP  |
+| variable    | meaning                  |
+|:------------|:-------------------------|
+| country     |                          |
+| continent   |                          |
+| year        |                          |
+| lifeExp     | life expectancy at birth |
+| pop         | total population         |
+| gdpPercap   | per-capita GDP           |
 
 Per-capita GDP (Gross domestic product) is given in units of [international dollars](http://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar). From Wikipedia:
 
