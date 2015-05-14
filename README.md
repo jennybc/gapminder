@@ -1,4 +1,4 @@
-![](http://cranlogs-dev.r-pkg.org/badges/gapminder)
+![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
 
 gapminder
 =========
