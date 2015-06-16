@@ -128,15 +128,17 @@ ggplot(subset(gapminder, continent != "Oceania"),
 ![](README_files/figure-markdown_github/demo-country-colors-ggplot2-2.png)
 
 ``` r
-  
-ggplot(subset(gapminder, year == 2007 & continent != "Oceania"),
-       aes(x = gdpPercap, y = lifeExp)) +
-       scale_x_log10(limits = c(150, 115000)) + ylim(c(16, 96)) +
-       geom_point(aes(size = sqrt(pop/pi)), pch = 21, color = 'grey20',
-       show_guide = FALSE) + scale_size_continuous(range=c(1,40)) +
-       facet_wrap(~ continent) + coord_fixed(ratio = 1/43) +
-       aes(fill = country) + scale_fill_manual(values = country_colors) +
-       theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
+
+gap_bit <- subset(gapminder, year == 2007 & continent != "Oceania")
+gap_bit <- gap_bit[with(gap_bit, order(continent, -1 * pop)), ]
+
+ggplot(gap_bit, aes(x = gdpPercap, y = lifeExp, size = pop)) +
+  scale_x_log10(limits = c(150, 115000)) + ylim(c(16, 96)) +
+  geom_point(pch = 21, color = 'grey20', show_guide = FALSE) +
+  scale_size_area(max_size = 40) +
+  facet_wrap(~ continent) + coord_fixed(ratio = 1/43) +
+  aes(fill = country) + scale_fill_manual(values = country_colors) +
+  theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
 ```
 
 ![](README_files/figure-markdown_github/demo-country-colors-ggplot2-3.png)
