@@ -1,4 +1,4 @@
-![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
+[![DOI](https://zenodo.org/badge/16122/jennybc/gapminder.svg)](http://dx.doi.org/10.5281/zenodo.21971) [![CRAN version](http://www.r-pkg.org/badges/version/gapminder)](https://cran.r-project.org/web/packages/gapminder/index.html) ![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
 
 gapminder
 =========
