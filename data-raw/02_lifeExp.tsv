@@ -59,86 +59,86 @@ Argentina	Americas	1992	71.868
 Argentina	Americas	1997	73.275
 Argentina	Americas	2002	74.34
 Argentina	Americas	2007	75.32
-Armenia		1952	62.809
-Armenia		1957	64.928
-Armenia		1962	67.055
-Armenia		1967	69.211
-Armenia		1972	70.786
-Armenia		1977	70.595
-Armenia		1982	70.916
-Armenia		1987	68.408
-Armenia		1992	68.663
-Armenia		1997	70.377
-Armenia		2002	71.403
-Armenia		2007	71.965
-Aruba		1952	60.437
-Aruba		1957	64.381
-Aruba		1962	66.606
-Aruba		1967	68.336
-Aruba		1972	70.941
-Aruba		1977	71.83
-Aruba		1982	74.116
-Aruba		1987	74.494
-Aruba		1992	74.108
-Aruba		1997	73.011
-Aruba		2002	73.451
-Aruba		2007	74.239
-Australia		1950	69.02
-Australia		1951	68.72
-Australia		1952	69.12
-Australia		1953	69.7
-Australia		1954	69.85
-Australia		1955	70.17
-Australia		1956	70.05
-Australia		1957	70.33
-Australia		1958	70.88
-Australia		1959	70.45
-Australia		1960	70.89
-Australia		1961	71.16
-Australia		1962	70.93
-Australia		1963	70.99
-Australia		1964	70.65
-Australia		1965	70.98
-Australia		1966	70.82
-Australia		1967	71.1
-Australia		1968	70.73
-Australia		1969	71.14
-Australia		1970	70.81
-Australia		1971	71.41
-Australia		1972	71.93
-Australia		1973	72.14
-Australia		1974	71.89
-Australia		1975	72.84
-Australia		1976	72.88
-Australia		1977	73.49
-Australia		1978	73.88
-Australia		1979	74.44
-Australia		1980	74.6
-Australia		1981	74.97
-Australia		1982	74.74
-Australia		1983	75.55
-Australia		1984	76.02
-Australia		1985	75.46
-Australia		1986	76.13
-Australia		1987	76.32
-Australia		1988	76.36
-Australia		1989	76.46
-Australia		1990	77.06
-Australia		1991	77.55
-Australia		1992	77.56
-Australia		1993	78.1
-Australia		1994	78.1
-Australia		1995	78.49
-Australia		1996	78.56
-Australia		1997	78.83
-Australia		1998	79.33
-Australia		1999	79.58
-Australia		2000	79.99
-Australia		2001	80.35
-Australia		2002	80.37
-Australia		2003	80.78
-Australia		2004	81.15
-Australia		2007	81.235
+Armenia	NA	1952	62.809
+Armenia	NA	1957	64.928
+Armenia	NA	1962	67.055
+Armenia	NA	1967	69.211
+Armenia	NA	1972	70.786
+Armenia	NA	1977	70.595
+Armenia	NA	1982	70.916
+Armenia	NA	1987	68.408
+Armenia	NA	1992	68.663
+Armenia	NA	1997	70.377
+Armenia	NA	2002	71.403
+Armenia	NA	2007	71.965
+Aruba	NA	1952	60.437
+Aruba	NA	1957	64.381
+Aruba	NA	1962	66.606
+Aruba	NA	1967	68.336
+Aruba	NA	1972	70.941
+Aruba	NA	1977	71.83
+Aruba	NA	1982	74.116
+Aruba	NA	1987	74.494
+Aruba	NA	1992	74.108
+Aruba	NA	1997	73.011
+Aruba	NA	2002	73.451
+Aruba	NA	2007	74.239
+Australia	NA	1950	69.02
+Australia	NA	1951	68.72
+Australia	NA	1952	69.12
+Australia	NA	1953	69.7
+Australia	NA	1954	69.85
+Australia	NA	1955	70.17
+Australia	NA	1956	70.05
+Australia	NA	1957	70.33
+Australia	NA	1958	70.88
+Australia	NA	1959	70.45
+Australia	NA	1960	70.89
+Australia	NA	1961	71.16
+Australia	NA	1962	70.93
+Australia	NA	1963	70.99
+Australia	NA	1964	70.65
+Australia	NA	1965	70.98
+Australia	NA	1966	70.82
+Australia	NA	1967	71.1
+Australia	NA	1968	70.73
+Australia	NA	1969	71.14
+Australia	NA	1970	70.81
+Australia	NA	1971	71.41
+Australia	NA	1972	71.93
+Australia	NA	1973	72.14
+Australia	NA	1974	71.89
+Australia	NA	1975	72.84
+Australia	NA	1976	72.88
+Australia	NA	1977	73.49
+Australia	NA	1978	73.88
+Australia	NA	1979	74.44
+Australia	NA	1980	74.6
+Australia	NA	1981	74.97
+Australia	NA	1982	74.74
+Australia	NA	1983	75.55
+Australia	NA	1984	76.02
+Australia	NA	1985	75.46
+Australia	NA	1986	76.13
+Australia	NA	1987	76.32
+Australia	NA	1988	76.36
+Australia	NA	1989	76.46
+Australia	NA	1990	77.06
+Australia	NA	1991	77.55
+Australia	NA	1992	77.56
+Australia	NA	1993	78.1
+Australia	NA	1994	78.1
+Australia	NA	1995	78.49
+Australia	NA	1996	78.56
+Australia	NA	1997	78.83
+Australia	NA	1998	79.33
+Australia	NA	1999	79.58
+Australia	NA	2000	79.99
+Australia	NA	2001	80.35
+Australia	NA	2002	80.37
+Australia	NA	2003	80.78
+Australia	NA	2004	81.15
+Australia	NA	2007	81.235
 Austria	Europe	1950	64.88
 Austria	Europe	1951	65.26
 Austria	Europe	1952	66.8
@@ -208,18 +208,18 @@ Azerbaijan	Asia	1992	65.623
 Azerbaijan	Asia	1997	66.328
 Azerbaijan	Asia	2002	66.844
 Azerbaijan	Asia	2007	67.487
-Bahamas, The		1952	59.846
-Bahamas, The		1957	62.405
-Bahamas, The		1962	64.209
-Bahamas, The		1967	65.795
-Bahamas, The		1972	66.515
-Bahamas, The		1977	67.199
-Bahamas, The		1982	67.874
-Bahamas, The		1987	69.524
-Bahamas, The		1992	69.171
-Bahamas, The		1997	68.472
-Bahamas, The		2002	71.068
-Bahamas, The		2007	73.495
+Bahamas, The	NA	1952	59.846
+Bahamas, The	NA	1957	62.405
+Bahamas, The	NA	1962	64.209
+Bahamas, The	NA	1967	65.795
+Bahamas, The	NA	1972	66.515
+Bahamas, The	NA	1977	67.199
+Bahamas, The	NA	1982	67.874
+Bahamas, The	NA	1987	69.524
+Bahamas, The	NA	1992	69.171
+Bahamas, The	NA	1997	68.472
+Bahamas, The	NA	2002	71.068
+Bahamas, The	NA	2007	73.495
 Bahrain	Asia	1952	50.939
 Bahrain	Asia	1957	53.832
 Bahrain	Asia	1962	56.923
@@ -244,18 +244,18 @@ Bangladesh	Asia	1992	56.018
 Bangladesh	Asia	1997	59.412
 Bangladesh	Asia	2002	62.013
 Bangladesh	Asia	2007	64.062
-Barbados		1952	57.22
-Barbados		1957	62.57
-Barbados		1962	65.87
-Barbados		1967	67.62
-Barbados		1972	69.42
-Barbados		1977	71.27
-Barbados		1982	72.695
-Barbados		1987	74.027
-Barbados		1992	74.894
-Barbados		1997	74.912
-Barbados		2002	75.97
-Barbados		2007	77.296
+Barbados	NA	1952	57.22
+Barbados	NA	1957	62.57
+Barbados	NA	1962	65.87
+Barbados	NA	1967	67.62
+Barbados	NA	1972	69.42
+Barbados	NA	1977	71.27
+Barbados	NA	1982	72.695
+Barbados	NA	1987	74.027
+Barbados	NA	1992	74.894
+Barbados	NA	1997	74.912
+Barbados	NA	2002	75.97
+Barbados	NA	2007	77.296
 Belarus	FSU	1952	65.9
 Belarus	FSU	1957	67.9
 Belarus	FSU	1959	69.06
@@ -363,19 +363,19 @@ Belgium	Europe	2003	78.47
 Belgium	Europe	2004	79.11
 Belgium	Europe	2005	79.2
 Belgium	Europe	2007	79.441
-Belize		1950	57.673
-Belize		1952	57.673
-Belize		1957	60.18
-Belize		1962	62.678
-Belize		1967	65.184
-Belize		1972	67.589
-Belize		1977	69.747
-Belize		1982	71.031
-Belize		1987	71.879
-Belize		1992	72.522
-Belize		1997	74.405
-Belize		2002	75.586
-Belize		2007	76.121
+Belize	NA	1950	57.673
+Belize	NA	1952	57.673
+Belize	NA	1957	60.18
+Belize	NA	1962	62.678
+Belize	NA	1967	65.184
+Belize	NA	1972	67.589
+Belize	NA	1977	69.747
+Belize	NA	1982	71.031
+Belize	NA	1987	71.879
+Belize	NA	1992	72.522
+Belize	NA	1997	74.405
+Belize	NA	2002	75.586
+Belize	NA	2007	76.121
 Benin	Africa	1952	38.223
 Benin	Africa	1957	40.358
 Benin	Africa	1962	42.618
@@ -565,63 +565,63 @@ Cameroon	Africa	1992	54.314
 Cameroon	Africa	1997	52.199
 Cameroon	Africa	2002	49.856
 Cameroon	Africa	2007	50.43
-Canada		1950	68.28
-Canada		1951	68.55
-Canada		1952	68.75
-Canada		1953	69.13
-Canada		1954	69.99
-Canada		1955	70.05
-Canada		1956	70.04
-Canada		1957	69.96
-Canada		1958	70.62
-Canada		1959	70.66
-Canada		1960	71.04
-Canada		1961	71.27
-Canada		1962	71.3
-Canada		1963	71.31
-Canada		1964	71.69
-Canada		1965	71.79
-Canada		1966	71.92
-Canada		1967	72.13
-Canada		1968	72.29
-Canada		1969	72.45
-Canada		1970	72.65
-Canada		1971	72.98
-Canada		1972	72.88
-Canada		1973	73.11
-Canada		1974	73.19
-Canada		1975	73.49
-Canada		1976	73.92
-Canada		1977	74.21
-Canada		1978	74.54
-Canada		1979	74.9
-Canada		1980	75.14
-Canada		1981	75.55
-Canada		1982	75.76
-Canada		1983	76.13
-Canada		1984	76.43
-Canada		1985	76.41
-Canada		1986	76.56
-Canada		1987	76.86
-Canada		1988	76.94
-Canada		1989	77.2
-Canada		1990	77.51
-Canada		1991	77.69
-Canada		1992	77.95
-Canada		1993	77.83
-Canada		1994	78.02
-Canada		1995	78.14
-Canada		1996	78.4
-Canada		1997	78.61
-Canada		1998	78.83
-Canada		1999	79.06
-Canada		2000	79.42
-Canada		2001	79.65
-Canada		2002	79.77
-Canada		2003	79.95
-Canada		2004	80.25
-Canada		2005	80.36
-Canada		2007	80.653
+Canada	NA	1950	68.28
+Canada	NA	1951	68.55
+Canada	NA	1952	68.75
+Canada	NA	1953	69.13
+Canada	NA	1954	69.99
+Canada	NA	1955	70.05
+Canada	NA	1956	70.04
+Canada	NA	1957	69.96
+Canada	NA	1958	70.62
+Canada	NA	1959	70.66
+Canada	NA	1960	71.04
+Canada	NA	1961	71.27
+Canada	NA	1962	71.3
+Canada	NA	1963	71.31
+Canada	NA	1964	71.69
+Canada	NA	1965	71.79
+Canada	NA	1966	71.92
+Canada	NA	1967	72.13
+Canada	NA	1968	72.29
+Canada	NA	1969	72.45
+Canada	NA	1970	72.65
+Canada	NA	1971	72.98
+Canada	NA	1972	72.88
+Canada	NA	1973	73.11
+Canada	NA	1974	73.19
+Canada	NA	1975	73.49
+Canada	NA	1976	73.92
+Canada	NA	1977	74.21
+Canada	NA	1978	74.54
+Canada	NA	1979	74.9
+Canada	NA	1980	75.14
+Canada	NA	1981	75.55
+Canada	NA	1982	75.76
+Canada	NA	1983	76.13
+Canada	NA	1984	76.43
+Canada	NA	1985	76.41
+Canada	NA	1986	76.56
+Canada	NA	1987	76.86
+Canada	NA	1988	76.94
+Canada	NA	1989	77.2
+Canada	NA	1990	77.51
+Canada	NA	1991	77.69
+Canada	NA	1992	77.95
+Canada	NA	1993	77.83
+Canada	NA	1994	78.02
+Canada	NA	1995	78.14
+Canada	NA	1996	78.4
+Canada	NA	1997	78.61
+Canada	NA	1998	78.83
+Canada	NA	1999	79.06
+Canada	NA	2000	79.42
+Canada	NA	2001	79.65
+Canada	NA	2002	79.77
+Canada	NA	2003	79.95
+Canada	NA	2004	80.25
+Canada	NA	2005	80.36
+Canada	NA	2007	80.653
 Cape Verde	Africa	1952	48.48
 Cape Verde	Africa	1957	50.98
 Cape Verde	Africa	1962	52.98
@@ -1216,30 +1216,30 @@ France	Europe	2003	79.59
 France	Europe	2004	80.52
 France	Europe	2005	80.5
 France	Europe	2007	80.657
-French Guiana		1952	53.28
-French Guiana		1957	56.07
-French Guiana		1962	59.38
-French Guiana		1967	64.17
-French Guiana		1972	65.66
-French Guiana		1977	66.47
-French Guiana		1982	69.363
-French Guiana		1987	71.198
-French Guiana		1992	72.757
-French Guiana		1997	74.242
-French Guiana		2002	75.142
-French Guiana		2007	75.875
-French Polynesia		1952	48.863
-French Polynesia		1957	54.769
-French Polynesia		1962	56.983
-French Polynesia		1967	59.191
-French Polynesia		1972	60.926
-French Polynesia		1977	62.427
-French Polynesia		1982	66.234
-French Polynesia		1987	68.211
-French Polynesia		1992	70.182
-French Polynesia		1997	71.821
-French Polynesia		2002	73.01
-French Polynesia		2007	74.057
+French Guiana	NA	1952	53.28
+French Guiana	NA	1957	56.07
+French Guiana	NA	1962	59.38
+French Guiana	NA	1967	64.17
+French Guiana	NA	1972	65.66
+French Guiana	NA	1977	66.47
+French Guiana	NA	1982	69.363
+French Guiana	NA	1987	71.198
+French Guiana	NA	1992	72.757
+French Guiana	NA	1997	74.242
+French Guiana	NA	2002	75.142
+French Guiana	NA	2007	75.875
+French Polynesia	NA	1952	48.863
+French Polynesia	NA	1957	54.769
+French Polynesia	NA	1962	56.983
+French Polynesia	NA	1967	59.191
+French Polynesia	NA	1972	60.926
+French Polynesia	NA	1977	62.427
+French Polynesia	NA	1982	66.234
+French Polynesia	NA	1987	68.211
+French Polynesia	NA	1992	70.182
+French Polynesia	NA	1997	71.821
+French Polynesia	NA	2002	73.01
+French Polynesia	NA	2007	74.057
 Gabon	Africa	1952	37.003
 Gabon	Africa	1957	38.999
 Gabon	Africa	1962	40.489
@@ -1264,18 +1264,18 @@ Gambia, The	Africa	1992	52.644
 Gambia, The	Africa	1997	55.861
 Gambia, The	Africa	2002	58.041
 Gambia, The	Africa	2007	59.448
-Georgia		1952	60.616
-Georgia		1957	62.625
-Georgia		1962	64.644
-Georgia		1967	66.654
-Georgia		1972	68.158
-Georgia		1977	69.634
-Georgia		1982	69.638
-Georgia		1987	70.45
-Georgia		1992	70.465
-Georgia		1997	70.49
-Georgia		2002	70.476
-Georgia		2007	70.987
+Georgia	NA	1952	60.616
+Georgia	NA	1957	62.625
+Georgia	NA	1962	64.644
+Georgia	NA	1967	66.654
+Georgia	NA	1972	68.158
+Georgia	NA	1977	69.634
+Georgia	NA	1982	69.638
+Georgia	NA	1987	70.45
+Georgia	NA	1992	70.465
+Georgia	NA	1997	70.49
+Georgia	NA	2002	70.476
+Georgia	NA	2007	70.987
 Germany	Europe	1950	66.47296
 Germany	Europe	1952	67.5
 Germany	Europe	1957	69.1
@@ -1327,30 +1327,30 @@ Greece	Europe	1992	77.03
 Greece	Europe	1997	77.869
 Greece	Europe	2002	78.256
 Greece	Europe	2007	79.483
-Grenada		1952	62.632
-Grenada		1957	63.114
-Grenada		1962	63.608
-Grenada		1967	64.091
-Grenada		1972	64.577
-Grenada		1977	65.035
-Grenada		1982	65.503
-Grenada		1987	66.002
-Grenada		1992	66.469
-Grenada		1997	66.986
-Grenada		2002	67.746
-Grenada		2007	68.724
-Guadeloupe		1952	56.53
-Guadeloupe		1957	61.57
-Guadeloupe		1962	64.62
-Guadeloupe		1967	65.82
-Guadeloupe		1972	67.76
-Guadeloupe		1977	69.86
-Guadeloupe		1982	72.51
-Guadeloupe		1987	73.58
-Guadeloupe		1992	75.856
-Guadeloupe		1997	77.286
-Guadeloupe		2002	78.405
-Guadeloupe		2007	79.198
+Grenada	NA	1952	62.632
+Grenada	NA	1957	63.114
+Grenada	NA	1962	63.608
+Grenada	NA	1967	64.091
+Grenada	NA	1972	64.577
+Grenada	NA	1977	65.035
+Grenada	NA	1982	65.503
+Grenada	NA	1987	66.002
+Grenada	NA	1992	66.469
+Grenada	NA	1997	66.986
+Grenada	NA	2002	67.746
+Grenada	NA	2007	68.724
+Guadeloupe	NA	1952	56.53
+Guadeloupe	NA	1957	61.57
+Guadeloupe	NA	1962	64.62
+Guadeloupe	NA	1967	65.82
+Guadeloupe	NA	1972	67.76
+Guadeloupe	NA	1977	69.86
+Guadeloupe	NA	1982	72.51
+Guadeloupe	NA	1987	73.58
+Guadeloupe	NA	1992	75.856
+Guadeloupe	NA	1997	77.286
+Guadeloupe	NA	2002	78.405
+Guadeloupe	NA	2007	79.198
 Guam	Asia	1952	56.98
 Guam	Asia	1957	59.528
 Guam	Asia	1962	62.118
@@ -1411,18 +1411,18 @@ Guyana	Americas	1992	62.531
 Guyana	Americas	1997	62.06
 Guyana	Americas	2002	63.578
 Guyana	Americas	2007	66.827
-Haiti		1952	37.579
-Haiti		1957	40.696
-Haiti		1962	43.59
-Haiti		1967	46.243
-Haiti		1972	48.042
-Haiti		1977	49.923
-Haiti		1982	51.461
-Haiti		1987	53.636
-Haiti		1992	55.089
-Haiti		1997	56.671
-Haiti		2002	58.137
-Haiti		2007	60.916
+Haiti	NA	1952	37.579
+Haiti	NA	1957	40.696
+Haiti	NA	1962	43.59
+Haiti	NA	1967	46.243
+Haiti	NA	1972	48.042
+Haiti	NA	1977	49.923
+Haiti	NA	1982	51.461
+Haiti	NA	1987	53.636
+Haiti	NA	1992	55.089
+Haiti	NA	1997	56.671
+Haiti	NA	2002	58.137
+Haiti	NA	2007	60.916
 Honduras	Americas	1952	41.912
 Honduras	Americas	1957	44.665
 Honduras	Americas	1962	48.041
@@ -1435,18 +1435,18 @@ Honduras	Americas	1992	66.399
 Honduras	Americas	1997	67.659
 Honduras	Americas	2002	68.565
 Honduras	Americas	2007	70.198
-Hong Kong, China		1952	60.96
-Hong Kong, China		1957	64.75
-Hong Kong, China		1962	67.65
-Hong Kong, China		1967	70
-Hong Kong, China		1972	72
-Hong Kong, China		1977	73.6
-Hong Kong, China		1982	75.45
-Hong Kong, China		1987	76.2
-Hong Kong, China		1992	77.601
-Hong Kong, China		1997	80
-Hong Kong, China		2002	81.495
-Hong Kong, China		2007	82.208
+Hong Kong, China	NA	1952	60.96
+Hong Kong, China	NA	1957	64.75
+Hong Kong, China	NA	1962	67.65
+Hong Kong, China	NA	1967	70
+Hong Kong, China	NA	1972	72
+Hong Kong, China	NA	1977	73.6
+Hong Kong, China	NA	1982	75.45
+Hong Kong, China	NA	1987	76.2
+Hong Kong, China	NA	1992	77.601
+Hong Kong, China	NA	1997	80
+Hong Kong, China	NA	2002	81.495
+Hong Kong, China	NA	2007	82.208
 Hungary	Europe	1950	62.07
 Hungary	Europe	1951	62.46
 Hungary	Europe	1952	64.03
@@ -2103,18 +2103,18 @@ Malaysia	Asia	1992	70.693
 Malaysia	Asia	1997	71.938
 Malaysia	Asia	2002	73.044
 Malaysia	Asia	2007	74.241
-Maldives		1952	38.88
-Maldives		1957	42.01
-Maldives		1962	45.15
-Maldives		1967	48.3
-Maldives		1972	51.44
-Maldives		1977	54.58
-Maldives		1982	57.137
-Maldives		1987	59.637
-Maldives		1992	60.989
-Maldives		1997	63.413
-Maldives		2002	65.584
-Maldives		2007	68.464
+Maldives	NA	1952	38.88
+Maldives	NA	1957	42.01
+Maldives	NA	1962	45.15
+Maldives	NA	1967	48.3
+Maldives	NA	1972	51.44
+Maldives	NA	1977	54.58
+Maldives	NA	1982	57.137
+Maldives	NA	1987	59.637
+Maldives	NA	1992	60.989
+Maldives	NA	1997	63.413
+Maldives	NA	2002	65.584
+Maldives	NA	2007	68.464
 Mali	Africa	1952	33.685
 Mali	Africa	1957	35.307
 Mali	Africa	1962	36.936
@@ -2139,18 +2139,18 @@ Malta	Europe	1992	76.274
 Malta	Europe	1997	77.402
 Malta	Europe	2002	78.617
 Malta	Europe	2007	79.44
-Martinique		1952	56.582
-Martinique		1957	60.763
-Martinique		1962	64.195
-Martinique		1967	66.71
-Martinique		1972	69.158
-Martinique		1977	71.751
-Martinique		1982	73.731
-Martinique		1987	75.403
-Martinique		1992	76.385
-Martinique		1997	77.683
-Martinique		2002	78.783
-Martinique		2007	79.547
+Martinique	NA	1952	56.582
+Martinique	NA	1957	60.763
+Martinique	NA	1962	64.195
+Martinique	NA	1967	66.71
+Martinique	NA	1972	69.158
+Martinique	NA	1977	71.751
+Martinique	NA	1982	73.731
+Martinique	NA	1987	75.403
+Martinique	NA	1992	76.385
+Martinique	NA	1997	77.683
+Martinique	NA	2002	78.783
+Martinique	NA	2007	79.547
 Mauritania	Africa	1952	40.543
 Mauritania	Africa	1957	42.338
 Mauritania	Africa	1962	44.248
@@ -2188,18 +2188,18 @@ Mexico	Americas	1992	71.455
 Mexico	Americas	1997	73.67
 Mexico	Americas	2002	74.902
 Mexico	Americas	2007	76.195
-Micronesia, Fed. Sts.		1952	54.576
-Micronesia, Fed. Sts.		1957	56.566
-Micronesia, Fed. Sts.		1962	58.551
-Micronesia, Fed. Sts.		1967	60.541
-Micronesia, Fed. Sts.		1972	62.599
-Micronesia, Fed. Sts.		1977	64.693
-Micronesia, Fed. Sts.		1982	65.328
-Micronesia, Fed. Sts.		1987	65.883
-Micronesia, Fed. Sts.		1992	66.443
-Micronesia, Fed. Sts.		1997	67.056
-Micronesia, Fed. Sts.		2002	67.573
-Micronesia, Fed. Sts.		2007	68.534
+Micronesia, Fed. Sts.	NA	1952	54.576
+Micronesia, Fed. Sts.	NA	1957	56.566
+Micronesia, Fed. Sts.	NA	1962	58.551
+Micronesia, Fed. Sts.	NA	1967	60.541
+Micronesia, Fed. Sts.	NA	1972	62.599
+Micronesia, Fed. Sts.	NA	1977	64.693
+Micronesia, Fed. Sts.	NA	1982	65.328
+Micronesia, Fed. Sts.	NA	1987	65.883
+Micronesia, Fed. Sts.	NA	1992	66.443
+Micronesia, Fed. Sts.	NA	1997	67.056
+Micronesia, Fed. Sts.	NA	2002	67.573
+Micronesia, Fed. Sts.	NA	2007	68.534
 Moldova	Europe	1950	58.4
 Moldova	Europe	1952	58.4
 Moldova	Europe	1957	60.5
@@ -2355,30 +2355,30 @@ Netherlands	Europe	2004	79.38
 Netherlands	Europe	2005	79.65
 Netherlands	Europe	2006	80
 Netherlands	Europe	2007	79.762
-Netherlands Antilles		1952	60.47
-Netherlands Antilles		1957	64.41
-Netherlands Antilles		1962	66.6
-Netherlands Antilles		1967	68.3
-Netherlands Antilles		1972	70.4
-Netherlands Antilles		1977	72.12
-Netherlands Antilles		1982	73.75
-Netherlands Antilles		1987	74.5
-Netherlands Antilles		1992	74.468
-Netherlands Antilles		1997	74.579
-Netherlands Antilles		2002	74.996
-Netherlands Antilles		2007	75.112
-New Caledonia		1952	51.35
-New Caledonia		1957	52.8
-New Caledonia		1962	58.18
-New Caledonia		1967	60.18
-New Caledonia		1972	61.2
-New Caledonia		1977	65.75
-New Caledonia		1982	68.35
-New Caledonia		1987	69.98
-New Caledonia		1992	71.48
-New Caledonia		1997	72.723
-New Caledonia		2002	75.082
-New Caledonia		2007	76.058
+Netherlands Antilles	NA	1952	60.47
+Netherlands Antilles	NA	1957	64.41
+Netherlands Antilles	NA	1962	66.6
+Netherlands Antilles	NA	1967	68.3
+Netherlands Antilles	NA	1972	70.4
+Netherlands Antilles	NA	1977	72.12
+Netherlands Antilles	NA	1982	73.75
+Netherlands Antilles	NA	1987	74.5
+Netherlands Antilles	NA	1992	74.468
+Netherlands Antilles	NA	1997	74.579
+Netherlands Antilles	NA	2002	74.996
+Netherlands Antilles	NA	2007	75.112
+New Caledonia	NA	1952	51.35
+New Caledonia	NA	1957	52.8
+New Caledonia	NA	1962	58.18
+New Caledonia	NA	1967	60.18
+New Caledonia	NA	1972	61.2
+New Caledonia	NA	1977	65.75
+New Caledonia	NA	1982	68.35
+New Caledonia	NA	1987	69.98
+New Caledonia	NA	1992	71.48
+New Caledonia	NA	1997	72.723
+New Caledonia	NA	2002	75.082
+New Caledonia	NA	2007	76.058
 New Zealand	Oceania	1950	69.29
 New Zealand	Oceania	1951	69.16
 New Zealand	Oceania	1952	69.39
@@ -2564,18 +2564,18 @@ Panama	Americas	1992	72.462
 Panama	Americas	1997	73.738
 Panama	Americas	2002	74.712
 Panama	Americas	2007	75.537
-Papua New Guinea		1952	34.676
-Papua New Guinea		1957	46.076
-Papua New Guinea		1962	49.69
-Papua New Guinea		1967	49.981
-Papua New Guinea		1972	42.522
-Papua New Guinea		1977	49.253
-Papua New Guinea		1982	52.46
-Papua New Guinea		1987	53.383
-Papua New Guinea		1992	55.186
-Papua New Guinea		1997	56.153
-Papua New Guinea		2002	56.651
-Papua New Guinea		2007	57.229
+Papua New Guinea	NA	1952	34.676
+Papua New Guinea	NA	1957	46.076
+Papua New Guinea	NA	1962	49.69
+Papua New Guinea	NA	1967	49.981
+Papua New Guinea	NA	1972	42.522
+Papua New Guinea	NA	1977	49.253
+Papua New Guinea	NA	1982	52.46
+Papua New Guinea	NA	1987	53.383
+Papua New Guinea	NA	1992	55.186
+Papua New Guinea	NA	1997	56.153
+Papua New Guinea	NA	2002	56.651
+Papua New Guinea	NA	2007	57.229
 Paraguay	Americas	1952	62.649
 Paraguay	Americas	1957	63.196
 Paraguay	Americas	1962	64.361
@@ -2747,18 +2747,18 @@ Qatar	Asia	1992	69.937
 Qatar	Asia	1997	71.895
 Qatar	Asia	2002	74.256
 Qatar	Asia	2007	75.588
-Reunion		1952	52.724
-Reunion		1957	55.09
-Reunion		1962	57.666
-Reunion		1967	60.542
-Reunion		1972	64.274
-Reunion		1977	67.064
-Reunion		1982	69.885
-Reunion		1987	71.913
-Reunion		1992	73.615
-Reunion		1997	74.772
-Reunion		2002	75.744
-Reunion		2007	76.442
+Reunion	NA	1952	52.724
+Reunion	NA	1957	55.09
+Reunion	NA	1962	57.666
+Reunion	NA	1967	60.542
+Reunion	NA	1972	64.274
+Reunion	NA	1977	67.064
+Reunion	NA	1982	69.885
+Reunion	NA	1987	71.913
+Reunion	NA	1992	73.615
+Reunion	NA	1997	74.772
+Reunion	NA	2002	75.744
+Reunion	NA	2007	76.442
 Romania	Europe	1952	61.05
 Romania	Europe	1957	64.1
 Romania	Europe	1962	66.8
@@ -2835,30 +2835,30 @@ Rwanda	Africa	1992	23.599
 Rwanda	Africa	1997	36.087
 Rwanda	Africa	2002	43.413
 Rwanda	Africa	2007	46.242
-Samoa		1952	45.926
-Samoa		1957	48.497
-Samoa		1962	51.059
-Samoa		1967	53.606
-Samoa		1972	56.143
-Samoa		1977	58.658
-Samoa		1982	61.167
-Samoa		1987	63.659
-Samoa		1992	65.978
-Samoa		1997	68.381
-Samoa		2002	70.033
-Samoa		2007	71.454
-Sao Tome and Principe		1952	46.471
-Sao Tome and Principe		1957	48.945
-Sao Tome and Principe		1962	51.893
-Sao Tome and Principe		1967	54.425
-Sao Tome and Principe		1972	56.48
-Sao Tome and Principe		1977	58.55
-Sao Tome and Principe		1982	60.351
-Sao Tome and Principe		1987	61.728
-Sao Tome and Principe		1992	62.742
-Sao Tome and Principe		1997	63.306
-Sao Tome and Principe		2002	64.337
-Sao Tome and Principe		2007	65.528
+Samoa	NA	1952	45.926
+Samoa	NA	1957	48.497
+Samoa	NA	1962	51.059
+Samoa	NA	1967	53.606
+Samoa	NA	1972	56.143
+Samoa	NA	1977	58.658
+Samoa	NA	1982	61.167
+Samoa	NA	1987	63.659
+Samoa	NA	1992	65.978
+Samoa	NA	1997	68.381
+Samoa	NA	2002	70.033
+Samoa	NA	2007	71.454
+Sao Tome and Principe	NA	1952	46.471
+Sao Tome and Principe	NA	1957	48.945
+Sao Tome and Principe	NA	1962	51.893
+Sao Tome and Principe	NA	1967	54.425
+Sao Tome and Principe	NA	1972	56.48
+Sao Tome and Principe	NA	1977	58.55
+Sao Tome and Principe	NA	1982	60.351
+Sao Tome and Principe	NA	1987	61.728
+Sao Tome and Principe	NA	1992	62.742
+Sao Tome and Principe	NA	1997	63.306
+Sao Tome and Principe	NA	2002	64.337
+Sao Tome and Principe	NA	2007	65.528
 Saudi Arabia	Asia	1952	39.875
 Saudi Arabia	Asia	1957	42.868
 Saudi Arabia	Asia	1962	45.914
@@ -3116,30 +3116,30 @@ Sri Lanka	Asia	1992	70.379
 Sri Lanka	Asia	1997	70.457
 Sri Lanka	Asia	2002	70.815
 Sri Lanka	Asia	2007	72.396
-St. Lucia		1952	54.133
-St. Lucia		1957	56.828
-St. Lucia		1962	59.709
-St. Lucia		1967	62.482
-St. Lucia		1972	65.256
-St. Lucia		1977	67.996
-St. Lucia		1982	70.515
-St. Lucia		1987	70.988
-St. Lucia		1992	71.308
-St. Lucia		1997	71.498
-St. Lucia		2002	72.518
-St. Lucia		2007	73.723
-St. Vincent and the Grenadines		1952	51.137
-St. Vincent and the Grenadines		1957	52.243
-St. Vincent and the Grenadines		1962	56.52
-St. Vincent and the Grenadines		1967	59.623
-St. Vincent and the Grenadines		1972	61.628
-St. Vincent and the Grenadines		1977	64.588
-St. Vincent and the Grenadines		1982	66.673
-St. Vincent and the Grenadines		1987	68.475
-St. Vincent and the Grenadines		1992	69.75
-St. Vincent and the Grenadines		1997	70.243
-St. Vincent and the Grenadines		2002	70.631
-St. Vincent and the Grenadines		2007	71.629
+St. Lucia	NA	1952	54.133
+St. Lucia	NA	1957	56.828
+St. Lucia	NA	1962	59.709
+St. Lucia	NA	1967	62.482
+St. Lucia	NA	1972	65.256
+St. Lucia	NA	1977	67.996
+St. Lucia	NA	1982	70.515
+St. Lucia	NA	1987	70.988
+St. Lucia	NA	1992	71.308
+St. Lucia	NA	1997	71.498
+St. Lucia	NA	2002	72.518
+St. Lucia	NA	2007	73.723
+St. Vincent and the Grenadines	NA	1952	51.137
+St. Vincent and the Grenadines	NA	1957	52.243
+St. Vincent and the Grenadines	NA	1962	56.52
+St. Vincent and the Grenadines	NA	1967	59.623
+St. Vincent and the Grenadines	NA	1972	61.628
+St. Vincent and the Grenadines	NA	1977	64.588
+St. Vincent and the Grenadines	NA	1982	66.673
+St. Vincent and the Grenadines	NA	1987	68.475
+St. Vincent and the Grenadines	NA	1992	69.75
+St. Vincent and the Grenadines	NA	1997	70.243
+St. Vincent and the Grenadines	NA	2002	70.631
+St. Vincent and the Grenadines	NA	2007	71.629
 Sudan	Africa	1952	38.635
 Sudan	Africa	1957	39.624
 Sudan	Africa	1962	40.87
@@ -3423,19 +3423,19 @@ Togo	Africa	1992	58.061
 Togo	Africa	1997	58.39
 Togo	Africa	2002	57.561
 Togo	Africa	2007	58.42
-Tokelau		2006	69
-Tonga		1952	58.618
-Tonga		1957	60.445
-Tonga		1962	62.281
-Tonga		1967	63.989
-Tonga		1972	65.598
-Tonga		1977	66.742
-Tonga		1982	67.968
-Tonga		1987	69.17
-Tonga		1992	70.026
-Tonga		1997	71.145
-Tonga		2002	72.269
-Tonga		2007	73.312
+Tokelau	NA	2006	69
+Tonga	NA	1952	58.618
+Tonga	NA	1957	60.445
+Tonga	NA	1962	62.281
+Tonga	NA	1967	63.989
+Tonga	NA	1972	65.598
+Tonga	NA	1977	66.742
+Tonga	NA	1982	67.968
+Tonga	NA	1987	69.17
+Tonga	NA	1992	70.026
+Tonga	NA	1997	71.145
+Tonga	NA	2002	72.269
+Tonga	NA	2007	73.312
 Trinidad and Tobago	Americas	1952	59.1
 Trinidad and Tobago	Americas	1957	61.8
 Trinidad and Tobago	Americas	1962	64.9
@@ -3643,30 +3643,30 @@ Uruguay	Americas	1992	72.752
 Uruguay	Americas	1997	74.223
 Uruguay	Americas	2002	75.307
 Uruguay	Americas	2007	76.384
-Uzbekistan		1952	55.799
-Uzbekistan		1957	57.893
-Uzbekistan		1962	59.978
-Uzbekistan		1967	62.068
-Uzbekistan		1972	63.637
-Uzbekistan		1977	64.683
-Uzbekistan		1982	66.212
-Uzbekistan		1987	67.328
-Uzbekistan		1992	66.213
-Uzbekistan		1997	66.503
-Uzbekistan		2002	66.482
-Uzbekistan		2007	67.166
-Vanuatu		1952	42
-Vanuatu		1957	45
-Vanuatu		1962	48
-Vanuatu		1967	51
-Vanuatu		1972	54
-Vanuatu		1977	57
-Vanuatu		1982	60
-Vanuatu		1987	61.86
-Vanuatu		1992	65.08
-Vanuatu		1997	66.462
-Vanuatu		2002	68.406
-Vanuatu		2007	70.038
+Uzbekistan	NA	1952	55.799
+Uzbekistan	NA	1957	57.893
+Uzbekistan	NA	1962	59.978
+Uzbekistan	NA	1967	62.068
+Uzbekistan	NA	1972	63.637
+Uzbekistan	NA	1977	64.683
+Uzbekistan	NA	1982	66.212
+Uzbekistan	NA	1987	67.328
+Uzbekistan	NA	1992	66.213
+Uzbekistan	NA	1997	66.503
+Uzbekistan	NA	2002	66.482
+Uzbekistan	NA	2007	67.166
+Vanuatu	NA	1952	42
+Vanuatu	NA	1957	45
+Vanuatu	NA	1962	48
+Vanuatu	NA	1967	51
+Vanuatu	NA	1972	54
+Vanuatu	NA	1977	57
+Vanuatu	NA	1982	60
+Vanuatu	NA	1987	61.86
+Vanuatu	NA	1992	65.08
+Vanuatu	NA	1997	66.462
+Vanuatu	NA	2002	68.406
+Vanuatu	NA	2007	70.038
 Venezuela, RB	Americas	1952	55.088
 Venezuela, RB	Americas	1957	57.907
 Venezuela, RB	Americas	1962	60.77
@@ -3715,18 +3715,18 @@ Vietnam	Asia	1992	67.662
 Vietnam	Asia	1997	70.672
 Vietnam	Asia	2002	73.017
 Vietnam	Asia	2007	74.249
-Virgin Islands (U.S.)		1952	59.244
-Virgin Islands (U.S.)		1957	62.677
-Virgin Islands (U.S.)		1962	64.497
-Virgin Islands (U.S.)		1967	66.598
-Virgin Islands (U.S.)		1972	68.663
-Virgin Islands (U.S.)		1977	70.533
-Virgin Islands (U.S.)		1982	72.011
-Virgin Islands (U.S.)		1987	73.625
-Virgin Islands (U.S.)		1992	75.173
-Virgin Islands (U.S.)		1997	77.296
-Virgin Islands (U.S.)		2002	78.534
-Virgin Islands (U.S.)		2007	79.385
+Virgin Islands (U.S.)	NA	1952	59.244
+Virgin Islands (U.S.)	NA	1957	62.677
+Virgin Islands (U.S.)	NA	1962	64.497
+Virgin Islands (U.S.)	NA	1967	66.598
+Virgin Islands (U.S.)	NA	1972	68.663
+Virgin Islands (U.S.)	NA	1977	70.533
+Virgin Islands (U.S.)	NA	1982	72.011
+Virgin Islands (U.S.)	NA	1987	73.625
+Virgin Islands (U.S.)	NA	1992	75.173
+Virgin Islands (U.S.)	NA	1997	77.296
+Virgin Islands (U.S.)	NA	2002	78.534
+Virgin Islands (U.S.)	NA	2007	79.385
 Yemen, Rep.	Asia	1952	32.548
 Yemen, Rep.	Asia	1957	33.97
 Yemen, Rep.	Asia	1962	35.18
