@@ -12,18 +12,18 @@ pop_xls <- read_excel("xls/gapdata003.xls")
 ## and also a crapton of warnings due to variables seeming to be ... numeric and
 ## then having text in them --> ignore because I drop those variables
 
-pop_xls %>% str
+pop_xls %>% str()
 ## 2015: 20455 obs. of  10 variables (switched to readxl)
 ## 2014: 20455 obs. of  12 variables
 ## 2010 cleaning code comment: 22903 obs. of  10 variables <-- huh?
 ## Note: I did not use gdata::read.xls() in 2010; rather, I exported a text file
 ## from Excel 'by hand'.
-pop_xls %>% head
+pop_xls %>% head()
 
 ## get rid of vars I will not use; rename vars I keep
 pop_raw <- pop_xls %>%
   select(country = Area, year = Year, pop = Population)
-pop_raw %>% str
+pop_raw %>% str()
 # Classes ‘tbl_df’, ‘tbl’ and 'data.frame':	20455 obs. of  3 variables:
 # $ country: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
 # $ year   : num  1800 1820 1870 1913 1950 ...
@@ -55,6 +55,16 @@ str(pop_raw)                             # 14105 obs. of  3 variables:
 # $ country: chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
 # $ year   : num  1950 1951 1952 1953 1954 ...
 # $ pop    : num  8150368 8284473 8425333 8573217 8728408 ...
+
+## voice from the future: look at India
+pop_raw %>% 
+  filter(country == "India")
+## these large, doubles create problems later
+## GET RID OF THEM HERE
+
+## force the population to be integer
+pop_raw <- pop_raw %>% 
+  mutate(pop = pop %>% as.integer())
 
 ## save for now
 write_tsv(pop_raw, "01_pop.tsv")
