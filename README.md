@@ -3,7 +3,7 @@
 gapminder
 =========
 
-Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. This R data package provides the data as a data.frame and in plain text delimited form. Package includes premade color schemes for the countries and continents.
+Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. This R data package provides the data as a data frame (as `tbl_df`, if you're using [`dplyr`](https://cran.r-project.org/web/packages/dplyr/index.html)) and in plain text delimited form. Package includes premade color schemes for the countries and continents.
 
 This data.frame includes six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
 
@@ -18,7 +18,7 @@ This data.frame includes six variables, ([Gapminder.org documentation page](http
 
 Per-capita GDP (Gross domestic product) is given in units of [international dollars](http://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar). From Wikipedia:
 
-> [...] the international dollar is a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time
+> \[...\] the international dollar is a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time
 
 In gapminder, the currency matches the US dollar in 2005.
 
@@ -57,6 +57,7 @@ gapminder %>%
 ## Source: local data frame [5 x 2]
 ## 
 ##   continent lifeExp
+##      (fctr)   (dbl)
 ## 1    Africa 52.9265
 ## 2  Americas 72.8990
 ## 3      Asia 72.3960
@@ -69,7 +70,7 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
 ```
 
-![](README_files/figure-markdown_github/test-drive-1.png)
+![](README_files/figure-markdown_github/test-drive-1.png) 
 
 The package also includes two color schemes, `country_colors` and `continent_colors`. See an image of the full scheme at the bottom of this page. Here's how to exploit the country color scheme in your own graphs, using base graphics:
 
@@ -91,7 +92,7 @@ plot(lifeExp ~ gdpPercap, gap_with_colors,
      bg = gap_with_colors$cc[keepers])
 ```
 
-![](README_files/figure-markdown_github/demo-country-colors-base-1.png)
+![](README_files/figure-markdown_github/demo-country-colors-base-1.png) 
 
 With `ggplot2`, you can use the country colors by providing `country_colors` to `scale_color_manual()` like so:
 
@@ -114,7 +115,7 @@ ggplot(h_dat, aes(x = year, y = lifeExp)) +
   guides(color = guide_legend(reverse = TRUE))
 ```
 
-![](README_files/figure-markdown_github/demo-country-colors-ggplot2-1.png)
+![](README_files/figure-markdown_github/demo-country-colors-ggplot2-1.png) 
 
 ``` r
 
@@ -123,9 +124,11 @@ ggplot(subset(gapminder, continent != "Oceania"),
   geom_line(lwd = 1, show_guide = FALSE) + facet_wrap(~ continent) +
   scale_color_manual(values = country_colors) +
   theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
+## Warning: `show_guide` has been deprecated. Please use `show.legend`
+## instead.
 ```
 
-![](README_files/figure-markdown_github/demo-country-colors-ggplot2-2.png)
+![](README_files/figure-markdown_github/demo-country-colors-ggplot2-2.png) 
 
 ``` r
 
@@ -139,9 +142,11 @@ ggplot(gap_bit, aes(x = gdpPercap, y = lifeExp, size = pop)) +
   facet_wrap(~ continent) + coord_fixed(ratio = 1/43) +
   aes(fill = country) + scale_fill_manual(values = country_colors) +
   theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
+## Warning: `show_guide` has been deprecated. Please use `show.legend`
+## instead.
 ```
 
-![](README_files/figure-markdown_github/demo-country-colors-ggplot2-3.png)
+![](README_files/figure-markdown_github/demo-country-colors-ggplot2-3.png) 
 
 ### Description of the dataset
 
@@ -202,7 +207,7 @@ str(gap_tsv)
 ##  $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
 ##  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
 ##  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
-##  $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
+##  $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
 ##  $ gdpPercap: num  779 821 853 836 740 ...
 gap_tsv %>% # Bhutan did not make the cut because data for only 8 years :(
   filter(country == "Bhutan")
