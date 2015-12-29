@@ -32,10 +32,10 @@ country_colors_df <-
   color_anchors_by_continent,
   sorted_countries_by_continent,
   SIMPLIFY = FALSE)
-country_colors_df <- rbind_all(country_colors_df)
+country_colors_df <- bind_rows(country_colors_df)
 country_colors_df <- country_colors_df %>%
   mutate(continent = gapminder$continent[match(country, gapminder$country)])
-country_colors_df %>% str
+country_colors_df %>% str()
 # Classes ‘tbl_df’, ‘tbl’ and 'data.frame':  142 obs. of  3 variables:
 # $ country  : chr  "Nigeria" "Egypt" "Ethiopia" "Congo, Dem. Rep." ...
 # $ color    : chr  "#7F3B08" "#833D07" "#873F07" "#8B4107" ...
