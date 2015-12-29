@@ -23,11 +23,10 @@ gap_dat %>% str # 'data.frame':	2012 obs. of  6 variables:
 
 ## Does every country contribute data for all years?
 country_freq <- gap_dat %>%
-  group_by(country) %>%
-  tally
+  count(country)
 
-ggplot(country_freq, aes(x = n)) + geom_bar(binwidth = 1)
-country_freq$n %>% table
+ggplot(country_freq, aes(x = n)) + geom_histogram(binwidth = 1)
+country_freq$n %>% table()
 
 ## Most countries do contribute data for 12 years
 ## Who contributes less?
@@ -83,7 +82,7 @@ china_pop_fit <- lm(pop ~ year, gap_dat, subset = country == 'China')
 summary(china_pop_fit)
 (china_pop_1952 <- china_pop_fit %>%
    predict(data.frame(year = 1952)) %>% 
-   floor)
+   as.integer())
 ## 556263527
 
 china_lifeExp_1952 <- 44 # fiction, but no simple linear fit seems appropriate
@@ -121,6 +120,10 @@ ggplot(china_tidy, aes(x = year, y = value)) +
 write.table(gap_dat,
             "07_gap-every-five-years.tsv",
             quote = FALSE, sep = "\t", row.names = FALSE)
+
+file.copy(from =  "07_gap-every-five-years.tsv",
+          to = file.path("..", "inst", "gapminder.tsv"),
+          overwrite = TRUE)
 
 gapminder <- gap_dat
 
