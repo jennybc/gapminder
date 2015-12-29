@@ -1,13 +1,17 @@
 library(dplyr)
 library(tidyr)
 library(ggplot2)
+library(readr)
 
-gap_dat <- read.delim("06_gap-merged-with-continent.tsv")
-gap_dat %>% str
-# 'data.frame':  3312 obs. of  6 variables:
+gap_dat <- read_tsv("06_gap-merged-with-continent.tsv") %>% 
+  mutate(country = factor(country),
+         continent = factor(continent)) %>% 
+  select(country, year, pop, gdpPercap, lifeExp, continent)
+gap_dat %>% str()
+# Classes ‘tbl_df’, ‘tbl’ and 'data.frame':	3312 obs. of  6 variables:
 # $ country  : Factor w/ 187 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
 # $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
-# $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
+# $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
 # $ gdpPercap: num  779 821 853 836 740 ...
 # $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
 # $ continent: Factor w/ 6 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
@@ -16,7 +20,7 @@ gap_dat %>% str
 ## years, e.g. 1952, 1957, 1962, and so on. Let's just make that official.
 gap_dat <- gap_dat %>%
   filter(year %% 5 == 2)
-gap_dat %>% str # 'data.frame':	2012 obs. of  6 variables:
+gap_dat %>% str() # 'data.frame':	2012 obs. of  6 variables:
 
 ## number of distinct values for year
 (n_years <- n_distinct(gap_dat$year)) # 12
@@ -43,13 +47,13 @@ keepers %>% length # 142 countries
 ## filter gap_dat
 gap_dat <- gap_dat %>%
   filter(country %in% keepers) %>%
-  droplevels %>%
+  droplevels() %>%
   arrange(country, year)
-gap_dat %>% str
-# 'data.frame':  1703 obs. of  6 variables:
+gap_dat %>% str()
+# Classes ‘tbl_df’, ‘tbl’ and 'data.frame':	1703 obs. of  6 variables:
 # $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
 # $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
-# $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
+# $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
 # $ gdpPercap: num  779 821 853 836 740 ...
 # $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
 # $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
@@ -97,10 +101,10 @@ gap_dat <- gap_dat %>%
 gap_dat %>%
   filter(country == "China")
 str(gap_dat)  
-# 'data.frame':  1704 obs. of  6 variables:
+# Classes ‘tbl_df’, ‘tbl’ and 'data.frame':	1704 obs. of  6 variables:
 # $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
 # $ year     : num  1952 1957 1962 1967 1972 ...
-# $ pop      : num  8425333 9240934 10267083 11537966 13079460 ...
+# $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
 # $ gdpPercap: num  779 821 853 836 740 ...
 # $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
 # $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
@@ -117,9 +121,11 @@ ggplot(china_tidy, aes(x = year, y = value)) +
 
 ## END: Fill in missing data for China
 
-write.table(gap_dat,
-            "07_gap-every-five-years.tsv",
-            quote = FALSE, sep = "\t", row.names = FALSE)
+## match variable order of the past
+gap_dat <- gap_dat %>% 
+  select(country, continent, year, lifeExp, pop, gdpPercap)
+
+write_tsv(gap_dat,"07_gap-every-five-years.tsv")
 
 file.copy(from =  "07_gap-every-five-years.tsv",
           to = file.path("..", "inst", "gapminder.tsv"),
@@ -128,4 +134,4 @@ file.copy(from =  "07_gap-every-five-years.tsv",
 gapminder <- gap_dat
 
 ## finally ready to save data for the package
-save(gapminder, file = "../data/gapminder.rdata")
+save(gapminder, file = file.path("..", "data", "gapminder.rdata"))
