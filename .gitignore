@@ -11,5 +11,6 @@
 .Rproj.user/
 .Rproj.user
 
-# previewing README
+# previewing
 README.html
+data-raw/*.html

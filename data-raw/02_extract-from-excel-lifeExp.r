@@ -1,149 +1,125 @@
+#' ---
+#' date: "`r format(Sys.Date())`"
+#' output:
+#'   html_document:
+#'     keep_md: TRUE
+#' ---
+
+#' Cleaning history
+#' 
+#' * 2010: The first time I documented cleaning this dataset. I started with
+#' delimited files I exported from Excel.
+#' * 2014: I re-cleaned the data and (mostly) forced myself to pull it straight
+#' out of the spreadsheets. Used the gdata package.
+#' * 2015: I revisited the cleaning and switched to the readxl and readr
+#' packages.
+
 library(readxl)
-library(dplyr)
+suppressPackageStartupMessages(library(dplyr))
 library(ggplot2)
 library(readr)
 
-## extract the life expectancy data
+#' Extract the life expectancy data from the Excel file downloaded 2009-04-21
+#' from gapminder.org.
 
-## this is the Excel file downloaded 2009-04-21 from gapminder.org
+#+ warning=FALSE
 le_xls <-
   read_excel("xls/life-expectancy-reference-spreadsheet-20090204-xls-format.xls",
              sheet = "Data and metadata")
-           # verbose = TRUE, quote = "", method = "tab", 
-           # fileEncoding =  "ISO-8859-1",
-           # colClasses = c(rep("character", 4), rep("NULL", 5)))
-le_xls %>% str
-# Classes ‘tbl_df’, ‘tbl’ and 'data.frame':	52416 obs. of  9 variables:
+## the DEFINEDNAME thing is described here
+## https://github.com/hadley/readxl/issues/82#issuecomment-166767220
+## I am hiding a crapton of warnings
 
-## rename vars
+le_xls %>% str()
+
+#' Select and rename vars.
 le_raw <- le_xls %>%
   select(country = contains("country"), continent = contains("continent"),
-         year_raw = contains("year"), lifeExp_raw = contains("expectancy"))
-le_raw %>% str
-# Classes ‘tbl_df’, ‘tbl’ and 'data.frame':	52416 obs. of  4 variables:
-# $ country    : chr  "Abkhazia" "Abkhazia" "Abkhazia" "Abkhazia" ...
-# $ continent  : chr  "Asia" "Asia" "Asia" "Asia" ...
-# $ year_raw   : num  1800 1801 1802 1803 1804 ...
-# $ lifeExp_raw: num  NA NA NA NA NA NA NA NA NA NA ...
-
-## 2015: 52416 obs. of  4 variables (switched to readxl)
-## 2014: 52419 obs. of  4 variables:
-## 2010 cleaning code comment: # 52416 obs. of  9 variables: <-- huh?
-## Note: I did not use gdata::read.xls() in 2010; rather, I exported a text file
-## from Excel 'by hand'.
+         year = contains("year"), lifeExp = contains("expectancy"))
+le_raw %>% str()
+## 2015: 52416 obs. of 4 variables
+## 2014: 52419 obs. of 4 variables
+## 2010: 52416 obs. of 9 variables <-- wtf?
 le_raw %>% head()
 le_raw %>% tail()
 
-## let's fix year enough to filter on it
-n_distinct(le_raw$year_raw) # 208 (2015, readxl) 210 (2014, gdata)
-unique(le_raw$year_raw)
-## eye-ball-o-metric inspection ...
+#' Let's look at `year`.
+n_distinct(le_raw$year)
+## 210 unique values in 2014 cleaning
+unique(le_raw$year)
 
-## convert year to integer
-le_raw <- le_raw %>%
-  mutate(year = year_raw %>% as.integer())
-le_raw$year %>% n_distinct() #208
-le_raw$year %>% unique()
-all.equal(sort(unique(le_raw$year[!is.na(le_raw$year)])), 1800:2007)
-## Integers between 1800 and 2007. Yay.
+#' Eye-ball-o-metric inspection suggests these might all be integers between
+#' 1800 and 2007. True?
+all(le_raw$year %in% 1800:2007)
 
-## drop year_raw, in favor of year
+#' Great. Convert year to integer.
 le_raw <- le_raw %>%
-  select(-year_raw)
+  mutate(year = year %>% as.integer())
 
 le_raw$year %>% summary()
-#  Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
-#  1800    1852    1904    1904    1955    2007
-## NOTE: in 2015 (readxl) and 2010 (exported delimited file),
-## this did not includee 3 NA's, which appeared in 2014 (gdata)
-## 52419 - 3 = 52416
-## Mystery of the rows solved.
 
-## for which years do we have data?
-year_freq <- le_raw %>%
-  count(year)
-table(year_freq$n)
-# 252 
-# 208 
-## this solves nothing, because even when year is present, life expectancy often
-## is not
-## very different structure from population data :(
+#' Sidebar: In 2014, there were 3 NA's. Perhaps they derived from some
+#' diabolically hidden rows in the Excel file. In Excel, mere 'unhide' does NOT
+#' reveal these rows. If you look carefully, you can see missing row numbers. To
+#' reveal the rows, use 'unset filters'. Regardless, these rows aren't picked up
+#' in 2010 or 2015 and get filtered out no matter what.
+#' 
+#' Let's look at `lifeExp`.
+le_raw$lifeExp %>% head(100)
 
-## change of plan: let's fix lifeExp enough to filter on it
-le_raw$lifeExp_raw %>% head(100)
-sum(is.na(le_raw$lifeExp_raw)) # 46507
+#' How many `NA`s are there ?!?
+sum(is.na(le_raw$lifeExp))
 
+#' Drop them.
 le_raw <- le_raw %>%
-  filter(!is.na(lifeExp_raw))
+  filter(!is.na(lifeExp))
 str(le_raw)
-# Classes ‘tbl_df’, ‘tbl’ and 'data.frame':	5909 obs. of  4 variables:
-# $ country    : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
-# $ continent  : chr  "Asia" "Asia" "Asia" "Asia" ...
-# $ lifeExp_raw: num  28.8 28.8 30.3 32 34 ...
-# $ year       : int  1800 1952 1957 1962 1967 1972 1977 1982 1987 1992 ...
 
-## rename to lifeExp
-le_raw <- le_raw %>% 
-  rename(lifeExp = lifeExp_raw)
+le_raw$lifeExp %>% summary()
 
-le_raw$lifeExp %>% summary
-#  Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-# 11.60   45.21   61.17   58.02   70.90   82.67 
-
-## is continent ok as is?
+#' Is `continent` ok as is?
 n_distinct(le_raw$continent) # 7
 unique(le_raw$continent)
-# [1] "Asia"     "Europe"   "Africa"   "Americas" NA         "FSU"      "Oceania" 
 
-## let's look further into empty continent and FSU
+#' Let's look further into empty continent and the novel continent FSU.
 (empty_continent <- le_raw %>%
    filter(is.na(continent)) %>%
    select(country) %>%
    unique())
-str(empty_continent) ## 30 countries affected, eg Canada, Haiti
-## wait to fix these after merging pop + lifeExp + gdpPercap
+str(empty_continent)
+#' Wait to fix these after merging pop + lifeExp + gdpPercap.
 
 (fsu_continent <- le_raw %>%
    filter(continent == "FSU") %>%
    select(country) %>%
    unique())
-#                country
-# 1              Belarus
-# 53          Kazakhstan
-# 73              Latvia
-# 128          Lithuania
-# 181 Russian Federation
-# 262            Ukraine
-## handle this after merging pop + lifeExp + gdpPercap
-
-## is country ok as is?
+#' Aha. Former Soviet Union. Handle this after merge.
+#' 
+#' Is `country` ok as is?
 n_distinct(le_raw$country) # 198
 unique(le_raw$country)
-## no obvious problems
+#' No obvious train wrecks.
 
-## return to year
-n_distinct(le_raw$year) #208
-unique(le_raw$year)
-(p <- ggplot(le_raw, aes(x = year)) + geom_histogram(binwidth = 1)) # 1950 -->
-p + xlim(c(1945, 2010)) # spikes every five years
-p + xlim(c(1950, 1960)) # 1952, 1957, ...
-p + xlim(c(2000, 2010)) # ..., 2002, 2007
+#' Return to year.
+n_distinct(le_raw$year)
+(p <- ggplot(le_raw, aes(x = year)) + geom_histogram(binwidth = 1))
+p + xlim(c(1945, 2010))
+p + xlim(c(1950, 1960))
+p + xlim(c(2000, 2010))
+#' I see spikes every five years after 1950.
 
-## keep data from 1950 to 2007
+#' Keep data from 1950 to 2007.
 year_min <- 1950
 year_max <- 2007
 le_raw <- le_raw %>%
   filter(year %>% between(year_min, year_max))
 le_raw %>% str()
-# Classes ‘tbl_df’, ‘tbl’ and 'data.frame':	3786 obs. of  4 variables:
-# $ country  : chr  "Afghanistan" "Afghanistan" "Afghanistan" "Afghanistan" ...
-# $ continent: chr  "Asia" "Asia" "Asia" "Asia" ...
-# $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
-# $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
 
-## restore variable order from previous cleaning runs
+#' Restore variable order from previous cleaning runs to minimize silly diffs.
 le_raw <- le_raw %>% 
   select(country, continent, year, lifeExp)
 
-## save for now
+#' Save for now
 write_tsv(le_raw, "02_lifeExp.tsv")
+
+devtools::session_info()
