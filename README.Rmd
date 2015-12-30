@@ -11,6 +11,8 @@ gapminder
 
 ```{r setup, include = FALSE, cache = FALSE}
 knitr::opts_chunk$set(collapse = TRUE, dpi = 300)
+## so jittered figs don't always appear to be changed
+set.seed(1)
 ```
 
 Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. This R data package provides the data as a data frame (as `tbl_df`, if you're using [`dplyr`](http://cran.r-project.org/package=dplyr)) and in tab delimited form. Package includes premade color schemes for the countries and continents.
