@@ -1,5 +1,5 @@
 Package: gapminder
-Title: Gapminder Data
+Title: Data from Gapminder
 Version: 0.2.0
 Authors@R: person("Jennifer", "Bryan", email = "jenny@stat.ubc.ca",
                   role = c('aut', 'cre'))
