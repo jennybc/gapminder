@@ -5,7 +5,7 @@ gapminder
 
 Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. This R data package provides the data as a data frame (as `tbl_df`, if you're using [`dplyr`](http://cran.r-project.org/package=dplyr)) and in tab delimited form. Package includes premade color schemes for the countries and continents.
 
-This data frame includes six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
+The `gapminder` data frame includes six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
 
 | variable  | meaning                  |
 |:----------|:-------------------------|
@@ -21,6 +21,8 @@ Per-capita GDP (Gross domestic product) is given in units of [international doll
 > \[...\] the international dollar is a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time
 
 In `gapminder`, the currency matches the US dollar in 2005.
+
+In `gapminder` there are 12 rows for each country, i.e. complete data for 1952, 1955, ..., 2007. It's a subset of the `gapminder_unfiltered` data frame, which doesn't have the draconian filtering and is therefore about twice as large.
 
 ### Install and test drive
 
@@ -163,7 +165,7 @@ Description:
     -   `gdpPercap`: GDP per capita
     -   `lifeExp`: life expectancy
 
-There are 12 rows for each country, i.e. complete data for 1952, 1955, ..., 2007.
+There are 12 rows for each country in `gapminder`, i.e. complete data for 1952, 1955, ..., 2007.
 
 The two factors provide opportunities to demonstrate factor handling, in aggregation and visualization, for factors with very few and very many levels.
 
@@ -188,7 +190,7 @@ I explicitly use this package to teach data cleaning, so have refactored my old 
 I make available two plain text, tab delimited `.tsv` files:
 
 -   [`gapminder.tsv`](inst/gapminder.tsv): the same dataset available via `library("gapminder"); gapminder`. Each of the 142 countries presents complete data for 12 years: 1952, 1957, ..., 2007.
--   [`gapminder-unfiltered.tsv`](inst/gapminder-unfiltered.tsv): the larger dataset that, **when filtered**, yields [`gapminder.tsv`](inst/gapminder.tsv). In this file, I have NOT filtered for the years 1952, 1957, ..., 2007, I retain countries with incomplete data, and I did not impute data for China in 1952.
+-   [`gapminder-unfiltered.tsv`](inst/gapminder-unfiltered.tsv): the larger dataset that, **when filtered**, yields [`gapminder.tsv`](inst/gapminder.tsv). Available via `library("gapminder"); gapminder_unfiltered`. I have NOT filtered for the years 1952, 1957, ..., 2007, and I retain countries with incomplete data.
 
 The main package dataset has 142 \* 12 = 1704 rows, whereas the larger, unfiltered dataset contains 3313 rows, almost twice as much data.
 

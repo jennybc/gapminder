@@ -1,9 +1,9 @@
 #' Gapminder data.
 #' 
 #' Excerpt of the Gapminder data on life expectancy, GDP per capita, and
-#' population by country, every five years, from 1952 to 2007
+#' population by country.
 #' 
-#' @format A data frame with 1704 rows and 6 variables:
+#' @format The main data frame \code{gapminder} has 1704 rows and 6 variables:
 #' \describe{ 
 #'   \item{country}{factor with 142 levels}
 #'   \item{continent}{factor with 5 levels}
@@ -12,6 +12,10 @@
 #'   \item{pop}{population}
 #'   \item{gdpPercap}{GDP per capita}
 #'   }
+#'   
+#' The supplemental data frame \code{\link{gapminder_unfiltered}} was not
+#' filtered on \code{year} or for complete data and has 3313 rows.
+#' 
 #' @source \url{http://www.gapminder.org/data/}
 #' @seealso \code{\link{country_colors}} for a nice color scheme for the countries
 #' @examples

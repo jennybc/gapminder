@@ -16,12 +16,6 @@ gap_dat <- read_tsv("07_gap-merged-with-continent.tsv") %>%
   select(country, year, pop, gdpPercap, lifeExp, continent)
 gap_dat %>% str()
 
-#' First, copy this unfiltered dataset to `inst/` to make it available for
-#' keeners.
-file.copy(from =  "07_gap-merged-with-continent.tsv",
-          to = file.path("..", "inst", "gapminder-unfiltered.tsv"),
-          overwrite = TRUE)
-
 #' During data exploration, I learned that most countries have data every five 
 #' years, e.g. 1952, 1957, 1962, and so on. Let's make that official.
 gap_dat <- gap_dat %>%
@@ -45,8 +39,7 @@ country_freq %>%
   arrange(n) %>% 
   print(n = nrow(.))
 
-#' The only thing I see here that I want to fix is to rescue China, which has
-#' data for 11 of 12 years. Otherwise, I will let these countries go.
+#' I will let these countries go.
 gap_dat <- country_freq %>% 
   filter(n > 11) %>% 
   left_join(gap_dat) %>% 
@@ -60,12 +53,3 @@ gap_dat <- gap_dat %>%
   select(country, continent, year, lifeExp, pop, gdpPercap)
 
 write_tsv(gap_dat,"08_gap-every-five-years.tsv")
-
-file.copy(from =  "08_gap-every-five-years.tsv",
-          to = file.path("..", "inst", "gapminder.tsv"),
-          overwrite = TRUE)
-
-gapminder <- gap_dat
-
-## finally ready to save data for the package
-save(gapminder, file = file.path("..", "data", "gapminder.rdata"))
