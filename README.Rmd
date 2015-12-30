@@ -15,9 +15,9 @@ knitr::opts_chunk$set(collapse = TRUE, dpi = 300)
 set.seed(1)
 ```
 
-Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. This R data package provides the data as a data frame (as `tbl_df`, if you're using [`dplyr`](http://cran.r-project.org/package=dplyr)) and in tab delimited form. Package includes premade color schemes for the countries and continents.
+Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. This R data package provides the data as a data frame (or `tbl_df`, if you're using [`dplyr`](http://cran.r-project.org/package=dplyr)) and in tab delimited form. Includes premade color schemes for the countries and continents.
 
-The `gapminder` data frame includes six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
+The `gapminder` data frames include six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
 
 | variable    | meaning                  |
 |:------------|:-------------------------|
@@ -28,13 +28,12 @@ The `gapminder` data frame includes six variables, ([Gapminder.org documentation
 | pop         | total population         |
 | gdpPercap   | per-capita GDP           |
 
-Per-capita GDP (Gross domestic product) is given in units of [international dollars](http://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar). From Wikipedia:
+Per-capita GDP (Gross domestic product) is given in units of [international dollars](http://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar), "a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time" -- 2005, in this case.
 
-> [...] the international dollar is a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time
+Package contains two data frames (of `tbl_df`s):
 
-In `gapminder`, the currency matches the US dollar in 2005.
-
-In `gapminder` there are 12 rows for each country, i.e. complete data for 1952, 1955, ..., 2007. It's a subset of the `gapminder_unfiltered` data frame, which doesn't have the draconian filtering and is therefore about twice as large.
+  * `gapminder`: 12 rows for each country (1952, 1955, ..., 2007). It's a subset of ...
+  * `gapminder_unfiltered`: more lightly filtered and therefore about twice as many rows.
 
 ### Install and test drive
 
@@ -69,11 +68,43 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
 ```
 
-The package also includes two color schemes, `country_colors` and `continent_colors`. See an image of the full scheme at the bottom of this page. Here's how to exploit the country color scheme in your own graphs, using base graphics:
+### Color schemes for countries and continents
+
+`country_colors` and `continent_colors` are provided as character vectors where elements are hex colors and the names are countries or continents.
+
+```{r}
+head(country_colors, 4)
+head(continent_colors)
+```
+
+![](data-raw/gapminder-color-scheme-ggplot2.png)
+
+The country scheme is available in this repo as
+
+  * [PNG](data-raw/gapminder-color-scheme-ggplot2.png) or [PDF](data-raw/gapminder-color-scheme-base.pdf)
+  * [`continent-colors.tsv`](inst/continent-colors.tsv) and [`country-colors.tsv`](inst/country-colors.tsv)
+
+### How to use color scheme in `ggplot2`
+
+Provide `country_colors` to `scale_color_manual()` like so:
+
+```{r scale-color-manual, eval = FALSE}
+... + scale_color_manual(values = country_colors) + ...
+```
+
+```{r demo-country-colors-ggplot2}
+library("ggplot2")
+
+ggplot(subset(gapminder, continent != "Oceania"),
+       aes(x = year, y = lifeExp, group = country, color = country)) +
+  geom_line(lwd = 1, show_guide = FALSE) + facet_wrap(~ continent) +
+  scale_color_manual(values = country_colors) +
+  theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
+```
+
+### How to use color scheme in base graphics
 
 ```{r demo-country-colors-base}
-# using country_colors with base graphics
-
 # for convenience, integrate the country colors into the data.frame
 gap_with_colors <-
   data.frame(gapminder,
@@ -89,47 +120,9 @@ plot(lifeExp ~ gdpPercap, gap_with_colors,
      bg = gap_with_colors$cc[keepers])
 ```
 
-With `ggplot2`, you can use the country colors by providing `country_colors` to `scale_color_manual()` like so:
+### What is `gapminder` good for?
 
-```{r scale-color-manual, eval = FALSE}
-... + scale_color_manual(values = country_colors) + ...
-```
-
-Here are some `ggplot2` examples:
-
-```{r demo-country-colors-ggplot2}
-library("ggplot2")
-
-# simple line plot for 5 countries
-h_countries <- c("Egypt", "Haiti", "Romania", "Thailand", "Venezuela")
-h_dat <- droplevels(subset(gapminder, country %in% h_countries))
-h_dat$country <- with(h_dat, reorder(country, lifeExp, max))
-ggplot(h_dat, aes(x = year, y = lifeExp)) +
-  geom_line(aes(color = country)) +
-  scale_colour_manual(values = country_colors) +
-  guides(color = guide_legend(reverse = TRUE))
-
-ggplot(subset(gapminder, continent != "Oceania"),
-       aes(x = year, y = lifeExp, group = country, color = country)) +
-  geom_line(lwd = 1, show_guide = FALSE) + facet_wrap(~ continent) +
-  scale_color_manual(values = country_colors) +
-  theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
-
-gap_bit <- subset(gapminder, year == 2007 & continent != "Oceania")
-gap_bit <- gap_bit[with(gap_bit, order(continent, -1 * pop)), ]
-
-ggplot(gap_bit, aes(x = gdpPercap, y = lifeExp, size = pop)) +
-  scale_x_log10(limits = c(150, 115000)) + ylim(c(16, 96)) +
-  geom_point(pch = 21, color = 'grey20', show_guide = FALSE) +
-  scale_size_area(max_size = 40) +
-  facet_wrap(~ continent) + coord_fixed(ratio = 1/43) +
-  aes(fill = country) + scale_fill_manual(values = country_colors) +
-  theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
-```
-
-### Description of the dataset
-
-I have used this excerpt in [STAT 545](http://stat545-ubc.github.io) since 2008 and, more recently, in [R-flavored Software Carpentry Workshops](http://jennybc.github.io/2014-05-12-ubc/) and a [`ggplot2` tutorial](https://github.com/jennybc/ggplot2-tutorial). I've been amazed at how useful and durable this dataset is for teaching data analysis with R.
+I have used this excerpt in [STAT 545](http://stat545-ubc.github.io) since 2008 and, more recently, in [R-flavored Software Carpentry Workshops](http://jennybc.github.io/2014-05-12-ubc/) and a [`ggplot2` tutorial](https://github.com/jennybc/ggplot2-tutorial). `gapminder` is very useful for teaching novices data wrangling and visualization in R.
 
 Description:
 
@@ -154,20 +147,17 @@ Visualization of the temporal trends in life expectancy, by country, is particul
 
 <blockquote class="twitter-tweet" lang="en"><p>Data cleaning code cannot be clean. It&#39;s a sort of sin eater.</p>&mdash; Stat Fact (@StatFact) <a href="https://twitter.com/StatFact/status/492753200190341120">July 25, 2014</a></blockquote>
 
-The [`data-raw`](data-raw) directory contains all of the scripts used to extract the data from the Excel spreadsheets downloaded from [Gapminder](http://www.gapminder.org) in 2008 and 2009. All underlying and intermediate data is there as well, going back to the Excel files themselves.
-
-I explicitly use this package to teach data cleaning, so have refactored my old cleaning code into several scripts and also include compiled Markdown report. In hindsight, I wouldn't necessarily clean it the same way again (and I would download more recent data!), but at this point there is great value in reproducing the data I've been using for ~5 years.
+The [`data-raw`](data-raw) directory contains the Excel spreadsheets downloaded from [Gapminder](http://www.gapminder.org) in 2008 and 2009 and all the scripts necessary to create everything in this package, in raw and "compiled notebook" form.
 
 ### Plain text delimited files
 
-I make available two plain text, tab delimited `.tsv` files:
+If you want to practice importing from file, various tab delimited files are included:
 
-  * [`gapminder.tsv`](inst/gapminder.tsv): the same dataset available via `library("gapminder"); gapminder`. Each of the `r nlevels(gapminder$country)` countries presents complete data for 12 years: 1952, 1957, ..., 2007.
-  * [`gapminder-unfiltered.tsv`](inst/gapminder-unfiltered.tsv): the larger dataset that, __when filtered__, yields [`gapminder.tsv`](inst/gapminder.tsv). Available via `library("gapminder"); gapminder_unfiltered`. I have NOT filtered for the years 1952, 1957, ..., 2007, and I retain countries with incomplete data.
+  * [`gapminder.tsv`](inst/gapminder.tsv): the same dataset available via `library("gapminder"); gapminder`
+  * [`gapminder-unfiltered.tsv`](inst/gapminder-unfiltered.tsv): the larger dataseta vailable via `library("gapminder"); gapminder_unfiltered`.
+  * [`continent-colors.tsv`](inst/continent-colors.tsv) and [`country-colors.tsv`](inst/country-colors.tsv): color schemes
   
-The main package dataset has `r nlevels(gapminder$country)` * 12 = `r nrow(gapminder)` rows, whereas the larger, unfiltered dataset contains `r nrow(gapminder_unfiltered)` rows, almost twice as much data.
-
-Here in this repo, these delimited files can be found:
+Here in the source, these delimited files can be found:
 
   * in the [`inst/`](inst) sub-directory
   
@@ -187,23 +177,6 @@ gap_bigger_tsv %>% # Bhutan IS here though! :)
   filter(country == "Bhutan")
 ```
 
-## Color schemes
-
-Continent specific colors were selected from `RColorBrewer` palettes.
-
-These were then expanded into a larger set of colors to cover all the countries in each continent, where darker colors correspond to countries with a larger population.
-
-The schemes are provided as named character vectors:
-
-```{r}
-head(country_colors, 4)
-head(continent_colors)
-```
-
-and as tab delimited files: [`continent-colors.tsv`](inst/continent-colors.tsv) and [`country-colors.tsv`](inst/country-colors.tsv).
-
-The country scheme is available in this repo as [PNG](data-raw/gapminder-color-scheme-ggplot2.png) and [PDF](data-raw/gapminder-color-scheme-base.pdf).
-
-![](data-raw/gapminder-color-scheme-ggplot2.png)
+## License
 
 Gapminder's data is released under the Creative Commons Attribution 3.0 Unported license. See their [terms of use](https://docs.google.com/document/pub?id=1POd-pBMc5vDXAmxrpGjPLaCSDSWuxX6FLQgq5DhlUhM). 
