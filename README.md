@@ -3,9 +3,9 @@
 gapminder
 =========
 
-Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. This R data package provides the data as a data frame (as `tbl_df`, if you're using [`dplyr`](https://cran.r-project.org/web/packages/dplyr/index.html)) and in plain text delimited form. Package includes premade color schemes for the countries and continents.
+Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. This R data package provides the data as a data frame (as `tbl_df`, if you're using [`dplyr`](https://cran.r-project.org/web/packages/dplyr/index.html)) and in tab delimited form. Package includes premade color schemes for the countries and continents.
 
-This data.frame includes six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
+This data frame includes six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
 
 | variable  | meaning                  |
 |:----------|:-------------------------|
@@ -20,7 +20,7 @@ Per-capita GDP (Gross domestic product) is given in units of [international doll
 
 > \[...\] the international dollar is a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time
 
-In gapminder, the currency matches the US dollar in 2005.
+In `gapminder`, the currency matches the US dollar in 2005.
 
 ### Install and test drive
 
@@ -181,7 +181,7 @@ Data cleaning code cannot be clean. It's a sort of sin eater.
 </blockquote>
 The [`data-raw`](data-raw) directory contains all of the scripts used to extract the data from the Excel spreadsheets downloaded from [Gapminder](http://www.gapminder.org) in 2008 and 2009. All underlying and intermediate data is there as well, going back to the Excel files themselves.
 
-I explicitly use this package to teach data cleaning, so have refactored my old cleaning code into several scripts and also include compiled Markdown reports *(no Markdown yet; see [iss\#1](https://github.com/jennybc/gapminder/issues/1))*. In hindsight, I wouldn't necessarily clean it the same way again (and I would download more recent data!), but at this point there is great value in reproducing the data I've been using for ~5 years.
+I explicitly use this package to teach data cleaning, so have refactored my old cleaning code into several scripts and also include compiled Markdown report. In hindsight, I wouldn't necessarily clean it the same way again (and I would download more recent data!), but at this point there is great value in reproducing the data I've been using for ~5 years.
 
 ### Plain text delimited files
 
@@ -190,7 +190,7 @@ I make available two plain text, tab delimited `.tsv` files:
 -   [`gapminder.tsv`](inst/gapminder.tsv): the same dataset available via `library("gapminder"); gapminder`. Each of the 142 countries presents complete data for 12 years: 1952, 1957, ..., 2007.
 -   [`gapminder-unfiltered.tsv`](inst/gapminder-unfiltered.tsv): the larger dataset that, **when filtered**, yields [`gapminder.tsv`](inst/gapminder.tsv). In this file, I have NOT filtered for the years 1952, 1957, ..., 2007, I retain countries with incomplete data, and I did not impute data for China in 1952.
 
-The main package dataset has 142 \* 12 = 1704 rows, whereas the larger, unfiltered dataset contains 3312 rows, almost twice as much data.
+The main package dataset has 142 \* 12 = 1704 rows, whereas the larger, unfiltered dataset contains 3313 rows, almost twice as much data.
 
 Here in this repo, these delimited files can be found:
 
@@ -254,6 +254,8 @@ head(continent_colors)
 ##    Africa  Americas      Asia    Europe   Oceania 
 ## "#7F3B08" "#A50026" "#40004B" "#276419" "#313695"
 ```
+
+and as tab delimited files: [`continent-colors.tsv`](inst/continent-colors.tsv) and [`country-colors.tsv`](inst/country-colors.tsv).
 
 The country scheme is available in this repo as [PNG](data-raw/gapminder-color-scheme-ggplot2.png) and [PDF](data-raw/gapminder-color-scheme-base.pdf).
 
