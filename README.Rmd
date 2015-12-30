@@ -4,7 +4,7 @@ output:
     variant: markdown_github
 ---
 
-[![DOI](https://zenodo.org/badge/16122/jennybc/gapminder.svg)](http://dx.doi.org/10.5281/zenodo.21971) [![CRAN version](http://www.r-pkg.org/badges/version/gapminder)](https://cran.r-project.org/web/packages/gapminder/index.html) ![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
+[![DOI](https://zenodo.org/badge/16122/jennybc/gapminder.svg)](http://dx.doi.org/10.5281/zenodo.21971) [![CRAN version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder) ![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
 
 gapminder
 =========
@@ -13,7 +13,7 @@ gapminder
 knitr::opts_chunk$set(collapse = TRUE, dpi = 300)
 ```
 
-Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. This R data package provides the data as a data frame (as `tbl_df`, if you're using [`dplyr`](https://cran.r-project.org/web/packages/dplyr/index.html)) and in tab delimited form. Package includes premade color schemes for the countries and continents.
+Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. This R data package provides the data as a data frame (as `tbl_df`, if you're using [`dplyr`](http://cran.r-project.org/package=dplyr)) and in tab delimited form. Package includes premade color schemes for the countries and continents.
 
 This data frame includes six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
 
