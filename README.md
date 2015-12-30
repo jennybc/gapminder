@@ -18,7 +18,7 @@ The `gapminder` data frames include six variables, ([Gapminder.org documentation
 
 Per-capita GDP (Gross domestic product) is given in units of [international dollars](http://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar), "a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time" -- 2005, in this case.
 
-Package contains two data frames (of `tbl_df`s):
+Package contains two data frames (or `tbl_df`s):
 
 -   `gapminder`: 12 rows for each country (1952, 1955, ..., 2007). It's a subset of ...
 -   `gapminder_unfiltered`: more lightly filtered and therefore about twice as many rows.
@@ -173,7 +173,7 @@ The [`data-raw`](data-raw) directory contains the Excel spreadsheets downloaded 
 If you want to practice importing from file, various tab delimited files are included:
 
 -   [`gapminder.tsv`](inst/gapminder.tsv): the same dataset available via `library("gapminder"); gapminder`
--   [`gapminder-unfiltered.tsv`](inst/gapminder-unfiltered.tsv): the larger dataseta vailable via `library("gapminder"); gapminder_unfiltered`.
+-   [`gapminder-unfiltered.tsv`](inst/gapminder-unfiltered.tsv): the larger dataset available via `library("gapminder"); gapminder_unfiltered`.
 -   [`continent-colors.tsv`](inst/continent-colors.tsv) and [`country-colors.tsv`](inst/country-colors.tsv): color schemes
 
 Here in the source, these delimited files can be found:
