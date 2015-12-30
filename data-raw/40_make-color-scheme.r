@@ -53,11 +53,11 @@ country_colors_df %>% str()
 
 #' write these to file
 write_tsv(country_colors_df, "40_country-colors.tsv")
-file.copy(from =  "country-colors.tsv",
+file.copy(from =  "40_country-colors.tsv",
           to = file.path("..", "inst", "country-colors.tsv"),
           overwrite = TRUE)
 write_tsv(continent_colors_df, "40_continent-colors.tsv")
-file.copy(from =  "continent-colors.tsv",
+file.copy(from =  "40_continent-colors.tsv",
           to = file.path("..", "inst", "continent-colors.tsv"),
           overwrite = TRUE)
 

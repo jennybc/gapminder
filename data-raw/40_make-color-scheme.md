@@ -88,24 +88,24 @@ write these to file
 
 ```r
 write_tsv(country_colors_df, "40_country-colors.tsv")
-file.copy(from =  "country-colors.tsv",
+file.copy(from =  "40_country-colors.tsv",
           to = file.path("..", "inst", "country-colors.tsv"),
           overwrite = TRUE)
 ```
 
 ```
-## [1] FALSE
+## [1] TRUE
 ```
 
 ```r
 write_tsv(continent_colors_df, "40_continent-colors.tsv")
-file.copy(from =  "continent-colors.tsv",
+file.copy(from =  "40_continent-colors.tsv",
           to = file.path("..", "inst", "continent-colors.tsv"),
           overwrite = TRUE)
 ```
 
 ```
-## [1] FALSE
+## [1] TRUE
 ```
 
 convert country and continent colors into named character vectors
@@ -222,5 +222,5 @@ ggsave("gapminder-color-scheme-ggplot2.png", p, height = 10, width = 7)
 ---
 title: "40_make-color-scheme.R"
 author: "jenny"
-date: "Tue Dec 29 22:58:27 2015"
+date: "Tue Dec 29 23:22:30 2015"
 ---

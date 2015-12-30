@@ -1,0 +1,143 @@
+country	color	continent
+Nigeria	#7F3B08	Africa
+Egypt	#833D07	Africa
+Ethiopia	#873F07	Africa
+Congo, Dem. Rep.	#8B4107	Africa
+South Africa	#8F4407	Africa
+Sudan	#934607	Africa
+Tanzania	#974807	Africa
+Kenya	#9B4A06	Africa
+Morocco	#9F4D06	Africa
+Algeria	#A34F06	Africa
+Uganda	#A75106	Africa
+Ghana	#AB5406	Africa
+Mozambique	#AF5606	Africa
+Madagascar	#B35806	Africa
+Cote d'Ivoire	#B75C07	Africa
+Cameroon	#BA5F08	Africa
+Burkina Faso	#BE6209	Africa
+Malawi	#C2650A	Africa
+Niger	#C5690B	Africa
+Angola	#C96C0C	Africa
+Zimbabwe	#CC6F0D	Africa
+Senegal	#D0730F	Africa
+Mali	#D37610	Africa
+Zambia	#D77911	Africa
+Tunisia	#DA7D12	Africa
+Chad	#DE8013	Africa
+Guinea	#E18417	Africa
+Somalia	#E3881D	Africa
+Rwanda	#E58C23	Africa
+Burundi	#E79029	Africa
+Benin	#EA952F	Africa
+Sierra Leone	#EC9936	Africa
+Libya	#EE9D3C	Africa
+Togo	#F1A142	Africa
+Eritrea	#F3A548	Africa
+Central African Republic	#F5AA4E	Africa
+Congo, Rep.	#F7AE55	Africa
+Mauritania	#FAB25B	Africa
+Liberia	#FCB661	Africa
+Namibia	#FDBA67	Africa
+Lesotho	#FDBD6E	Africa
+Gambia	#FDC074	Africa
+Botswana	#FDC37B	Africa
+Guinea-Bissau	#FDC681	Africa
+Gabon	#FDCA88	Africa
+Mauritius	#FDCD8E	Africa
+Swaziland	#FDD095	Africa
+Reunion	#FDD39B	Africa
+Comoros	#FDD6A2	Africa
+Equatorial Guinea	#FDD9A8	Africa
+Djibouti	#FDDCAF	Africa
+Sao Tome and Principe	#FEE0B6	Africa
+United States	#A50026	Americas
+Brazil	#AD0826	Americas
+Mexico	#B51026	Americas
+Colombia	#BE1826	Americas
+Argentina	#C62026	Americas
+Canada	#CE2726	Americas
+Peru	#D73027	Americas
+Venezuela	#DB3A2B	Americas
+Chile	#E04430	Americas
+Ecuador	#E54E35	Americas
+Guatemala	#EA5839	Americas
+Cuba	#EF623E	Americas
+Dominican Republic	#F46D43	Americas
+Bolivia	#F57748	Americas
+Haiti	#F7824D	Americas
+Honduras	#F88D51	Americas
+El Salvador	#FA9856	Americas
+Paraguay	#FBA35B	Americas
+Nicaragua	#FDAE61	Americas
+Costa Rica	#FDB668	Americas
+Puerto Rico	#FDBE70	Americas
+Uruguay	#FDC778	Americas
+Panama	#FDCF80	Americas
+Jamaica	#FDD788	Americas
+Trinidad and Tobago	#FEE090	Americas
+China	#40004B	Asia
+India	#460552	Asia
+Indonesia	#4D0A59	Asia
+Pakistan	#540F60	Asia
+Bangladesh	#5B1567	Asia
+Japan	#611A6D	Asia
+Philippines	#681F75	Asia
+Vietnam	#6F247B	Asia
+Iran	#762A83	Asia
+Thailand	#7A3288	Asia
+Korea, Rep.	#7E3B8C	Asia
+Myanmar	#834492	Asia
+Afghanistan	#874D96	Asia
+Nepal	#8B559B	Asia
+Saudi Arabia	#905EA1	Asia
+Iraq	#9467A5	Asia
+Malaysia	#9970AB	Asia
+Korea, Dem. Rep.	#9E76AF	Asia
+Taiwan	#A37DB3	Asia
+Yemen, Rep.	#A883B8	Asia
+Sri Lanka	#AD8ABD	Asia
+Syria	#B291C1	Asia
+Cambodia	#B797C6	Asia
+Hong Kong, China	#BC9ECA	Asia
+Israel	#C2A5CF	Asia
+Jordan	#C6AAD2	Asia
+Singapore	#CBB0D5	Asia
+West Bank and Gaza	#CFB6D8	Asia
+Lebanon	#D4BCDB	Asia
+Oman	#D9C2DE	Asia
+Mongolia	#DDC8E1	Asia
+Kuwait	#E2CEE4	Asia
+Bahrain	#E7D4E8	Asia
+Germany	#276419	Europe
+Turkey	#2C6A1A	Europe
+France	#31701B	Europe
+United Kingdom	#36771C	Europe
+Italy	#3B7D1D	Europe
+Spain	#41831E	Europe
+Poland	#468A1F	Europe
+Romania	#4B9020	Europe
+Netherlands	#529624	Europe
+Greece	#599C28	Europe
+Hungary	#5FA12D	Europe
+Portugal	#66A731	Europe
+Belgium	#6DAD35	Europe
+Serbia	#74B33A	Europe
+Czech Republic	#7BB93E	Europe
+Sweden	#82BE45	Europe
+Bulgaria	#8AC34F	Europe
+Austria	#92C858	Europe
+Switzerland	#9ACD62	Europe
+Denmark	#A2D26B	Europe
+Slovak Republic	#AAD875	Europe
+Finland	#B2DD7E	Europe
+Norway	#B9E188	Europe
+Bosnia and Herzegovina	#BFE492	Europe
+Croatia	#C6E79C	Europe
+Ireland	#CCE9A7	Europe
+Albania	#D2ECB1	Europe
+Slovenia	#D9EFBB	Europe
+Montenegro	#DFF2C5	Europe
+Iceland	#E6F5D0	Europe
+Australia	#313695	Oceania
+New Zealand	#4575B4	Oceania
