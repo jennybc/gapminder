@@ -16,8 +16,5 @@ BugReports: https://github.com/jennybc/gapminder/issues
 Suggests:
     dplyr,
     ggplot2,
-    readr,
-    readxl,
-    tidyr,
     testthat
 RoxygenNote: 5.0.1.9000
