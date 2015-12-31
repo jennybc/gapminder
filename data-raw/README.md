@@ -3,7 +3,7 @@ I explicitly use this package to teach data cleaning, so have refactored my old 
 Cleaning history
 
 -   2010: The first time I documented cleaning this dataset. I started with delimited files I exported from Excel. Not present in this repo.
--   2014: I re-cleaned the data and (mostly) forced myself to pull it straight out of the spreadsheets. Used the `gdata` package. It was kind of painful, due to encoding and other issues. See these scripts here *link to version of this directory at initial CRAN release*.
+-   2014: I re-cleaned the data and (mostly) forced myself to pull it straight out of the spreadsheets. Used the `gdata` package. It was kind of painful, due to encoding and other issues. See the scripts in this state in [v0.1.0](https://github.com/jennybc/gapminder/tree/v0.1.0/data-raw).
 -   2015: I revisited the cleaning and switched to `readxl`. This was much less painful. Present day.
 
 [01\_extract-from-excel-pop.R](01_extract-from-excel-pop.R) | [01\_extract-from-excel-pop.md](01_extract-from-excel-pop.md) | [01\_pop.tsv](01_pop.tsv)
