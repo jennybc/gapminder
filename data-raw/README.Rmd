@@ -1,0 +1,57 @@
+---
+title: "Data cleaning"
+output:
+  md_document:
+    variant: markdown_github
+---
+
+I explicitly use this package to teach data cleaning, so have refactored my old cleaning code into several scripts. I also include them as compiled Markdown reports. Caveat: these are realistic cleaning scripts! Not the highly polished ones people write with 20/20 hindsight :) I wouldn't necessarily clean it the same way again (and I would download more recent data!), but at this point there is great value in reproducing the data I've been using for ~5 years.
+
+Cleaning history
+  
+  * 2010: The first time I documented cleaning this dataset. I started with
+  delimited files I exported from Excel. Not present in this repo.
+  * 2014: I re-cleaned the data and (mostly) forced myself to pull it straight
+  out of the spreadsheets. Used the `gdata` package. It was kind of painful, due to encoding and other issues. See these scripts here *link to version of this directory at initial CRAN release*.
+  * 2015: I revisited the cleaning and switched to `readxl`. This was much less painful. Present day.
+
+```{r results='asis', echo = FALSE}
+## 2015-12-30 I'm using dev version of almost everything but don't
+## want to clutter the README with session_info()
+## here the important versions
+##  purrr      * 0.1.0.9000 2015-12-29 Github (hadley/purrr@13ba73a)   
+##  tidyr      * 0.3.1.9000 2015-12-31 Github (hadley/tidyr@f85cdf4) 
+suppressPackageStartupMessages(library(dplyr))
+library(stringr)
+suppressPackageStartupMessages(library(purrr))
+library(tidyr)
+
+f <- list.files()
+x <- f %>%
+  str_split_fixed("_", n = 2) %>% 
+  tbl_df() %>% 
+  set_names(c("script","leftovers")) %>% 
+  bind_cols(data_frame(f))
+x <- x %>% 
+  filter(script %>% str_detect("^[0-9]+")) %>% 
+  mutate(ext = leftovers %>% tolower() %>% tools::file_ext()) %>% 
+  filter(ext %>% str_detect("r|md|tsv"))
+y <- x %>% nest(- script)
+mdlink <- function(x) paste0("[", x, "](", x, ")")
+jfun <- function(z) {
+  r_script <- z$f[z$ext == "r"] %>% mdlink()
+  notebook <- z$f[z$ext == "md"] %>% mdlink()
+  tsv <- z$f[z$ext == "tsv"] %>% mdlink() %>% paste(collapse = " ")
+  text <- paste(r_script, notebook, tsv, sep = " | ")
+  text
+}
+y$data %>% 
+  map_chr(jfun) %>% 
+  paste(collapse = "\n\n") %>% 
+  cat()
+```
+
+```{r eval = FALSE, echo = FALSE}
+devtools::session_info()
+```
+
