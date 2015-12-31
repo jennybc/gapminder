@@ -15,7 +15,7 @@ Cleaning history
   out of the spreadsheets. Used the `gdata` package. It was kind of painful, due to encoding and other issues. See the scripts in this state in [v0.1.0](https://github.com/jennybc/gapminder/tree/v0.1.0/data-raw).
   * 2015: I revisited the cleaning and switched to `readxl`. This was much less painful. Present day.
 
-```{r results='asis', echo = FALSE}
+```{r results='asis', echo = FALSE, warning = FALSE}
 ## 2015-12-30 I'm using dev version of almost everything but don't
 ## want to clutter the README with session_info()
 ## here the important versions
@@ -27,18 +27,16 @@ suppressPackageStartupMessages(library(purrr))
 library(tidyr)
 library(knitr)
 
-f <- list.files()
-x <- f %>%
-  str_split_fixed("[_\\.]", n = 3) %>% 
-  tbl_df() %>% 
-  set_names(c("script", "slug", "ext")) %>% 
-  bind_cols(data_frame(f))
+fls <- list.files()
+x <- data_frame(fls) %>%
+ separate(fls, c("script", "slug", "ext"), "[_\\.]", remove = FALSE)
 x <- x %>% 
   filter(script %>% str_detect("^[0-9]+"),
          ext %>% str_detect("R|r|md|tsv")) %>% 
   select(-slug)
 y <- x %>%
-  nest(-script)
+  group_by(script) %>% 
+  nest()
 
 collapse_md_links <- function(x) {
   x %>% {
@@ -47,9 +45,9 @@ collapse_md_links <- function(x) {
     paste(collapse = ", ")
 }
 jfun <- function(z) {
-  data_frame(r_script = z$f[z$ext == "R"] %>% collapse_md_links(),
-             notebook = z$f[z$ext == "md"] %>% collapse_md_links(),
-             tsv = z$f[z$ext == "tsv"] %>% collapse_md_links())
+  data_frame(r_script = z$fls[z$ext == "R"] %>% collapse_md_links(),
+             notebook = z$fls[z$ext == "md"] %>% collapse_md_links(),
+             tsv = z$fls[z$ext == "tsv"] %>% collapse_md_links())
 }
 
 y$data %>% 
