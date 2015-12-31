@@ -25,30 +25,36 @@ suppressPackageStartupMessages(library(dplyr))
 library(stringr)
 suppressPackageStartupMessages(library(purrr))
 library(tidyr)
+library(knitr)
 
 f <- list.files()
 x <- f %>%
-  str_split_fixed("_", n = 2) %>% 
+  str_split_fixed("[_\\.]", n = 3) %>% 
   tbl_df() %>% 
-  set_names(c("script","leftovers")) %>% 
+  set_names(c("script", "slug", "ext")) %>% 
   bind_cols(data_frame(f))
 x <- x %>% 
-  filter(script %>% str_detect("^[0-9]+")) %>% 
-  mutate(ext = leftovers %>% tolower() %>% tools::file_ext()) %>% 
-  filter(ext %>% str_detect("r|md|tsv"))
-y <- x %>% nest(- script)
-mdlink <- function(x) paste0("[", x, "](", x, ")")
-jfun <- function(z) {
-  r_script <- z$f[z$ext == "r"] %>% mdlink()
-  notebook <- z$f[z$ext == "md"] %>% mdlink()
-  tsv <- z$f[z$ext == "tsv"] %>% mdlink() %>% paste(collapse = " ")
-  text <- paste(r_script, notebook, tsv, sep = " | ")
-  text
+  filter(script %>% str_detect("^[0-9]+"),
+         ext %>% str_detect("R|r|md|tsv")) %>% 
+  select(-slug)
+y <- x %>%
+  nest(-script)
+
+collapse_md_links <- function(x) {
+  x %>% {
+    paste0("[", ., "](", ., ")")
+    } %>% 
+    paste(collapse = ", ")
 }
+jfun <- function(z) {
+  data_frame(r_script = z$f[z$ext == "R"] %>% collapse_md_links(),
+             notebook = z$f[z$ext == "md"] %>% collapse_md_links(),
+             tsv = z$f[z$ext == "tsv"] %>% collapse_md_links())
+}
+
 y$data %>% 
-  map_chr(jfun) %>% 
-  paste(collapse = "\n\n") %>% 
-  cat()
+  map_df(jfun) %>% 
+  kable()
 ```
 
 ```{r eval = FALSE, echo = FALSE}
