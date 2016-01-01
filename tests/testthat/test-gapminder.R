@@ -13,7 +13,7 @@ test_that("China imputation is not stupid", {
 test_that("data objects are unchanged", {
   
   expect_equal_to_reference(gapminder, "gapminder.rds")
-  expect_equal_to_reference(gapminder, "gapminder_unfiltered.rds")
+  expect_equal_to_reference(gapminder_unfiltered, "gapminder_unfiltered.rds")
   expect_equal_to_reference(country_colors, "country_colors.rds")
   expect_equal_to_reference(continent_colors, "continent_colors.rds")
   
