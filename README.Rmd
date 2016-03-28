@@ -1,7 +1,5 @@
 ---
-output:
-  md_document:
-    variant: markdown_github
+output: github_document
 ---
 
 [![DOI](https://zenodo.org/badge/16122/jennybc/gapminder.svg)](http://dx.doi.org/10.5281/zenodo.21971) [![CRAN version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder) ![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)

@@ -1,3 +1,4 @@
+
 [![DOI](https://zenodo.org/badge/16122/jennybc/gapminder.svg)](http://dx.doi.org/10.5281/zenodo.21971) [![CRAN version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder) ![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
 
 gapminder
@@ -71,7 +72,7 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
 ```
 
-![](README_files/figure-markdown_github/test-drive-1.png) 
+![](README_files/figure-markdown_github/test-drive-1.png)
 
 ### Color schemes for countries and continents
 
@@ -113,7 +114,7 @@ ggplot(subset(gapminder, continent != "Oceania"),
 ## instead.
 ```
 
-![](README_files/figure-markdown_github/demo-country-colors-ggplot2-1.png) 
+![](README_files/figure-markdown_github/demo-country-colors-ggplot2-1.png)
 
 ### How to use color scheme in base graphics
 
@@ -133,7 +134,7 @@ plot(lifeExp ~ gdpPercap, gap_with_colors,
      bg = gap_with_colors$cc[keepers])
 ```
 
-![](README_files/figure-markdown_github/demo-country-colors-base-1.png) 
+![](README_files/figure-markdown_github/demo-country-colors-base-1.png)
 
 ### What is `gapminder` good for?
 

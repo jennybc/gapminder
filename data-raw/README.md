@@ -1,3 +1,6 @@
+Data cleaning
+================
+
 I explicitly use this package to teach data cleaning, so have refactored my old cleaning code into several scripts. I also include them as compiled Markdown reports. Caveat: these are realistic cleaning scripts! Not the highly polished ones people write with 20/20 hindsight :) I wouldn't necessarily clean it the same way again (and I would download more recent data!), but at this point there is great value in reproducing the data I've been using for ~5 years.
 
 Cleaning history
