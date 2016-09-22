@@ -1,5 +1,8 @@
 # gapminder 0.2.0.9000
 
+* Import tibble, so the data frames print compactly, even if tibble isn't
+explicitly loaded.
+
 # gapminder 0.2.0
 
   * Added the `tbl_df` class to the `gapminder` data frame, which is advantageous for users of the `dplyr` package.

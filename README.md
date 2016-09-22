@@ -4,7 +4,7 @@
 gapminder
 =========
 
-Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. This R data package provides the data as a data frame (or `tbl_df`, if you're using [`dplyr`](http://cran.r-project.org/package=dplyr)) and in tab delimited form. Includes premade color schemes for the countries and continents.
+Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. The main object in this package is the `gapminder` data frame or "tibble". There are other goodies, such as the data in tab delimited form, a larger unfiltered dataset, and premade color schemes for the countries and continents.
 
 The `gapminder` data frames include six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
 
@@ -19,7 +19,7 @@ The `gapminder` data frames include six variables, ([Gapminder.org documentation
 
 Per-capita GDP (Gross domestic product) is given in units of [international dollars](http://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar), "a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time" -- 2005, in this case.
 
-Package contains two data frames (or `tbl_df`s):
+Package contains two data frames or tibbles:
 
 -   `gapminder`: 12 rows for each country (1952, 1955, ..., 2007). It's a subset of ...
 -   `gapminder_unfiltered`: more lightly filtered and therefore about twice as many rows.
@@ -56,10 +56,9 @@ gapminder %>%
     filter(year == 2007) %>%
     group_by(continent) %>%
     summarise(lifeExp = median(lifeExp))
-## Source: local data frame [5 x 2]
-## 
+## # A tibble: 5 × 2
 ##   continent lifeExp
-##      (fctr)   (dbl)
+##      <fctr>   <dbl>
 ## 1    Africa 52.9265
 ## 2  Americas 72.8990
 ## 3      Asia 72.3960
