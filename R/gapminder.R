@@ -10,7 +10,9 @@
 #'   \item{year}{ranges from 1952 to 2007 in increments of 5 years}
 #'   \item{lifeExp}{life expectancy at birth, in years}
 #'   \item{pop}{population}
-#'   \item{gdpPercap}{GDP per capita (US$, inflation-adjusted)}
+#'   \item{gdpPercap}{GDP per capita}
+#'   \item{isoChar}{ISO alpha-3 country code}
+#'   \item{isoNum}{ISO numeric-3 country code}
 #'   }
 #'   
 #' The supplemental data frame \code{\link{gapminder_unfiltered}} was not
