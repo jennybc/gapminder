@@ -3,7 +3,7 @@
 #' Excerpt of the Gapminder data on life expectancy, GDP per capita, and
 #' population by country.
 #' 
-#' @format The main data frame \code{gapminder} has 1704 rows and 6 variables:
+#' @format The main data frame \code{gapminder} has 1704 rows and 8 variables:
 #' \describe{ 
 #'   \item{country}{factor with 142 levels}
 #'   \item{continent}{factor with 5 levels}
