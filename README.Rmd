@@ -32,6 +32,8 @@ Package contains two data frames or tibbles:
 
   * `gapminder`: 12 rows for each country (1952, 1955, ..., 2007). It's a subset of ...
   * `gapminder_unfiltered`: more lightly filtered and therefore about twice as many rows.
+  
+**Note: this package exists for the purpose of teaching and making code examples. It is an excerpt of data found in specific spreadsheets on Gapminder.org circa 2010. It is not a definitive source of socioeconomic data and I don't update it. Use other data sources if it's important to have the current best estimate of these statistics.**
 
 ### Install and test drive
 

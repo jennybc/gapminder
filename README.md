@@ -24,6 +24,8 @@ Package contains two data frames or tibbles:
 -   `gapminder`: 12 rows for each country (1952, 1955, ..., 2007). It's a subset of ...
 -   `gapminder_unfiltered`: more lightly filtered and therefore about twice as many rows.
 
+**Note: this package exists for the purpose of teaching and making code examples. It is an excerpt of data found in specific spreadsheets on Gapminder.org circa 2010. It is not a definitive source of socioeconomic data and I don't update it. Use other data sources if it's important to have the current best estimate of these statistics.**
+
 ### Install and test drive
 
 Install `gapminder` from CRAN:
@@ -56,7 +58,7 @@ gapminder %>%
     filter(year == 2007) %>%
     group_by(continent) %>%
     summarise(lifeExp = median(lifeExp))
-## # A tibble: 5 × 2
+## # A tibble: 5 x 2
 ##   continent lifeExp
 ##      <fctr>   <dbl>
 ## 1    Africa 52.9265
@@ -71,7 +73,7 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
 ```
 
-![](README_files/figure-markdown_github/test-drive-1.png)
+![](README_files/figure-markdown_github-ascii_identifiers/test-drive-1.png)
 
 ### Color schemes for countries and continents
 
@@ -113,7 +115,7 @@ ggplot(subset(gapminder, continent != "Oceania"),
 ## instead.
 ```
 
-![](README_files/figure-markdown_github/demo-country-colors-ggplot2-1.png)
+![](README_files/figure-markdown_github-ascii_identifiers/demo-country-colors-ggplot2-1.png)
 
 ### How to use color scheme in base graphics
 
@@ -133,7 +135,7 @@ plot(lifeExp ~ gdpPercap, gap_with_colors,
      bg = gap_with_colors$cc[keepers])
 ```
 
-![](README_files/figure-markdown_github/demo-country-colors-base-1.png)
+![](README_files/figure-markdown_github-ascii_identifiers/demo-country-colors-base-1.png)
 
 ### What is `gapminder` good for?
 
