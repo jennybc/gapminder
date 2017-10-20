@@ -6,16 +6,18 @@ gapminder
 
 Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. The main object in this package is the `gapminder` data frame or "tibble". There are other goodies, such as the data in tab delimited form, a larger unfiltered dataset, and premade color schemes for the countries and continents.
 
-The `gapminder` data frames include six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
+The `gapminder` data frames include eight variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
 
-| variable  | meaning                  |
-|:----------|:-------------------------|
-| country   |                          |
-| continent |                          |
-| year      |                          |
-| lifeExp   | life expectancy at birth |
-| pop       | total population         |
-| gdpPercap | per-capita GDP           |
+| variable  | meaning                    |
+|:----------|:---------------------------|
+| country   |                            |
+| continent |                            |
+| year      |                            |
+| lifeExp   | life expectancy at birth   |
+| pop       | total population           |
+| gdpPercap | per-capita GDP             |
+| isoChar   | ISO alpha-3 country code   |
+| isoNum    | ISO numeric-3 country code |
 
 Per-capita GDP (Gross domestic product) is given in units of [international dollars](http://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar), "a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time" -- 2005, in this case.
 
@@ -66,7 +68,7 @@ gapminder %>%
 ## 3      Asia 72.3960
 ## 4    Europe 78.6085
 ## 5   Oceania 80.7195
-    
+
 library("ggplot2")
 ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_boxplot(outlier.colour = "hotpink") +
@@ -151,6 +153,8 @@ Description:
     -   `pop`: population
     -   `gdpPercap`: GDP per capita
     -   `lifeExp`: life expectancy
+    -   `isoChar`: ISO alpha-3 country code
+    -   `isoNum`: ISO numeric-3 country code
 
 There are 12 rows for each country in `gapminder`, i.e. complete data for 1952, 1955, ..., 2007.
 

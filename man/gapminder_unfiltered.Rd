@@ -4,7 +4,7 @@
 \name{gapminder_unfiltered}
 \alias{gapminder_unfiltered}
 \title{Gapminder data, unfiltered.}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 3313 rows and 6 columns.}
+\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 3313 rows and 8 columns.}
 \usage{
 gapminder_unfiltered
 }
