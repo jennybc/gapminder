@@ -153,24 +153,25 @@ The [`data-raw`](data-raw) directory contains the Excel spreadsheets downloaded 
 
 If you want to practice importing from file, various tab delimited files are included:
 
-  * [`gapminder.tsv`](inst/gapminder.tsv): the same dataset available via `library("gapminder"); gapminder`
-  * [`gapminder-unfiltered.tsv`](inst/gapminder-unfiltered.tsv): the larger dataset available via `library("gapminder"); gapminder_unfiltered`.
-  * [`continent-colors.tsv`](inst/continent-colors.tsv) and [`country-colors.tsv`](inst/country-colors.tsv): color schemes
+  * [`gapminder.tsv`](inst/extdata/gapminder.tsv): the same dataset available via `library("gapminder"); gapminder`
+  * [`gapminder-unfiltered.tsv`](inst/extdata/gapminder-unfiltered.tsv): the larger dataset available via `library("gapminder"); gapminder_unfiltered`.
+  * [`continent-colors.tsv`](inst/extdata/continent-colors.tsv) and [`country-colors.tsv`](inst/extdata/country-colors.tsv): color schemes
   
 Here in the source, these delimited files can be found:
 
-  * in the [`inst/`](inst) sub-directory
+  * in the [`inst/extdata/`](inst/extdata/) sub-directory
   
 Once you've installed the `gapminder` package they can be found locally and used like so:
   
 ```{r}
-gap_tsv <- system.file("gapminder.tsv", package = "gapminder")
+gap_tsv <- system.file("extdata", "gapminder.tsv", package = "gapminder")
 gap_tsv <- read.delim(gap_tsv)
 str(gap_tsv)
 gap_tsv %>% # Bhutan did not make the cut because data for only 8 years :(
   filter(country == "Bhutan")
 
-gap_bigger_tsv <- system.file("gapminder-unfiltered.tsv", package = "gapminder")
+gap_bigger_tsv <-
+  system.file("extdata", "gapminder-unfiltered.tsv", package = "gapminder")
 gap_bigger_tsv <- read.delim(gap_bigger_tsv)
 str(gap_bigger_tsv)
 gap_bigger_tsv %>% # Bhutan IS here though! :)
