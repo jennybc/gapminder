@@ -12,7 +12,8 @@ Depends:
 License: CC0
 LazyData: true
 URL: https://github.com/jennybc/gapminder,
-    http://www.gapminder.org/data/
+    http://www.gapminder.org/data/,
+    https://doi.org/10.5281/zenodo.594018
 BugReports: https://github.com/jennybc/gapminder/issues
 Suggests:
     dplyr,

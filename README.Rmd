@@ -1,8 +1,11 @@
 ---
-output: github_document
+output:
+  github_document:
+    toc: TRUE
 ---
 
-[![DOI](https://zenodo.org/badge/16122/jennybc/gapminder.svg)](http://dx.doi.org/10.5281/zenodo.21971) [![CRAN version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder) ![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.594018.svg)](https://doi.org/10.5281/zenodo.594018)
+[![CRAN version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder) ![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
 
 gapminder
 =========
@@ -51,12 +54,12 @@ devtools::install_github("jennybc/gapminder")
 
 Load it and test drive with some data aggregation and plotting:
 
-```{r test-drive}
+```{r test-drive, message = FALSE, warning = FALSE}
 library("gapminder")
 
 aggregate(lifeExp ~ continent, gapminder, median)
 
-suppressPackageStartupMessages(library("dplyr"))
+library("dplyr")
 gapminder %>%
     filter(year == 2007) %>%
     group_by(continent) %>%
@@ -181,3 +184,11 @@ gap_bigger_tsv %>% # Bhutan IS here though! :)
 ## License
 
 Gapminder's data is released under the Creative Commons Attribution 3.0 Unported license. See their [terms of use](https://docs.google.com/document/pub?id=1POd-pBMc5vDXAmxrpGjPLaCSDSWuxX6FLQgq5DhlUhM). 
+
+## Citation
+
+Run this command to get info on how to cite this package. If you've installed gapminder from CRAN, the year will be populated and populated correctly (unlike below).
+
+```{r warning = FALSE}
+citation("gapminder")
+```

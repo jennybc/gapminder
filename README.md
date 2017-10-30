@@ -1,5 +1,16 @@
 
-[![DOI](https://zenodo.org/badge/16122/jennybc/gapminder.svg)](http://dx.doi.org/10.5281/zenodo.21971) [![CRAN version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder) ![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
+-   [gapminder](#gapminder)
+    -   [Install and test drive](#install-and-test-drive)
+    -   [Color schemes for countries and continents](#color-schemes-for-countries-and-continents)
+    -   [How to use color scheme in `ggplot2`](#how-to-use-color-scheme-in-ggplot2)
+    -   [How to use color scheme in base graphics](#how-to-use-color-scheme-in-base-graphics)
+    -   [What is `gapminder` good for?](#what-is-gapminder-good-for)
+    -   [How this sausage was made](#how-this-sausage-was-made)
+    -   [Plain text delimited files](#plain-text-delimited-files)
+    -   [License](#license)
+    -   [Citation](#citation)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.594018.svg)](https://doi.org/10.5281/zenodo.594018) [![CRAN version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder) ![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
 
 gapminder
 =========
@@ -53,7 +64,7 @@ aggregate(lifeExp ~ continent, gapminder, median)
 ## 4    Europe 72.2410
 ## 5   Oceania 73.6650
 
-suppressPackageStartupMessages(library("dplyr"))
+library("dplyr")
 gapminder %>%
     filter(year == 2007) %>%
     group_by(continent) %>%
@@ -108,11 +119,9 @@ library("ggplot2")
 
 ggplot(subset(gapminder, continent != "Oceania"),
        aes(x = year, y = lifeExp, group = country, color = country)) +
-  geom_line(lwd = 1, show_guide = FALSE) + facet_wrap(~ continent) +
+  geom_line(lwd = 1, show.legend = FALSE) + facet_wrap(~ continent) +
   scale_color_manual(values = country_colors) +
   theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
-## Warning: `show_guide` has been deprecated. Please use `show.legend`
-## instead.
 ```
 
 ![](README_files/figure-markdown_github-ascii_identifiers/demo-country-colors-ggplot2-1.png)
@@ -174,18 +183,18 @@ The [`data-raw`](data-raw) directory contains the Excel spreadsheets downloaded 
 
 If you want to practice importing from file, various tab delimited files are included:
 
--   [`gapminder.tsv`](inst/gapminder.tsv): the same dataset available via `library("gapminder"); gapminder`
--   [`gapminder-unfiltered.tsv`](inst/gapminder-unfiltered.tsv): the larger dataset available via `library("gapminder"); gapminder_unfiltered`.
--   [`continent-colors.tsv`](inst/continent-colors.tsv) and [`country-colors.tsv`](inst/country-colors.tsv): color schemes
+-   [`gapminder.tsv`](inst/extdata/gapminder.tsv): the same dataset available via `library("gapminder"); gapminder`
+-   [`gapminder-unfiltered.tsv`](inst/extdata/gapminder-unfiltered.tsv): the larger dataset available via `library("gapminder"); gapminder_unfiltered`.
+-   [`continent-colors.tsv`](inst/extdata/continent-colors.tsv) and [`country-colors.tsv`](inst/extdata/country-colors.tsv): color schemes
 
 Here in the source, these delimited files can be found:
 
--   in the [`inst/`](inst) sub-directory
+-   in the [`inst/extdata/`](inst/extdata/) sub-directory
 
 Once you've installed the `gapminder` package they can be found locally and used like so:
 
 ``` r
-gap_tsv <- system.file("gapminder.tsv", package = "gapminder")
+gap_tsv <- system.file("extdata", "gapminder.tsv", package = "gapminder")
 gap_tsv <- read.delim(gap_tsv)
 str(gap_tsv)
 ## 'data.frame':    1704 obs. of  6 variables:
@@ -200,7 +209,8 @@ gap_tsv %>% # Bhutan did not make the cut because data for only 8 years :(
 ## [1] country   continent year      lifeExp   pop       gdpPercap
 ## <0 rows> (or 0-length row.names)
 
-gap_bigger_tsv <- system.file("gapminder-unfiltered.tsv", package = "gapminder")
+gap_bigger_tsv <-
+  system.file("extdata", "gapminder-unfiltered.tsv", package = "gapminder")
 gap_bigger_tsv <- read.delim(gap_bigger_tsv)
 str(gap_bigger_tsv)
 ## 'data.frame':    3313 obs. of  6 variables:
@@ -227,3 +237,29 @@ License
 -------
 
 Gapminder's data is released under the Creative Commons Attribution 3.0 Unported license. See their [terms of use](https://docs.google.com/document/pub?id=1POd-pBMc5vDXAmxrpGjPLaCSDSWuxX6FLQgq5DhlUhM).
+
+Citation
+--------
+
+Run this command to get info on how to cite this package. If you've installed gapminder from CRAN, the year will be populated and populated correctly (unlike below).
+
+``` r
+citation("gapminder")
+## 
+## To cite package 'gapminder' in publications use:
+## 
+##   Jennifer Bryan (NA). gapminder: Data from Gapminder.
+##   https://github.com/jennybc/gapminder,
+##   http://www.gapminder.org/data/,
+##   https://doi.org/10.5281/zenodo.594018.
+## 
+## A BibTeX entry for LaTeX users is
+## 
+##   @Manual{,
+##     title = {gapminder: Data from Gapminder},
+##     author = {Jennifer Bryan},
+##     note = {https://github.com/jennybc/gapminder,
+## http://www.gapminder.org/data/,
+## https://doi.org/10.5281/zenodo.594018},
+##   }
+```
