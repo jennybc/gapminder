@@ -1,7 +1,12 @@
-# gapminder 0.2.0.9000
+# gapminder 0.3.0
 
-* Import tibble, so the data frames print compactly, even if tibble isn't
-explicitly loaded.
+* Import `tibble::tibble()`, so tibble printing is used out of the box.
+
+* Moved delimited files for practicing data import into `inst/extdata/`. Therefore, these are now accessible after installation at, e.g., `system.file("extdata", "gapminder.tsv", package = "gapminder")`.
+
+* Clarify that this package is not maintained as a definitive data source, rather it's for making code examples and teaching. Stability is now very important.
+
+* Improved citability, e.g. added the "concept" DOI that links to a list of all version to DESCRIPTION and README. README also shows the use of `citation()`.
 
 # gapminder 0.2.0
 
