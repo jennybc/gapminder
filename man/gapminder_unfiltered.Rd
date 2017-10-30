@@ -14,4 +14,3 @@ The supplemental data frame \code{gapminder_unfiltered} was not filtered on
 documented in \code{\link{gapminder}}.
 }
 \keyword{datasets}
-

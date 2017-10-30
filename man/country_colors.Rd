@@ -2,8 +2,8 @@
 % Please edit documentation in R/country_colors.R
 \docType{data}
 \name{country_colors}
-\alias{continent_colors}
 \alias{country_colors}
+\alias{continent_colors}
 \title{Gapminder color schemes.}
 \format{Named character vectors giving country and continent colors:
 \describe{ 
@@ -73,4 +73,3 @@ ggplot(gap_bit, aes(x = gdpPercap, y = lifeExp, size = pop)) +
 \code{\link{gapminder}} for a description of the dataset
 }
 \keyword{datasets}
-

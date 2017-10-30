@@ -62,4 +62,3 @@ gapminder \%>\%
 \code{\link{country_colors}} for a nice color scheme for the countries
 }
 \keyword{datasets}
-
