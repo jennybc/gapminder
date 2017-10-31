@@ -3,7 +3,6 @@
 #' output: github_document
 #' ---
 
-library(plyr) ## OMG has a here() function! load first so here::here() masks
 library(here)
 library(gapminder)
 library(RColorBrewer)
@@ -144,7 +143,7 @@ with(df,
           y = ymid,
           labels = substr(country, 1, char_limit),
           cex = base_cex * cex/j_cex))
-mtext(continent_colors_df$continent, side = 3,
+mtext(continent_colors_df$continent, side = 1,
       line = -0.5, at = seq_len(length(continent_colors)) - 0.5)
 mtext(c("smallest\npop", "largest\npop"),
       side = 2, at = c(0.9, 0.1), las = 1)
