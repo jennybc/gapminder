@@ -14,6 +14,7 @@ gapminder
 knitr::opts_chunk$set(
   collapse = TRUE,
   dpi = 300,
+  out.width = "100%",
   comment = "#>",
   fig.path = "man/figures/README-"
 )
@@ -85,12 +86,14 @@ head(country_colors, 4)
 head(continent_colors)
 ```
 
-![](man/figures/gapminder-color-scheme-ggplot2.png)
+```{r echo = FALSE}
+knitr::include_graphics("man/figures/gapminder-color-scheme-ggplot2.png")
+```
 
 The country scheme is available in this repo as
 
   * [PNG](data-raw/gapminder-color-scheme-ggplot2.png) or [PDF](data-raw/gapminder-color-scheme-base.pdf)
-  * [`continent-colors.tsv`](inst/continent-colors.tsv) and [`country-colors.tsv`](inst/country-colors.tsv)
+  * [`continent-colors.tsv`](inst/extdata/continent-colors.tsv) and [`country-colors.tsv`](inst/extdata/country-colors.tsv)
 
 ### How to use color scheme in `ggplot2`
 

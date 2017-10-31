@@ -85,7 +85,7 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
 ```
 
-![](man/figures/README-test-drive-1.png)
+<img src="man/figures/README-test-drive-1.png" width="100%" />
 
 ### Color schemes for countries and continents
 
@@ -100,12 +100,12 @@ head(continent_colors)
 #> "#7F3B08" "#A50026" "#40004B" "#276419" "#313695"
 ```
 
-![](man/figures/gapminder-color-scheme-ggplot2.png)
+<img src="man/figures/gapminder-color-scheme-ggplot2.png" width="100%" />
 
 The country scheme is available in this repo as
 
 -   [PNG](data-raw/gapminder-color-scheme-ggplot2.png) or [PDF](data-raw/gapminder-color-scheme-base.pdf)
--   [`continent-colors.tsv`](inst/continent-colors.tsv) and [`country-colors.tsv`](inst/country-colors.tsv)
+-   [`continent-colors.tsv`](inst/extdata/continent-colors.tsv) and [`country-colors.tsv`](inst/extdata/country-colors.tsv)
 
 ### How to use color scheme in `ggplot2`
 
@@ -125,7 +125,7 @@ ggplot(subset(gapminder, continent != "Oceania"),
   theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
 ```
 
-![](man/figures/README-demo-country-colors-ggplot2-1.png)
+<img src="man/figures/README-demo-country-colors-ggplot2-1.png" width="100%" />
 
 ### How to use color scheme in base graphics
 
@@ -145,7 +145,7 @@ plot(lifeExp ~ gdpPercap, gap_with_colors,
      bg = gap_with_colors$cc[keepers])
 ```
 
-![](man/figures/README-demo-country-colors-base-1.png)
+<img src="man/figures/README-demo-country-colors-base-1.png" width="100%" />
 
 ### ISO 3166-1 country codes
 
