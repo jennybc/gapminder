@@ -57,26 +57,26 @@ Load it and test drive with some data aggregation and plotting:
 library("gapminder")
 
 aggregate(lifeExp ~ continent, gapminder, median)
-##   continent lifeExp
-## 1    Africa 47.7920
-## 2  Americas 67.0480
-## 3      Asia 61.7915
-## 4    Europe 72.2410
-## 5   Oceania 73.6650
+#>   continent lifeExp
+#> 1    Africa 47.7920
+#> 2  Americas 67.0480
+#> 3      Asia 61.7915
+#> 4    Europe 72.2410
+#> 5   Oceania 73.6650
 
 library("dplyr")
 gapminder %>%
     filter(year == 2007) %>%
     group_by(continent) %>%
     summarise(lifeExp = median(lifeExp))
-## # A tibble: 5 x 2
-##   continent lifeExp
-##      <fctr>   <dbl>
-## 1    Africa 52.9265
-## 2  Americas 72.8990
-## 3      Asia 72.3960
-## 4    Europe 78.6085
-## 5   Oceania 80.7195
+#> # A tibble: 5 x 2
+#>   continent lifeExp
+#>      <fctr>   <dbl>
+#> 1    Africa 52.9265
+#> 2  Americas 72.8990
+#> 3      Asia 72.3960
+#> 4    Europe 78.6085
+#> 5   Oceania 80.7195
     
 library("ggplot2")
 ggplot(gapminder, aes(x = continent, y = lifeExp)) +
@@ -84,7 +84,7 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
 ```
 
-![](README_files/figure-markdown_github-ascii_identifiers/test-drive-1.png)
+![](man/figures/README-test-drive-1.png)
 
 ### Color schemes for countries and continents
 
@@ -92,11 +92,11 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
 
 ``` r
 head(country_colors, 4)
-##          Nigeria            Egypt         Ethiopia Congo, Dem. Rep. 
-##        "#7F3B08"        "#833D07"        "#873F07"        "#8B4107"
+#>          Nigeria            Egypt         Ethiopia Congo, Dem. Rep. 
+#>        "#7F3B08"        "#833D07"        "#873F07"        "#8B4107"
 head(continent_colors)
-##    Africa  Americas      Asia    Europe   Oceania 
-## "#7F3B08" "#A50026" "#40004B" "#276419" "#313695"
+#>    Africa  Americas      Asia    Europe   Oceania 
+#> "#7F3B08" "#A50026" "#40004B" "#276419" "#313695"
 ```
 
 ![](data-raw/gapminder-color-scheme-ggplot2.png)
@@ -124,7 +124,7 @@ ggplot(subset(gapminder, continent != "Oceania"),
   theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
 ```
 
-![](README_files/figure-markdown_github-ascii_identifiers/demo-country-colors-ggplot2-1.png)
+![](man/figures/README-demo-country-colors-ggplot2-1.png)
 
 ### How to use color scheme in base graphics
 
@@ -144,7 +144,7 @@ plot(lifeExp ~ gdpPercap, gap_with_colors,
      bg = gap_with_colors$cc[keepers])
 ```
 
-![](README_files/figure-markdown_github-ascii_identifiers/demo-country-colors-base-1.png)
+![](man/figures/README-demo-country-colors-base-1.png)
 
 ### What is `gapminder` good for?
 
@@ -197,40 +197,40 @@ Once you've installed the `gapminder` package they can be found locally and used
 gap_tsv <- system.file("extdata", "gapminder.tsv", package = "gapminder")
 gap_tsv <- read.delim(gap_tsv)
 str(gap_tsv)
-## 'data.frame':    1704 obs. of  6 variables:
-##  $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
-##  $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
-##  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
-##  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
-##  $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
-##  $ gdpPercap: num  779 821 853 836 740 ...
+#> 'data.frame':    1704 obs. of  6 variables:
+#>  $ country  : Factor w/ 142 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
+#>  $ continent: Factor w/ 5 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
+#>  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+#>  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
+#>  $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
+#>  $ gdpPercap: num  779 821 853 836 740 ...
 gap_tsv %>% # Bhutan did not make the cut because data for only 8 years :(
   filter(country == "Bhutan")
-## [1] country   continent year      lifeExp   pop       gdpPercap
-## <0 rows> (or 0-length row.names)
+#> [1] country   continent year      lifeExp   pop       gdpPercap
+#> <0 rows> (or 0-length row.names)
 
 gap_bigger_tsv <-
   system.file("extdata", "gapminder-unfiltered.tsv", package = "gapminder")
 gap_bigger_tsv <- read.delim(gap_bigger_tsv)
 str(gap_bigger_tsv)
-## 'data.frame':    3313 obs. of  6 variables:
-##  $ country  : Factor w/ 187 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
-##  $ continent: Factor w/ 6 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
-##  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
-##  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
-##  $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
-##  $ gdpPercap: num  779 821 853 836 740 ...
+#> 'data.frame':    3313 obs. of  6 variables:
+#>  $ country  : Factor w/ 187 levels "Afghanistan",..: 1 1 1 1 1 1 1 1 1 1 ...
+#>  $ continent: Factor w/ 6 levels "Africa","Americas",..: 3 3 3 3 3 3 3 3 3 3 ...
+#>  $ year     : int  1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+#>  $ lifeExp  : num  28.8 30.3 32 34 36.1 ...
+#>  $ pop      : int  8425333 9240934 10267083 11537966 13079460 14880372 12881816 13867957 16317921 22227415 ...
+#>  $ gdpPercap: num  779 821 853 836 740 ...
 gap_bigger_tsv %>% # Bhutan IS here though! :)
   filter(country == "Bhutan")
-##   country continent year lifeExp     pop gdpPercap
-## 1  Bhutan      Asia 1972  41.837 1087991  807.6226
-## 2  Bhutan      Asia 1977  44.708 1205659  816.3102
-## 3  Bhutan      Asia 1982  47.872 1333704  946.8130
-## 4  Bhutan      Asia 1987  50.717 1490857 1494.2901
-## 5  Bhutan      Asia 1992  54.471 1673428 1904.1795
-## 6  Bhutan      Asia 1997  58.929 1876236 2561.5077
-## 7  Bhutan      Asia 2002  63.458 2094176 3256.0193
-## 8  Bhutan      Asia 2007  65.625 2327849 4744.6400
+#>   country continent year lifeExp     pop gdpPercap
+#> 1  Bhutan      Asia 1972  41.837 1087991  807.6226
+#> 2  Bhutan      Asia 1977  44.708 1205659  816.3102
+#> 3  Bhutan      Asia 1982  47.872 1333704  946.8130
+#> 4  Bhutan      Asia 1987  50.717 1490857 1494.2901
+#> 5  Bhutan      Asia 1992  54.471 1673428 1904.1795
+#> 6  Bhutan      Asia 1997  58.929 1876236 2561.5077
+#> 7  Bhutan      Asia 2002  63.458 2094176 3256.0193
+#> 8  Bhutan      Asia 2007  65.625 2327849 4744.6400
 ```
 
 License
@@ -245,21 +245,21 @@ Run this command to get info on how to cite this package. If you've installed ga
 
 ``` r
 citation("gapminder")
-## 
-## To cite package 'gapminder' in publications use:
-## 
-##   Jennifer Bryan (NA). gapminder: Data from Gapminder.
-##   https://github.com/jennybc/gapminder,
-##   http://www.gapminder.org/data/,
-##   https://doi.org/10.5281/zenodo.594018.
-## 
-## A BibTeX entry for LaTeX users is
-## 
-##   @Manual{,
-##     title = {gapminder: Data from Gapminder},
-##     author = {Jennifer Bryan},
-##     note = {https://github.com/jennybc/gapminder,
-## http://www.gapminder.org/data/,
-## https://doi.org/10.5281/zenodo.594018},
-##   }
+#> 
+#> To cite package 'gapminder' in publications use:
+#> 
+#>   Jennifer Bryan (NA). gapminder: Data from Gapminder.
+#>   https://github.com/jennybc/gapminder,
+#>   http://www.gapminder.org/data/,
+#>   https://doi.org/10.5281/zenodo.594018.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {gapminder: Data from Gapminder},
+#>     author = {Jennifer Bryan},
+#>     note = {https://github.com/jennybc/gapminder,
+#> http://www.gapminder.org/data/,
+#> https://doi.org/10.5281/zenodo.594018},
+#>   }
 ```

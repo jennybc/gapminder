@@ -11,7 +11,12 @@ gapminder
 =========
 
 ```{r setup, include = FALSE, cache = FALSE}
-knitr::opts_chunk$set(collapse = TRUE, dpi = 300)
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  dpi = 300,
+  comment = "#>",
+  fig.path = "man/figures/README-"
+)
 ## so jittered figs don't always appear to be changed
 set.seed(1)
 ```
