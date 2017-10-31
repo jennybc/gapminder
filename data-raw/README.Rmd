@@ -14,20 +14,15 @@ Cleaning history
   * 2015: I revisited the cleaning and switched to `readxl`. This was much less painful. Present day.
 
 ```{r results='asis', echo = FALSE, warning = FALSE}
-## 2015-12-30 I'm using dev version of almost everything but don't
-## want to clutter the README with session_info()
-## here the important versions
-##  purrr      * 0.1.0.9000 2015-12-29 Github (hadley/purrr@13ba73a)   
-##  tidyr      * 0.3.1.9000 2015-12-31 Github (hadley/tidyr@f85cdf4) 
-suppressPackageStartupMessages(library(dplyr))
+library(tidyverse)
 library(stringr)
-suppressPackageStartupMessages(library(purrr))
-library(tidyr)
 library(knitr)
+library(here)
 
-fls <- list.files()
-x <- data_frame(fls) %>%
- separate(fls, c("script", "slug", "ext"), "[_\\.]", remove = FALSE)
+fls <- list.files(here::here("data-raw"), full.names = TRUE)
+x <- tibble(fls) %>%
+  mutate(fls_basename = basename(fls)) %>% 
+  separate(fls_basename, c("script", "slug", "ext"), "[_\\.]")
 x <- x %>% 
   filter(script %>% str_detect("^[0-9]+"),
          ext %>% str_detect("R|r|md|tsv")) %>% 
@@ -43,9 +38,11 @@ collapse_md_links <- function(x) {
     paste(collapse = ", ")
 }
 jfun <- function(z) {
-  data_frame(r_script = z$fls[z$ext == "R"] %>% collapse_md_links(),
-             notebook = z$fls[z$ext == "md"] %>% collapse_md_links(),
-             tsv = z$fls[z$ext == "tsv"] %>% collapse_md_links())
+  tibble(
+    r_script = z$fls[z$ext == "R"] %>% collapse_md_links(),
+    notebook = z$fls[z$ext == "md"] %>% collapse_md_links(),
+    tsv = z$fls[z$ext == "tsv"] %>% collapse_md_links()
+  )
 }
 
 y$data %>% 
@@ -56,4 +53,3 @@ y$data %>%
 ```{r eval = FALSE, echo = FALSE}
 devtools::session_info()
 ```
-
