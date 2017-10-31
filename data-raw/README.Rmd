@@ -19,8 +19,7 @@ library(stringr)
 library(knitr)
 library(here)
 
-fls <- list.files(here::here("data-raw"), full.names = TRUE)
-x <- tibble(fls) %>%
+x <- tibble(fls = list.files(here("data-raw"))) %>%
   mutate(fls_basename = basename(fls)) %>% 
   separate(fls_basename, c("script", "slug", "ext"), "[_\\.]")
 x <- x %>% 
