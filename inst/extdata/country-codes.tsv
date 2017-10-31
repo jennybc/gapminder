@@ -1,0 +1,188 @@
+country	iso_alpha	iso_num
+Afghanistan	AFG	4
+Albania	ALB	8
+Algeria	DZA	12
+Angola	AGO	24
+Argentina	ARG	32
+Armenia	ARM	51
+Aruba	ABW	533
+Australia	AUS	36
+Austria	AUT	40
+Azerbaijan	AZE	31
+Bahamas	BHS	44
+Bahrain	BHR	48
+Bangladesh	BGD	50
+Barbados	BRB	52
+Belarus	BLR	112
+Belgium	BEL	56
+Belize	BLZ	84
+Benin	BEN	204
+Bhutan	BTN	64
+Bolivia	BOL	68
+Bosnia and Herzegovina	BIH	70
+Botswana	BWA	72
+Brazil	BRA	76
+Brunei	BRN	96
+Bulgaria	BGR	100
+Burkina Faso	BFA	854
+Burundi	BDI	108
+Cambodia	KHM	116
+Cameroon	CMR	120
+Canada	CAN	124
+Cape Verde	CPV	132
+Central African Republic	CAF	140
+Chad	TCD	148
+Chile	CHL	152
+China	CHN	156
+Colombia	COL	170
+Comoros	COM	174
+Congo, Dem. Rep.	COD	180
+Congo, Rep.	COG	178
+Costa Rica	CRI	188
+Cote d'Ivoire	CIV	384
+Croatia	HRV	191
+Cuba	CUB	192
+Cyprus	CYP	196
+Czech Republic	CZE	203
+Denmark	DNK	208
+Djibouti	DJI	262
+Dominican Republic	DOM	214
+Ecuador	ECU	218
+Egypt	EGY	818
+El Salvador	SLV	222
+Equatorial Guinea	GNQ	226
+Eritrea	ERI	232
+Estonia	EST	233
+Ethiopia	ETH	231
+Fiji	FJI	242
+Finland	FIN	246
+France	FRA	250
+French Guiana	GUF	254
+French Polynesia	PYF	258
+Gabon	GAB	266
+Gambia	GMB	270
+Georgia	GEO	268
+Germany	DEU	276
+Ghana	GHA	288
+Greece	GRC	300
+Grenada	GRD	308
+Guadeloupe	GLP	312
+Guatemala	GTM	320
+Guinea	GIN	324
+Guinea-Bissau	GNB	624
+Guyana	GUY	328
+Haiti	HTI	332
+Honduras	HND	340
+Hong Kong, China	HKG	344
+Hungary	HUN	348
+Iceland	ISL	352
+India	IND	356
+Indonesia	IDN	360
+Iran	IRN	364
+Iraq	IRQ	368
+Ireland	IRL	372
+Israel	ISR	376
+Italy	ITA	380
+Jamaica	JAM	388
+Japan	JPN	392
+Jordan	JOR	400
+Kazakhstan	KAZ	398
+Kenya	KEN	404
+Korea, Dem. Rep.	KOR	410
+Korea, Rep.	KOR	410
+Kuwait	KWT	414
+Latvia	LVA	428
+Lebanon	LBN	422
+Lesotho	LSO	426
+Liberia	LBR	430
+Libya	LBY	434
+Lithuania	LTU	440
+Luxembourg	LUX	442
+Macao, China	MAC	446
+Madagascar	MDG	450
+Malawi	MWI	454
+Malaysia	MYS	458
+Maldives	MDV	462
+Mali	MLI	466
+Malta	MLT	470
+Martinique	MTQ	474
+Mauritania	MRT	478
+Mauritius	MUS	480
+Mexico	MEX	484
+Micronesia, Fed. Sts.	FSM	583
+Moldova	MDA	498
+Mongolia	MNG	496
+Montenegro	MNE	499
+Morocco	MAR	504
+Mozambique	MOZ	508
+Myanmar	MMR	104
+Namibia	NAM	516
+Nepal	NPL	524
+Netherlands	NLD	528
+Netherlands Antilles	ANT	530
+New Caledonia	NCL	540
+New Zealand	NZL	554
+Nicaragua	NIC	558
+Niger	NER	562
+Nigeria	NGA	566
+Norway	NOR	578
+Oman	OMN	512
+Pakistan	PAK	586
+Panama	PAN	591
+Papua New Guinea	PNG	598
+Paraguay	PRY	600
+Peru	PER	604
+Philippines	PHL	608
+Poland	POL	616
+Portugal	PRT	620
+Puerto Rico	PRI	630
+Qatar	QAT	634
+Reunion	REU	638
+Romania	ROU	642
+Russia	RUS	643
+Rwanda	RWA	646
+Samoa	WSM	882
+Sao Tome and Principe	STP	678
+Saudi Arabia	SAU	682
+Senegal	SEN	686
+Serbia	SRB	688
+Sierra Leone	SLE	694
+Singapore	SGP	702
+Slovak Republic	SVK	703
+Slovenia	SVN	705
+Solomon Islands	SLB	90
+Somalia	SOM	706
+South Africa	ZAF	710
+Spain	ESP	724
+Sri Lanka	LKA	144
+Sudan	SDN	736
+Suriname	SUR	740
+Swaziland	SWZ	748
+Sweden	SWE	752
+Switzerland	CHE	756
+Syria	SYR	760
+Taiwan	TWN	158
+Tajikistan	TJK	762
+Tanzania	TZA	834
+Thailand	THA	764
+Timor-Leste	TLS	626
+Togo	TGO	768
+Tonga	TON	776
+Trinidad and Tobago	TTO	780
+Tunisia	TUN	788
+Turkey	TUR	792
+Turkmenistan	TKM	795
+Uganda	UGA	800
+Ukraine	UKR	804
+United Arab Emirates	ARE	784
+United Kingdom	GBR	826
+United States	USA	840
+Uruguay	URY	858
+Uzbekistan	UZB	860
+Vanuatu	VUT	548
+Venezuela	VEN	862
+Vietnam	VNM	704
+West Bank and Gaza	PSE	275
+Yemen, Rep.	YEM	887
+Zambia	ZMB	894
+Zimbabwe	ZWE	716
