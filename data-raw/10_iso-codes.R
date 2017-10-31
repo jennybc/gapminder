@@ -15,8 +15,8 @@ country_codes <- country_codes %>%
   mutate(iso_alpha = countrycode(country, "country.name", "iso3c"),
          iso_num = countrycode(country, "country.name", "iso3n"))
 
-anyNA(code_df$iso_alpha)
-anyNA(code_df$iso_num)
+anyNA(country_codes$iso_alpha)
+anyNA(country_codes$iso_num)
 
 save(
   country_codes,
@@ -24,5 +24,10 @@ save(
 )
 write_tsv(
   country_codes,
-  path = here("inst", "extdata", "country-codes.tsv")
+  path = here("data-raw", "10_iso-codes.tsv")
+)
+file.copy(
+  from = here("data-raw", "10_iso-codes.tsv"),
+  to = here("inst", "extdata", "country-codes.tsv"),
+  overwrite = TRUE
 )
