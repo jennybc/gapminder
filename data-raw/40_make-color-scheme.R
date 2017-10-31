@@ -1,75 +1,104 @@
 #' ---
 #' date: "`r format(Sys.Date())`"
-#' output:
-#'   html_document:
-#'     keep_md: TRUE
+#' output: github_document
 #' ---
 
+library(plyr) ## OMG has a here() function! load first so here::here() masks
+library(here)
 library(gapminder)
 library(RColorBrewer)
-library(plyr)
-suppressPackageStartupMessages(library(dplyr))
-library(ggplot2)
-library(readr)
+library(tidyverse)
+library(forcats)
 
 #' map continent and country into colors
+
+by_continent <- gapminder %>% 
+  group_by(continent) %>% 
+  nest() %>% 
+  arrange(continent)
+
+f <- function(x) {
+  x[["country"]] %>% 
+    fct_drop() %>% 
+    fct_reorder(x[["pop"]], fun = max) %>% 
+    levels() %>% 
+    rev()
+}
+
+by_continent <- by_continent %>% 
+  mutate(country = map(data, f)) %>% 
+  select(-data)  %>% 
+  mutate(n_cty = lengths(country))
 
 #' choose a range of colors for each continent
 display.brewer.all(type = "div")
 
 color_anchors_by_continent <-
-  list(Africa = brewer.pal(n = 11, 'PuOr')[1:5], # orange/brown/gold
-       Americas = brewer.pal(n = 11, 'RdYlBu')[1:5],     # red
-       Asia = brewer.pal(n = 11, 'PRGn')[1:5],           # purple
-       Europe = brewer.pal(n = 11, 'PiYG')[11:7],        # green
-       Oceania = brewer.pal(n = 11, 'RdYlBu')[11:10])    # blue
+  list(Africa = brewer.pal(n = 11, 'PuOr')[1:5],          # orange/brown/gold
+       Americas = brewer.pal(n = 11, 'RdYlBu')[1:5],      # red
+       Asia = brewer.pal(n = 11, 'PRGn')[1:5],            # purple
+       Europe = brewer.pal(n = 11, 'PiYG')[11:7],         # green
+       Oceania = brewer.pal(n = 11, 'RdYlBu')[11:10]) %>% # blue
+  enframe(name = "continent", value = "anchors")
 
-sorted_countries_by_continent <-
-  dlply(gapminder, ~ continent, function(x) {
-    x <- x %>% droplevels()
-    reorder(x$country, x$pop, max) %>% levels() %>% rev()
-  })
+by_continent <- by_continent %>% 
+  left_join(color_anchors_by_continent)
 
-#' expand anchors into palette that covers all countries in a continent
-country_colors_df <-
-  mapply(function(anchors, countries) {
-    color_fun <- colorRampPalette(anchors)
-    data_frame(country = countries,
-               color = color_fun(length(countries)))
-  },
-  color_anchors_by_continent,
-  sorted_countries_by_continent,
-  SIMPLIFY = FALSE)
-country_colors_df <- bind_rows(country_colors_df)
-country_colors_df <- country_colors_df %>%
-  mutate(continent = gapminder$continent[match(country, gapminder$country)])
-country_colors_df %>% str()
+f <- function(anchors, n) {
+  color_fun <- colorRampPalette(anchors)
+  color_fun(n)
+}
 
-#' color schemes and country count for continents
-(continent_colors_df <- country_colors_df %>%
-   group_by(continent) %>%
-   summarize(n_cty = n_distinct(country),
-             color = color[1]))
+by_continent <- by_continent %>% 
+  mutate(color = map2(anchors, n_cty, f)) %>% 
+  select(-anchors)
 
-#' write these to file
-write_tsv(country_colors_df, "40_country-colors.tsv")
-file.copy(from =  "40_country-colors.tsv",
-          to = file.path("..", "inst", "country-colors.tsv"),
-          overwrite = TRUE)
-write_tsv(continent_colors_df, "40_continent-colors.tsv")
-file.copy(from =  "40_continent-colors.tsv",
-          to = file.path("..", "inst", "continent-colors.tsv"),
-          overwrite = TRUE)
+#' color scheme and country count for continents
+(continent_colors_df <- by_continent %>%
+    select(-country) %>% 
+    mutate(color = map_chr(color, 1)))
+write_tsv(
+  continent_colors_df,
+  here("data-raw", "40_continent-colors.tsv")
+)
+file.copy(
+  from = here("data-raw", "40_continent-colors.tsv"),
+  to = here("inst", "extdata", "continent-colors.tsv"),
+  overwrite = TRUE
+)
+
+country_colors_df <- by_continent %>% 
+  unnest() %>% 
+  select(country, color, continent)
+  
+write_tsv(
+  country_colors_df,
+  here("data-raw", "40_country-colors.tsv")
+)
+file.copy(
+  from =  here("data-raw", "40_country-colors.tsv"),
+  to = here("inst", "extdata", "country-colors.tsv"),
+  overwrite = TRUE
+)
 
 #' convert country and continent colors into named character vectors
-country_colors <- country_colors_df$color
-names(country_colors) <- country_colors_df$country
-continent_colors <- continent_colors_df$color
-names(continent_colors) <- continent_colors_df$continent
+country_colors <- country_colors_df %>% 
+  select(-continent) %>% 
+  deframe()
+
+continent_colors <- continent_colors_df %>% 
+  select(-n_cty) %>% 
+  deframe()
 
 ## save for the package
-save(country_colors, file = file.path("..","data", "country_colors.rdata"))
-save(continent_colors, file = file.path("..", "data", "continent_colors.rdata"))
+save(
+  country_colors,
+  file = here("data", "country_colors.rdata")
+)
+save(
+  continent_colors,
+  file = here("data", "continent_colors.rdata")
+)
 
 #' make a nice figure of my color scheme. try to use as few packages as possible
 #' here so can repurpose as example
@@ -118,6 +147,9 @@ par(op)
 dev.print(pdf,
           "gapminder-color-scheme-base.pdf",
           width = 7, height = 10)
+file.copy(from = "gapminder-color-scheme-base.pdf",
+          to = here("man", "figures", "gapminder-color-scheme-base.pdf"),
+          overwrite = TRUE)
 
 #' ggplot2
 p <- ggplot(df, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
@@ -141,3 +173,6 @@ p <- ggplot(df, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
 p
 
 ggsave("gapminder-color-scheme-ggplot2.png", p, height = 10, width = 7)
+file.copy(from = "gapminder-color-scheme-ggplot2.png",
+          to = here("man", "figures", "gapminder-color-scheme-ggplot2.png"),
+          overwrite = TRUE)
