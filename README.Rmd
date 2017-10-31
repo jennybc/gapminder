@@ -85,7 +85,7 @@ head(country_colors, 4)
 head(continent_colors)
 ```
 
-![](data-raw/gapminder-color-scheme-ggplot2.png)
+![](man/figures/gapminder-color-scheme-ggplot2.png)
 
 The country scheme is available in this repo as
 

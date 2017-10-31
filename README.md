@@ -99,7 +99,7 @@ head(continent_colors)
 #> "#7F3B08" "#A50026" "#40004B" "#276419" "#313695"
 ```
 
-![](data-raw/gapminder-color-scheme-ggplot2.png)
+![](man/figures/gapminder-color-scheme-ggplot2.png)
 
 The country scheme is available in this repo as
 
