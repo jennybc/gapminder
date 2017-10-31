@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 set.seed(1)
 ```
 
-Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. The main object in this package is the `gapminder` data frame or "tibble". There are other goodies, such as the data in tab delimited form, a larger unfiltered dataset, and premade color schemes for the countries and continents.
+Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. The main object in this package is the `gapminder` data frame or "tibble". There are other goodies, such as the data in tab delimited form, a larger unfiltered dataset, premade color schemes for the countries and continents, and ISO 3166-1 country codes.
 
 The `gapminder` data frames include six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
 
@@ -36,7 +36,7 @@ The `gapminder` data frames include six variables, ([Gapminder.org documentation
 
 Per-capita GDP (Gross domestic product) is given in units of [international dollars](http://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar), "a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time" -- 2005, in this case.
 
-Package contains two data frames or tibbles:
+Package contains two main data frames or tibbles:
 
   * `gapminder`: 12 rows for each country (1952, 1955, ..., 2007). It's a subset of ...
   * `gapminder_unfiltered`: more lightly filtered and therefore about twice as many rows.
@@ -126,6 +126,19 @@ plot(lifeExp ~ gdpPercap, gap_with_colors,
      subset = keepers, log = "x", pch = 21,
      cex = sqrt(gap_with_colors$pop[keepers]/pi)/1500,
      bg = gap_with_colors$cc[keepers])
+```
+
+### ISO 3166-1 country codes
+
+The `country_codes` data frame provides ISO 3166-1 country codes for all the countries in the `gapminder` and `gapminder_unfiltered` data frames. This can be used to practice joining or merging.
+
+```{r message = FALSE}
+library(dplyr)
+
+gapminder %>%
+ filter(year == 2007, country %in% c("Kenya", "Peru", "Syria")) %>%
+ select(country, continent) %>% 
+ left_join(country_codes)
 ```
 
 ### What is `gapminder` good for?

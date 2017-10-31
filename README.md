@@ -4,6 +4,7 @@
     -   [Color schemes for countries and continents](#color-schemes-for-countries-and-continents)
     -   [How to use color scheme in `ggplot2`](#how-to-use-color-scheme-in-ggplot2)
     -   [How to use color scheme in base graphics](#how-to-use-color-scheme-in-base-graphics)
+    -   [ISO 3166-1 country codes](#iso-3166-1-country-codes)
     -   [What is `gapminder` good for?](#what-is-gapminder-good-for)
     -   [How this sausage was made](#how-this-sausage-was-made)
     -   [Plain text delimited files](#plain-text-delimited-files)
@@ -15,7 +16,7 @@
 gapminder
 =========
 
-Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. The main object in this package is the `gapminder` data frame or "tibble". There are other goodies, such as the data in tab delimited form, a larger unfiltered dataset, and premade color schemes for the countries and continents.
+Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. The main object in this package is the `gapminder` data frame or "tibble". There are other goodies, such as the data in tab delimited form, a larger unfiltered dataset, premade color schemes for the countries and continents, and ISO 3166-1 country codes.
 
 The `gapminder` data frames include six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
 
@@ -30,7 +31,7 @@ The `gapminder` data frames include six variables, ([Gapminder.org documentation
 
 Per-capita GDP (Gross domestic product) is given in units of [international dollars](http://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar), "a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time" -- 2005, in this case.
 
-Package contains two data frames or tibbles:
+Package contains two main data frames or tibbles:
 
 -   `gapminder`: 12 rows for each country (1952, 1955, ..., 2007). It's a subset of ...
 -   `gapminder_unfiltered`: more lightly filtered and therefore about twice as many rows.
@@ -145,6 +146,27 @@ plot(lifeExp ~ gdpPercap, gap_with_colors,
 ```
 
 ![](man/figures/README-demo-country-colors-base-1.png)
+
+### ISO 3166-1 country codes
+
+The `country_codes` data frame provides ISO 3166-1 country codes for all the countries in the `gapminder` and `gapminder_unfiltered` data frames. This can be used to practice joining or merging.
+
+``` r
+library(dplyr)
+
+gapminder %>%
+ filter(year == 2007, country %in% c("Kenya", "Peru", "Syria")) %>%
+ select(country, continent) %>% 
+ left_join(country_codes)
+#> Warning: Column `country` joining factor and character vector, coercing
+#> into character vector
+#> # A tibble: 3 x 4
+#>   country continent iso_alpha iso_num
+#>     <chr>    <fctr>     <chr>   <int>
+#> 1   Kenya    Africa       KEN     404
+#> 2    Peru  Americas       PER     604
+#> 3   Syria      Asia       SYR     760
+```
 
 ### What is `gapminder` good for?
 

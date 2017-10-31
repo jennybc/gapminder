@@ -1,5 +1,7 @@
 # gapminder 0.3.0
 
+* `country_codes` is a new data frame that contains ISO 3166-1 country codes (#16 @jrebane).
+
 * Import `tibble::tibble()`, so tibble printing is used out of the box.
 
 * Moved delimited files for practicing data import into `inst/extdata/`. Therefore, these are now accessible after installation at, e.g., `system.file("extdata", "gapminder.tsv", package = "gapminder")`.
