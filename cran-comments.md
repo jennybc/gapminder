@@ -2,15 +2,16 @@
 
 This is an update of a data package. In this version I:
 
-* Add the tbl_df class to the gapminder data frame provided by this package, which is advantageous for users of the dplyr package.
-* Change the population variable in the main data frame from numeric to integer.
-* Add a less filtered version of the original data as a new data frame.
+* Added a data frame containing country codes.
+* Made sure all figures included from the README are actually present in the
+  package (vs. only on GitHub).
+* Moved supplementary data files from inst/ to inst/extdata/.
 
 ## Test environments
 
-* local OS X install, R 3.2.3
+* local OS X install, R 3.4.1
 * win-builder (devel and release)
 
 ## R CMD check results
 
-There were no ERRORs or WARNINGs or NOTEs.
+There is one NOTE about me changing my email from jenny@stat.ubc.ca to jenny@rstudio.com.
