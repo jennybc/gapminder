@@ -169,7 +169,7 @@ p <- ggplot(df, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
            label = df$country %>% substr(1, char_limit),
            cex = df$cex) + 
   scale_x_continuous(breaks = seq_len(length(continent_colors)) - 0.5,
-                     labels = levels(continent_colors_df$continent)) +
+                     labels = levels(df$continent)) +
   scale_y_continuous(breaks = c(0.9, 0.1),
                      labels = c("smallest\npop", "largest\npop")) +
   theme_bw() +
