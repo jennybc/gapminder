@@ -106,17 +106,23 @@ save(
 #' prep work
 char_limit <- 12  # truncate country names
 j_cex <- 4        # cex for ggplot2
-y_boundaries <- lapply(continent_colors_df$n_cty, function(x) {
-  seq(from = 0, to = 1, length = x + 1)
-})
-df <- data_frame( # utility data.frame with rectangle boundaries
+y_boundaries <- map(
+  continent_colors_df$n_cty,
+  ~ seq(0, 1, length.out = .x + 1)
+)
+
+df <- tibble( # utility data.frame with rectangle boundaries
   xmax = rep(seq_len(length(continent_colors)),
              sapply(y_boundaries, length) - 1),
   xmin = xmax - 1,
   ymin = unlist(lapply(y_boundaries, function(y) head(y, -1))),
   ymax = unlist(lapply(y_boundaries, function(y) y[-1])),
-  ymid = (ymin + ymax)/2)
-df <- data.frame(df, country_colors_df, cex = j_cex)
+  ymid = (ymin + ymax)/2
+)
+df <- df %>%
+  bind_cols(country_colors_df) %>% 
+  mutate(cex = j_cex,
+         continent = factor(continent))
 df$cex[df$continent == "Africa"] <- j_cex * 0.75
 
 #' base R graphics
@@ -144,12 +150,16 @@ mtext(c("smallest\npop", "largest\npop"),
       side = 2, at = c(0.9, 0.1), las = 1)
 par(op)
 
-dev.print(pdf,
-          "gapminder-color-scheme-base.pdf",
-          width = 7, height = 10)
-file.copy(from = "gapminder-color-scheme-base.pdf",
-          to = here("man", "figures", "gapminder-color-scheme-base.pdf"),
-          overwrite = TRUE)
+dev.print(
+  pdf,
+  here("data-raw", "gapminder-color-scheme-base.pdf"),
+  width = 7, height = 10
+)
+file.copy(
+  from = here("data-raw", "gapminder-color-scheme-base.pdf"),
+  to = here("man", "figures", "gapminder-color-scheme-base.pdf"),
+  overwrite = TRUE
+)
 
 #' ggplot2
 p <- ggplot(df, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
@@ -172,7 +182,13 @@ p <- ggplot(df, aes(xmin = xmin, xmax = xmax, ymin = ymin, ymax = ymax)) +
         axis.title = element_blank())
 p
 
-ggsave("gapminder-color-scheme-ggplot2.png", p, height = 10, width = 7)
-file.copy(from = "gapminder-color-scheme-ggplot2.png",
-          to = here("man", "figures", "gapminder-color-scheme-ggplot2.png"),
-          overwrite = TRUE)
+ggsave(
+  here("data-raw", "gapminder-color-scheme-ggplot2.png"),
+  p,
+  height = 10, width = 7
+)
+file.copy(
+  from = here("data-raw", "gapminder-color-scheme-ggplot2.png"),
+  to = here("man", "figures", "gapminder-color-scheme-ggplot2.png"),
+  overwrite = TRUE
+)
