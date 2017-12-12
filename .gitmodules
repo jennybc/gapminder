@@ -1,0 +1,6 @@
+[submodule "data-raw/ddf--gapminder--systema_globalis"]
+	path = data-raw/ddf--gapminder--systema_globalis
+	url = https://github.com/open-numbers/ddf--gapminder--systema_globalis
+[submodule "data-raw/countries"]
+	path = data-raw/countries
+	url = https://github.com/mledoze/countries
