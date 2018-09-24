@@ -8,6 +8,10 @@ library(here)
 library(gapminder)
 library(tidyverse)
 
+conflicted::conflict_prefer("filter", "dplyr")
+
+packageVersion("countrycode")
+
 country_codes <- tibble(
   country = levels(gapminder_unfiltered$country)
 )
@@ -15,8 +19,26 @@ country_codes <- country_codes %>%
   mutate(iso_alpha = countrycode(country, "country.name", "iso3c"),
          iso_num = countrycode(country, "country.name", "iso3n"))
 
-anyNA(country_codes$iso_alpha)
-anyNA(country_codes$iso_num)
+country_codes %>% 
+  filter(is.na(iso_alpha) | is.na(iso_num))
+
+## Netherlands Antilles is no longer a country and, apparently, countrycode
+## v1.0.0 now reflects that
+## Add it back to reflect reality during the years spanned by gapminder
+netherlands_antilles <- country_codes$country == "Netherlands Antilles"
+country_codes$iso_alpha[netherlands_antilles] <- "ANT"
+country_codes$iso_num[netherlands_antilles] <- 530
+
+## Sudan's numeric country code changed when South Sudan split off in 2011
+## apparently, countrycode v1.0.0 now reflects that
+## Add it back to reflect reality during the years spanned by gapminder
+sudan <- country_codes$country == "Sudan"
+country_codes$iso_num[sudan] <- 736
+
+## manually correct codes for North Korea (Korea, Dem. Rep.)
+north_korea <- country_codes$country == "Korea, Dem. Rep."
+country_codes$iso_alpha[north_korea] <- "PRK"
+country_codes$iso_num[north_korea] <- 408
 
 save(
   country_codes,
