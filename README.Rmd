@@ -171,7 +171,7 @@ Visualization of the temporal trends in life expectancy, by country, is particul
 
 <blockquote class="twitter-tweet" lang="en"><p>Data cleaning code cannot be clean. It&#39;s a sort of sin eater.</p>&mdash; Stat Fact (@StatFact) <a href="https://twitter.com/StatFact/status/492753200190341120">July 25, 2014</a></blockquote>
 
-The [`data-raw`](data-raw) directory contains the Excel spreadsheets downloaded from [Gapminder](http://www.gapminder.org) in 2008 and 2009 and all the scripts necessary to create everything in this package, in raw and "compiled notebook" form.
+The [`data-raw`](data-raw/) directory contains the Excel spreadsheets downloaded from [Gapminder](http://www.gapminder.org) in 2008 and 2009 and all the scripts necessary to create everything in this package, in raw and "compiled notebook" form.
 
 ### Plain text delimited files
 
