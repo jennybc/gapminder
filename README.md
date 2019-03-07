@@ -10,6 +10,7 @@
     -   [Plain text delimited files](#plain-text-delimited-files)
     -   [License](#license)
     -   [Citation](#citation)
+    
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.594018.svg)](https://doi.org/10.5281/zenodo.594018)
 [![CRAN
 version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder)
