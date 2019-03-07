@@ -1,22 +1,27 @@
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.594018.svg)](https://doi.org/10.5281/zenodo.594018)
-[![CRAN
-version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder)
-![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
+-   [gapminder](#gapminder)
+    -   [Install and test drive](#install-and-test-drive)
+    -   [Color schemes for countries and continents](#color-schemes-for-countries-and-continents)
+    -   [How to use color scheme in `ggplot2`](#how-to-use-color-scheme-in-ggplot2)
+    -   [How to use color scheme in base graphics](#how-to-use-color-scheme-in-base-graphics)
+    -   [ISO 3166-1 country codes](#iso-3166-1-country-codes)
+    -   [What is `gapminder` good for?](#what-is-gapminder-good-for)
+    -   [How this sausage was made](#how-this-sausage-was-made)
+    -   [Plain text delimited files](#plain-text-delimited-files)
+    -   [License](#license)
+    -   [Citation](#citation)
 
-# gapminder
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.594018.svg)](https://doi.org/10.5281/zenodo.594018) [![CRAN version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder) ![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
 
-Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. The
-main object in this package is the `gapminder` data frame or “tibble”.
-There are other goodies, such as the data in tab delimited form, a
-larger unfiltered dataset, premade color schemes for the countries and
-continents, and ISO 3166-1 country codes.
+gapminder
+=========
 
-The `gapminder` data frames include six variables, ([Gapminder.org
-documentation page](http://www.gapminder.org/data/documentation/)):
+Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. The main object in this package is the `gapminder` data frame or "tibble". There are other goodies, such as the data in tab delimited form, a larger unfiltered dataset, premade color schemes for the countries and continents, and ISO 3166-1 country codes.
+
+The `gapminder` data frames include six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
 
 | variable  | meaning                  |
-| :-------- | :----------------------- |
+|:----------|:-------------------------|
 | country   |                          |
 | continent |                          |
 | year      |                          |
@@ -24,25 +29,14 @@ documentation page](http://www.gapminder.org/data/documentation/)):
 | pop       | total population         |
 | gdpPercap | per-capita GDP           |
 
-Per-capita GDP (Gross domestic product) is given in units of
-[international
-dollars](http://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar), “a
-hypothetical unit of currency that has the same purchasing power parity
-that the U.S. dollar had in the United States at a given point in time”
-– 2005, in this case.
+Per-capita GDP (Gross domestic product) is given in units of [international dollars](http://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar), "a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time" -- 2005, in this case.
 
 Package contains two main data frames or tibbles:
 
-  - `gapminder`: 12 rows for each country (1952, 1955, …, 2007). It’s a
-    subset of …
-  - `gapminder_unfiltered`: more lightly filtered and therefore about
-    twice as many rows.
+-   `gapminder`: 12 rows for each country (1952, 1955, ..., 2007). It's a subset of ...
+-   `gapminder_unfiltered`: more lightly filtered and therefore about twice as many rows.
 
-**Note: this package exists for the purpose of teaching and making code
-examples. It is an excerpt of data found in specific spreadsheets on
-Gapminder.org circa 2010. It is not a definitive source of socioeconomic
-data and I don’t update it. Use other data sources if it’s important to
-have the current best estimate of these statistics.**
+**Note: this package exists for the purpose of teaching and making code examples. It is an excerpt of data found in specific spreadsheets on Gapminder.org circa 2010. It is not a definitive source of socioeconomic data and I don't update it. Use other data sources if it's important to have the current best estimate of these statistics.**
 
 ### Install and test drive
 
@@ -78,12 +72,12 @@ gapminder %>%
     summarise(lifeExp = median(lifeExp))
 #> # A tibble: 5 x 2
 #>   continent lifeExp
-#>   <fct>       <dbl>
-#> 1 Africa       52.9
-#> 2 Americas     72.9
-#> 3 Asia         72.4
-#> 4 Europe       78.6
-#> 5 Oceania      80.7
+#>      <fctr>   <dbl>
+#> 1    Africa 52.9265
+#> 2  Americas 72.8990
+#> 3      Asia 72.3960
+#> 4    Europe 78.6085
+#> 5   Oceania 80.7195
     
 library("ggplot2")
 ggplot(gapminder, aes(x = continent, y = lifeExp)) +
@@ -95,9 +89,7 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
 
 ### Color schemes for countries and continents
 
-`country_colors` and `continent_colors` are provided as character
-vectors where elements are hex colors and the names are countries or
-continents.
+`country_colors` and `continent_colors` are provided as character vectors where elements are hex colors and the names are countries or continents.
 
 ``` r
 head(country_colors, 4)
@@ -112,10 +104,8 @@ head(continent_colors)
 
 The country scheme is available in this repo as
 
-  - [PNG](data-raw/gapminder-color-scheme-ggplot2.png) or
-    [PDF](data-raw/gapminder-color-scheme-base.pdf)
-  - [`continent-colors.tsv`](inst/extdata/continent-colors.tsv) and
-    [`country-colors.tsv`](inst/extdata/country-colors.tsv)
+-   [PNG](data-raw/gapminder-color-scheme-ggplot2.png) or [PDF](data-raw/gapminder-color-scheme-base.pdf)
+-   [`continent-colors.tsv`](inst/extdata/continent-colors.tsv) and [`country-colors.tsv`](inst/extdata/country-colors.tsv)
 
 ### How to use color scheme in `ggplot2`
 
@@ -159,9 +149,7 @@ plot(lifeExp ~ gdpPercap, gap_with_colors,
 
 ### ISO 3166-1 country codes
 
-The `country_codes` data frame provides ISO 3166-1 country codes for all
-the countries in the `gapminder` and `gapminder_unfiltered` data frames.
-This can be used to practice joining or merging.
+The `country_codes` data frame provides ISO 3166-1 country codes for all the countries in the `gapminder` and `gapminder_unfiltered` data frames. This can be used to practice joining or merging.
 
 ``` r
 library(dplyr)
@@ -174,92 +162,58 @@ gapminder %>%
 #> into character vector
 #> # A tibble: 3 x 4
 #>   country continent iso_alpha iso_num
-#>   <chr>   <fct>     <chr>       <int>
-#> 1 Kenya   Africa    KEN           404
-#> 2 Peru    Americas  PER           604
-#> 3 Syria   Asia      SYR           760
+#>     <chr>    <fctr>     <chr>   <int>
+#> 1   Kenya    Africa       KEN     404
+#> 2    Peru  Americas       PER     604
+#> 3   Syria      Asia       SYR     760
 ```
 
 ### What is `gapminder` good for?
 
-I have used this excerpt in [STAT 545](http://stat545-ubc.github.io)
-since 2008 and, more recently, in [R-flavored Software Carpentry
-Workshops](http://jennybc.github.io/2014-05-12-ubc/) and a [`ggplot2`
-tutorial](https://github.com/jennybc/ggplot2-tutorial). `gapminder` is
-very useful for teaching novices data wrangling and visualization in R.
+I have used this excerpt in [STAT 545](http://stat545-ubc.github.io) since 2008 and, more recently, in [R-flavored Software Carpentry Workshops](http://jennybc.github.io/2014-05-12-ubc/) and a [`ggplot2` tutorial](https://github.com/jennybc/ggplot2-tutorial). `gapminder` is very useful for teaching novices data wrangling and visualization in R.
 
 Description:
 
-  - 1704 observations; fills a size niche between `iris` (150 rows) and
-    the likes of `diamonds` (54K rows)
-  - 6 variables
-      - `country` a factor with 142 levels
-      - `continent`, a factor with 5 levels
-      - `year`: going from 1952 to 2007 in increments of 5 years
-      - `pop`: population
-      - `gdpPercap`: GDP per capita
-      - `lifeExp`: life expectancy
+-   1704 observations; fills a size niche between `iris` (150 rows) and the likes of `diamonds` (54K rows)
+-   6 variables
+    -   `country` a factor with 142 levels
+    -   `continent`, a factor with 5 levels
+    -   `year`: going from 1952 to 2007 in increments of 5 years
+    -   `pop`: population
+    -   `gdpPercap`: GDP per capita
+    -   `lifeExp`: life expectancy
 
-There are 12 rows for each country in `gapminder`, i.e. complete data
-for 1952, 1955, …, 2007.
+There are 12 rows for each country in `gapminder`, i.e. complete data for 1952, 1955, ..., 2007.
 
-The two factors provide opportunities to demonstrate factor handling, in
-aggregation and visualization, for factors with very few and very many
-levels.
+The two factors provide opportunities to demonstrate factor handling, in aggregation and visualization, for factors with very few and very many levels.
 
-The four quantitative variables are generally quite correlated with each
-other and these trends have interesting relationships to `country` and
-`continent`, so you will find that simple plots and aggregations tell a
-reasonable story and are not completely boring.
+The four quantitative variables are generally quite correlated with each other and these trends have interesting relationships to `country` and `continent`, so you will find that simple plots and aggregations tell a reasonable story and are not completely boring.
 
-Visualization of the temporal trends in life expectancy, by country, is
-particularly rewarding, since there are several countries with sharp
-drops due to political upheaval. This then motivates more systematic
-investigations via data aggregation to proactively identify all
-countries whose data exhibits certain properties.
+Visualization of the temporal trends in life expectancy, by country, is particularly rewarding, since there are several countries with sharp drops due to political upheaval. This then motivates more systematic investigations via data aggregation to proactively identify all countries whose data exhibits certain properties.
 
 ### How this sausage was made
 
 <blockquote class="twitter-tweet" lang="en">
-
 <p>
-
 Data cleaning code cannot be clean. It's a sort of sin eater.
-
 </p>
-
-— Stat Fact (@StatFact)
-<a href="https://twitter.com/StatFact/status/492753200190341120">July
-25, 2014</a>
-
+— Stat Fact (@StatFact) <a href="https://twitter.com/StatFact/status/492753200190341120">July 25, 2014</a>
 </blockquote>
-
-The [`data-raw`](data-raw) directory contains the Excel spreadsheets
-downloaded from [Gapminder](http://www.gapminder.org) in 2008 and 2009
-and all the scripts necessary to create everything in this package, in
-raw and “compiled notebook” form.
+The [`data-raw`](data-raw) directory contains the Excel spreadsheets downloaded from [Gapminder](http://www.gapminder.org) in 2008 and 2009 and all the scripts necessary to create everything in this package, in raw and "compiled notebook" form.
 
 ### Plain text delimited files
 
-If you want to practice importing from file, various tab delimited files
-are included:
+If you want to practice importing from file, various tab delimited files are included:
 
-  - [`gapminder.tsv`](inst/extdata/gapminder.tsv): the same dataset
-    available via `library("gapminder"); gapminder`
-  - [`gapminder-unfiltered.tsv`](inst/extdata/gapminder-unfiltered.tsv):
-    the larger dataset available via `library("gapminder");
-    gapminder_unfiltered`.
-  - [`continent-colors.tsv`](inst/extdata/continent-colors.tsv) and
-    [`country-colors.tsv`](inst/extdata/country-colors.tsv): color
-    schemes
+-   [`gapminder.tsv`](inst/extdata/gapminder.tsv): the same dataset available via `library("gapminder"); gapminder`
+-   [`gapminder-unfiltered.tsv`](inst/extdata/gapminder-unfiltered.tsv): the larger dataset available via `library("gapminder"); gapminder_unfiltered`.
+-   [`continent-colors.tsv`](inst/extdata/continent-colors.tsv) and [`country-colors.tsv`](inst/extdata/country-colors.tsv): color schemes
 
 Here in the source, these delimited files can be found:
 
-  - in the [`inst/extdata/`](inst/extdata/) sub-directory
+-   in the [`inst/extdata/`](inst/extdata/) sub-directory
 
-Once you’ve installed the `gapminder` package they can be found locally
-and used like
-so:
+Once you've installed the `gapminder` package they can be found locally and used like so:
 
 ``` r
 gap_tsv <- system.file("extdata", "gapminder.tsv", package = "gapminder")
@@ -301,33 +255,33 @@ gap_bigger_tsv %>% # Bhutan IS here though! :)
 #> 8  Bhutan      Asia 2007  65.625 2327849 4744.6400
 ```
 
-## License
+License
+-------
 
-Gapminder’s data is released under the Creative Commons Attribution 3.0
-Unported license. See their [terms of
-use](https://docs.google.com/document/pub?id=1POd-pBMc5vDXAmxrpGjPLaCSDSWuxX6FLQgq5DhlUhM).
+Gapminder's data is released under the Creative Commons Attribution 3.0 Unported license. See their [terms of use](https://docs.google.com/document/pub?id=1POd-pBMc5vDXAmxrpGjPLaCSDSWuxX6FLQgq5DhlUhM).
 
-## Citation
+Citation
+--------
 
-Run this command to get info on how to cite this package. If you’ve
-installed gapminder from CRAN, the year will be populated and populated
-correctly (unlike below).
+Run this command to get info on how to cite this package. If you've installed gapminder from CRAN, the year will be populated and populated correctly (unlike below).
 
 ``` r
 citation("gapminder")
 #> 
 #> To cite package 'gapminder' in publications use:
 #> 
-#>   Jennifer Bryan (2017). gapminder: Data from Gapminder. R package
-#>   version 0.3.0. https://CRAN.R-project.org/package=gapminder
+#>   Jennifer Bryan (NA). gapminder: Data from Gapminder.
+#>   https://github.com/jennybc/gapminder,
+#>   http://www.gapminder.org/data/,
+#>   https://doi.org/10.5281/zenodo.594018.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {gapminder: Data from Gapminder},
 #>     author = {Jennifer Bryan},
-#>     year = {2017},
-#>     note = {R package version 0.3.0},
-#>     url = {https://CRAN.R-project.org/package=gapminder},
+#>     note = {https://github.com/jennybc/gapminder,
+#> http://www.gapminder.org/data/,
+#> https://doi.org/10.5281/zenodo.594018},
 #>   }
 ```
