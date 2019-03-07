@@ -27,18 +27,18 @@ country_codes %>%
 ## Add it back to reflect reality during the years spanned by gapminder
 netherlands_antilles <- country_codes$country == "Netherlands Antilles"
 country_codes$iso_alpha[netherlands_antilles] <- "ANT"
-country_codes$iso_num[netherlands_antilles] <- 530
+country_codes$iso_num[netherlands_antilles] <- 530L
 
 ## Sudan's numeric country code changed when South Sudan split off in 2011
 ## apparently, countrycode v1.0.0 now reflects that
 ## Add it back to reflect reality during the years spanned by gapminder
 sudan <- country_codes$country == "Sudan"
-country_codes$iso_num[sudan] <- 736
+country_codes$iso_num[sudan] <- 736L
 
 ## manually correct codes for North Korea (Korea, Dem. Rep.)
 north_korea <- country_codes$country == "Korea, Dem. Rep."
 country_codes$iso_alpha[north_korea] <- "PRK"
-country_codes$iso_num[north_korea] <- 408
+country_codes$iso_num[north_korea] <- 408L
 
 save(
   country_codes,

@@ -186,7 +186,7 @@ gapminder %>%
 #> into character vector
 #> # A tibble: 3 x 4
 #>   country continent iso_alpha iso_num
-#>   <chr>   <fct>     <chr>       <dbl>
+#>   <chr>   <fct>     <chr>       <int>
 #> 1 Kenya   Africa    KEN           404
 #> 2 Peru    Americas  PER           604
 #> 3 Syria   Asia      SYR           760
