@@ -1,22 +1,10 @@
 
--   [gapminder](#gapminder)
-    -   [Install and test drive](#install-and-test-drive)
-    -   [Color schemes for countries and continents](#color-schemes-for-countries-and-continents)
-    -   [How to use color scheme in `ggplot2`](#how-to-use-color-scheme-in-ggplot2)
-    -   [How to use color scheme in base graphics](#how-to-use-color-scheme-in-base-graphics)
-    -   [ISO 3166-1 country codes](#iso-3166-1-country-codes)
-    -   [What is `gapminder` good for?](#what-is-gapminder-good-for)
-    -   [How this sausage was made](#how-this-sausage-was-made)
-    -   [Plain text delimited files](#plain-text-delimited-files)
-    -   [License](#license)
-    -   [Citation](#citation)
-    
+# gapminder
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.594018.svg)](https://doi.org/10.5281/zenodo.594018)
 [![CRAN
 version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder)
-![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
-
-# gapminder
+[![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)](http://www.r-pkg.org/pkg/gapminder)
 
 Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. The
 main object in this package is the `gapminder` data frame or “tibble”.
@@ -182,8 +170,8 @@ gapminder %>%
  filter(year == 2007, country %in% c("Kenya", "Peru", "Syria")) %>%
  select(country, continent) %>% 
  left_join(country_codes)
-#> Warning: Column `country` joining factor and character vector, coercing
-#> into character vector
+#> Warning: Column `country` joining factor and character vector, coercing into
+#> character vector
 #> # A tibble: 3 x 4
 #>   country continent iso_alpha iso_num
 #>   <chr>   <fct>     <chr>       <int>
@@ -270,8 +258,7 @@ Here in the source, these delimited files can be found:
   - in the [`inst/extdata/`](inst/extdata/) sub-directory
 
 Once you’ve installed the `gapminder` package they can be found locally
-and used like
-so:
+and used like so:
 
 ``` r
 gap_tsv <- system.file("extdata", "gapminder.tsv", package = "gapminder")
@@ -330,18 +317,16 @@ citation("gapminder")
 #> 
 #> To cite package 'gapminder' in publications use:
 #> 
-#>   Jennifer Bryan (NA). gapminder: Data from Gapminder.
-#>   https://github.com/jennybc/gapminder,
-#>   http://www.gapminder.org/data/,
-#>   https://doi.org/10.5281/zenodo.594018.
+#>   Jennifer Bryan (2017). gapminder: Data from Gapminder. R package
+#>   version 0.3.0. https://CRAN.R-project.org/package=gapminder
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {gapminder: Data from Gapminder},
 #>     author = {Jennifer Bryan},
-#>     note = {https://github.com/jennybc/gapminder,
-#> http://www.gapminder.org/data/,
-#> https://doi.org/10.5281/zenodo.594018},
+#>     year = {2017},
+#>     note = {R package version 0.3.0},
+#>     url = {https://CRAN.R-project.org/package=gapminder},
 #>   }
 ```
