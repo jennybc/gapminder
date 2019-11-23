@@ -1,14 +1,12 @@
 ---
-output:
-  github_document:
-    toc: TRUE
+output: github_document
 ---
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.594018.svg)](https://doi.org/10.5281/zenodo.594018)
-[![CRAN version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder) ![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
+# gapminder
 
-gapminder
-=========
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.594018.svg)](https://doi.org/10.5281/zenodo.594018)
+[![CRAN version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)](http://www.r-pkg.org/pkg/gapminder)
 
 ```{r setup, include = FALSE, cache = FALSE}
 knitr::opts_chunk$set(
