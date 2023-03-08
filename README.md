@@ -80,12 +80,6 @@ Install `gapminder` from CRAN:
 install.packages("gapminder")
 ```
 
-Or you can install `gapminder` from GitHub:
-
-``` r
-devtools::install_github("jennybc/gapminder")
-```
-
 Load it and test drive with some data aggregation and plotting:
 
 ``` r
