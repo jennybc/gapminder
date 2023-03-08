@@ -29,6 +29,7 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/gapminder)](https://CRAN.R-project.org/package=gapminder)
 ![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
+[![R-CMD-check](https://github.com/jennybc/gapminder/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jennybc/gapminder/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 # gapminder
