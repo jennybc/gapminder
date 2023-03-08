@@ -1,4 +1,4 @@
-#' Gapminder data.
+#' Gapminder data
 #' 
 #' Excerpt of the Gapminder data on life expectancy, GDP per capita, and
 #' population by country.
@@ -13,11 +13,11 @@
 #'   \item{gdpPercap}{GDP per capita (US$, inflation-adjusted)}
 #'   }
 #'   
-#' The supplemental data frame [gapminder_unfiltered()] was not
+#' The supplemental data frame [`gapminder_unfiltered`] was not
 #' filtered on `year` or for complete data and has 3313 rows.
 #' 
 #' @source <http://www.gapminder.org/data/>
-#' @seealso [country_colors()] for a nice color scheme for the countries
+#' @seealso [`country_colors`] for a nice color scheme for the countries
 #' @importFrom tibble tibble
 #' @examples
 #' str(gapminder)
