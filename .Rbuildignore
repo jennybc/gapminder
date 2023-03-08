@@ -5,3 +5,7 @@
 ^README\.html$
 ^README_files/*
 ^cran-comments\.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^\.github$

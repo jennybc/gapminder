@@ -1,26 +1,26 @@
 Package: gapminder
 Title: Data from Gapminder
 Version: 0.3.0.9000
-Authors@R: person("Jennifer", "Bryan", email = "jenny@rstudio.com",
-                  role = c('aut', 'cre'),
-                  comment = c(ORCID = "0000-0002-6983-2759"))
-Description: An excerpt of the data available at Gapminder.org. For each of 142
-    countries, the package provides values for life expectancy, GDP per capita,
-    and population, every five years, from 1952 to 2007.
+Authors@R: 
+    person("Jennifer", "Bryan", , "jenny@rstudio.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-6983-2759"))
+Description: An excerpt of the data available at Gapminder.org. For each
+    of 142 countries, the package provides values for life expectancy, GDP
+    per capita, and population, every five years, from 1952 to 2007.
+License: CC0
+URL: https://github.com/jennybc/gapminder, http://www.gapminder.org/data/,
+    https://doi.org/10.5281/zenodo.594018,
+    https://jennybc.github.io/gapminder/
+BugReports: https://github.com/jennybc/gapminder/issues
 Depends:
     R (>= 3.1.0)
-License: CC0
-LazyData: true
-URL: https://github.com/jennybc/gapminder,
-    http://www.gapminder.org/data/,
-    https://doi.org/10.5281/zenodo.594018
-BugReports: https://github.com/jennybc/gapminder/issues
+Imports:
+    tibble
 Suggests:
     dplyr,
     ggplot2,
     testthat
-RoxygenNote: 7.2.3
-Imports:
-    tibble
 Encoding: UTF-8
+LazyData: true
 Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
