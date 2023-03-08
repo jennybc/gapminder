@@ -72,6 +72,6 @@ ggplot(gap_bit, aes(x = gdpPercap, y = lifeExp, size = pop)) +
 
 }
 \seealso{
-\code{\link[=gapminder]{gapminder()}} for a description of the dataset
+\code{\link{gapminder}} for a description of the dataset
 }
 \keyword{datasets}
