@@ -5,11 +5,13 @@
 \alias{country_colors}
 \alias{continent_colors}
 \title{Gapminder color schemes.}
-\format{Named character vectors giving country and continent colors:
-\describe{ 
-  \item{country_colors}{colors for the 142 countries}
-  \item{continent_colors}{colors for the 5 continents}
-  }}
+\format{
+Named character vectors giving country and continent colors:
+\describe{
+\item{country_colors}{colors for the 142 countries}
+\item{continent_colors}{colors for the 5 continents}
+}
+}
 \usage{
 country_colors
 }
@@ -70,6 +72,6 @@ ggplot(gap_bit, aes(x = gdpPercap, y = lifeExp, size = pop)) +
 
 }
 \seealso{
-\code{\link{gapminder}} for a description of the dataset
+\code{\link[=gapminder]{gapminder()}} for a description of the dataset
 }
 \keyword{datasets}

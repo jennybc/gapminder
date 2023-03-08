@@ -4,13 +4,15 @@
 \name{gapminder_unfiltered}
 \alias{gapminder_unfiltered}
 \title{Gapminder data, unfiltered.}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 3313 rows and 6 columns.}
+\format{
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 3313 rows and 6 columns.
+}
 \usage{
 gapminder_unfiltered
 }
 \description{
-The supplemental data frame \code{gapminder_unfiltered} was not filtered on 
+The supplemental data frame \code{gapminder_unfiltered} was not filtered on
 \code{year} or for complete data and has 3313 rows. Everything else is as
-documented in \code{\link{gapminder}}.
+documented in \code{\link[=gapminder]{gapminder()}}.
 }
 \keyword{datasets}

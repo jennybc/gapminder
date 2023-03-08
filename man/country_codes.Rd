@@ -4,7 +4,9 @@
 \name{country_codes}
 \alias{country_codes}
 \title{Country codes}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 187 rows and 3 columns.}
+\format{
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 187 rows and 3 columns.
+}
 \usage{
 country_codes
 }
@@ -15,7 +17,7 @@ Data frame of Gapminder country names and ISO 3166-1 country codes:
 \item{iso_num}{The 3-digit \href{https://en.wikipedia.org/wiki/ISO_3166-1_numeric}{ISO 3166-1 numeric-3} code.}
 }
 Also includes the countries covered by the supplemental data frame
-\code{\link{gapminder_unfiltered}}.
+\code{\link[=gapminder_unfiltered]{gapminder_unfiltered()}}.
 }
 \examples{
 if (require("dplyr")) {
