@@ -134,11 +134,8 @@
 <p>Install <code>gapminder</code> from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"gapminder"</span><span class="op">)</span></span></code></pre></div>
-<p>Or you can install <code>gapminder</code> from GitHub:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"jennybc/gapminder"</span><span class="op">)</span></span></code></pre></div>
 <p>Load it and test drive with some data aggregation and plotting:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/jennybc/gapminder" class="external-link">"gapminder"</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/aggregate.html" class="external-link">aggregate</a></span><span class="op">(</span><span class="va">lifeExp</span> <span class="op">~</span> <span class="va">continent</span>, <span class="va">gapminder</span>, <span class="va">median</span><span class="op">)</span></span>
@@ -173,7 +170,7 @@
 <h3 id="color-schemes-for-countries-and-continents">Color schemes for countries and continents<a class="anchor" aria-label="anchor" href="#color-schemes-for-countries-and-continents"></a>
 </h3>
 <p><code>country_colors</code> and <code>continent_colors</code> are provided as character vectors where elements are hex colors and the names are countries or continents.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">country_colors</span>, <span class="fl">4</span><span class="op">)</span></span>
 <span><span class="co">#&gt;          Nigeria            Egypt         Ethiopia Congo, Dem. Rep. </span></span>
 <span><span class="co">#&gt;        "#7F3B08"        "#833D07"        "#873F07"        "#8B4107"</span></span>
@@ -196,9 +193,9 @@
 <a class="anchor" aria-label="anchor" href="#how-to-use-color-scheme-in-ggplot2"></a>
 </h3>
 <p>Provide <code>country_colors</code> to <code><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_color_manual()</a></code> like so:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">...</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_color_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="va">country_colors</span><span class="op">)</span> <span class="op">+</span> <span class="va">...</span></span></code></pre></div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://ggplot2.tidyverse.org" class="external-link">"ggplot2"</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span></span>
@@ -217,7 +214,7 @@
 <div class="section level3">
 <h3 id="how-to-use-color-scheme-in-base-graphics">How to use color scheme in base graphics<a class="anchor" aria-label="anchor" href="#how-to-use-color-scheme-in-base-graphics"></a>
 </h3>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># for convenience, integrate the country colors into the data.frame</span></span>
 <span><span class="va">gap_with_colors</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">gapminder</span>,</span>
@@ -243,7 +240,7 @@
 <h3 id="iso-3166-1-country-codes">ISO 3166-1 country codes<a class="anchor" aria-label="anchor" href="#iso-3166-1-country-codes"></a>
 </h3>
 <p>The <code>country_codes</code> data frame provides ISO 3166-1 country codes for all the countries in the <code>gapminder</code> and <code>gapminder_unfiltered</code> data frames. This can be used to practice joining or merging.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">gapminder</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html" class="external-link">%&gt;%</a></span></span>
@@ -315,7 +312,7 @@ Data cleaning code cannot be clean. It’s a sort of sin eater.
 <li>in the <a href="inst/extdata/"><code>inst/extdata/</code></a> sub-directory</li>
 </ul>
 <p>Once you’ve installed the <code>gapminder</code> package they can be found locally and used like so:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gap_tsv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"gapminder.tsv"</span>, package <span class="op">=</span> <span class="st">"gapminder"</span><span class="op">)</span></span>
 <span><span class="va">gap_tsv</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.delim</a></span><span class="op">(</span><span class="va">gap_tsv</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">gap_tsv</span><span class="op">)</span></span>
@@ -363,7 +360,7 @@ Data cleaning code cannot be clean. It’s a sort of sin eater.
 <h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
 </h2>
 <p>Run this command to get info on how to cite this package. If you’ve installed gapminder from CRAN, the year will be populated and populated correctly (unlike below).</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"gapminder"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; To cite package 'gapminder' in publications use:</span></span>
