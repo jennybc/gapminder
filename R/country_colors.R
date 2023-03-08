@@ -8,7 +8,7 @@
 #'   \item{country_colors}{colors for the 142 countries}
 #'   \item{continent_colors}{colors for the 5 continents}
 #'   }
-#' @seealso \code{\link{gapminder}} for a description of the dataset
+#' @seealso [`gapminder`] for a description of the dataset
 #' @examples
 #' # ggplot2 examples are below these base graphics examples!
 #' 
