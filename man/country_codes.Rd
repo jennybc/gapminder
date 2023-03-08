@@ -22,10 +22,10 @@ Country codes
 }
 \examples{
 if (require("dplyr")) {
-gapminder \%>\%
-  filter(year == 2007, country \%in\% c("Kenya", "Peru", "Syria")) \%>\%
-  select(country, continent) \%>\% 
-  left_join(country_codes)
+  gapminder \%>\%
+    filter(year == 2007, country \%in\% c("Kenya", "Peru", "Syria")) \%>\%
+    select(country, continent) \%>\%
+    left_join(country_codes)
 }
 }
 \keyword{datasets}

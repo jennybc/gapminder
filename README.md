@@ -97,9 +97,9 @@ aggregate(lifeExp ~ continent, gapminder, median)
 
 library("dplyr")
 gapminder %>%
-    filter(year == 2007) %>%
-    group_by(continent) %>%
-    summarise(lifeExp = median(lifeExp))
+  filter(year == 2007) %>%
+  group_by(continent) %>%
+  summarise(lifeExp = median(lifeExp))
 #> # A tibble: 5 × 2
 #>   continent lifeExp
 #>   <fct>       <dbl>
@@ -108,11 +108,11 @@ gapminder %>%
 #> 3 Asia         72.4
 #> 4 Europe       78.6
 #> 5 Oceania      80.7
-    
+
 library("ggplot2")
 ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_boxplot(outlier.colour = "hotpink") +
-  geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
+  geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1 / 4)
 ```
 
 <img src="man/figures/README-test-drive-1.png" width="100%" />
@@ -152,11 +152,15 @@ Provide `country_colors` to `scale_color_manual()` like so:
 ``` r
 library("ggplot2")
 
-ggplot(subset(gapminder, continent != "Oceania"),
-       aes(x = year, y = lifeExp, group = country, color = country)) +
-  geom_line(lwd = 1, show.legend = FALSE) + facet_wrap(~ continent) +
+ggplot(
+  subset(gapminder, continent != "Oceania"),
+  aes(x = year, y = lifeExp, group = country, color = country)
+) +
+  geom_line(lwd = 1, show.legend = FALSE) +
+  facet_wrap(~continent) +
   scale_color_manual(values = country_colors) +
-  theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
+  theme_bw() +
+  theme(strip.text = element_text(size = rel(1.1)))
 #> Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 #> ℹ Please use `linewidth` instead.
 ```
@@ -169,16 +173,22 @@ ggplot(subset(gapminder, continent != "Oceania"),
 # for convenience, integrate the country colors into the data.frame
 gap_with_colors <-
   data.frame(gapminder,
-             cc = I(country_colors[match(gapminder$country,
-                                         names(country_colors))]))
+    cc = I(country_colors[match(
+      gapminder$country,
+      names(country_colors)
+    )])
+  )
 
 # bubble plot, focus just on Africa and Europe in 2007
-keepers <- with(gap_with_colors,
-                continent %in% c("Africa", "Europe") & year == 2007)
+keepers <- with(
+  gap_with_colors,
+  continent %in% c("Africa", "Europe") & year == 2007
+)
 plot(lifeExp ~ gdpPercap, gap_with_colors,
-     subset = keepers, log = "x", pch = 21,
-     cex = sqrt(gap_with_colors$pop[keepers]/pi)/1500,
-     bg = gap_with_colors$cc[keepers])
+  subset = keepers, log = "x", pch = 21,
+  cex = sqrt(gap_with_colors$pop[keepers] / pi) / 1500,
+  bg = gap_with_colors$cc[keepers]
+)
 ```
 
 <img src="man/figures/README-demo-country-colors-base-1.png" width="100%" />
@@ -193,9 +203,9 @@ This can be used to practice joining or merging.
 library(dplyr)
 
 gapminder %>%
- filter(year == 2007, country %in% c("Kenya", "Peru", "Syria")) %>%
- select(country, continent) %>% 
- left_join(country_codes)
+  filter(year == 2007, country %in% c("Kenya", "Peru", "Syria")) %>%
+  select(country, continent) %>%
+  left_join(country_codes)
 #> # A tibble: 3 × 4
 #>   country continent iso_alpha iso_num
 #>   <chr>   <fct>     <chr>       <int>
@@ -337,15 +347,16 @@ citation("gapminder")
 #> 
 #>   Bryan J (????). _gapminder: Data from Gapminder_.
 #>   https://github.com/jennybc/gapminder, http://www.gapminder.org/data/,
-#>   https://doi.org/10.5281/zenodo.594018.
+#>   https://doi.org/10.5281/zenodo.594018,
+#>   https://jennybc.github.io/gapminder/.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {gapminder: Data from Gapminder},
 #>     author = {Jennifer Bryan},
-#>     note = {https://github.com/jennybc/gapminder,
-#> http://www.gapminder.org/data/,
-#> https://doi.org/10.5281/zenodo.594018},
+#>     note = {https://github.com/jennybc/gapminder, http://www.gapminder.org/data/,
+#> https://doi.org/10.5281/zenodo.594018,
+#> https://jennybc.github.io/gapminder/},
 #>   }
 ```

@@ -1,5 +1,5 @@
 #' Country codes
-#' 
+#'
 #' @format Data frame of Gapminder country names and ISO 3166-1 country codes:
 #' \describe{
 #' \item{country}{Country name.}
@@ -8,11 +8,11 @@
 #' }
 #' Also includes the countries covered by the supplemental data frame
 #' [`gapminder_unfiltered`].
-#' @examples 
+#' @examples
 #' if (require("dplyr")) {
-#' gapminder %>%
-#'   filter(year == 2007, country %in% c("Kenya", "Peru", "Syria")) %>%
-#'   select(country, continent) %>% 
-#'   left_join(country_codes)
+#'   gapminder %>%
+#'     filter(year == 2007, country %in% c("Kenya", "Peru", "Syria")) %>%
+#'     select(country, continent) %>%
+#'     left_join(country_codes)
 #' }
 "country_codes"

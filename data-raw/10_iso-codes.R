@@ -15,11 +15,13 @@ packageVersion("countrycode")
 country_codes <- tibble(
   country = levels(gapminder_unfiltered$country)
 )
-country_codes <- country_codes %>% 
-  mutate(iso_alpha = countrycode(country, "country.name", "iso3c"),
-         iso_num = countrycode(country, "country.name", "iso3n"))
+country_codes <- country_codes %>%
+  mutate(
+    iso_alpha = countrycode(country, "country.name", "iso3c"),
+    iso_num = countrycode(country, "country.name", "iso3n")
+  )
 
-country_codes %>% 
+country_codes %>%
   filter(is.na(iso_alpha) | is.na(iso_num))
 
 ## Netherlands Antilles is no longer a country and, apparently, countrycode

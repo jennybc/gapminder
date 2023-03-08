@@ -20,20 +20,23 @@ library(knitr)
 library(here)
 
 x <- tibble(fls = list.files(here("data-raw"))) %>%
-  mutate(fls_basename = basename(fls)) %>% 
+  mutate(fls_basename = basename(fls)) %>%
   separate(fls_basename, c("script", "slug", "ext"), "[_\\.]")
-x <- x %>% 
-  filter(script %>% str_detect("^[0-9]+"),
-         ext %>% str_detect("R|r|md|tsv")) %>% 
+x <- x %>%
+  filter(
+    script %>% str_detect("^[0-9]+"),
+    ext %>% str_detect("R|r|md|tsv")
+  ) %>%
   select(-slug)
 y <- x %>%
-  group_by(script) %>% 
+  group_by(script) %>%
   nest()
 
 collapse_md_links <- function(x) {
-  x %>% {
-    paste0("[", ., "](", ., ")")
-    } %>% 
+  x %>%
+    {
+      paste0("[", ., "](", ., ")")
+    } %>%
     paste(collapse = ", ")
 }
 jfun <- function(z) {
@@ -44,8 +47,8 @@ jfun <- function(z) {
   )
 }
 
-y$data %>% 
-  map_df(jfun) %>% 
+y$data %>%
+  map_df(jfun) %>%
   kable()
 ```
 

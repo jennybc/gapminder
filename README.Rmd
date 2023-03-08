@@ -67,14 +67,14 @@ aggregate(lifeExp ~ continent, gapminder, median)
 
 library("dplyr")
 gapminder %>%
-    filter(year == 2007) %>%
-    group_by(continent) %>%
-    summarise(lifeExp = median(lifeExp))
-    
+  filter(year == 2007) %>%
+  group_by(continent) %>%
+  summarise(lifeExp = median(lifeExp))
+
 library("ggplot2")
 ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_boxplot(outlier.colour = "hotpink") +
-  geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1/4)
+  geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1 / 4)
 ```
 
 ### Color schemes for countries and continents
@@ -106,11 +106,15 @@ Provide `country_colors` to `scale_color_manual()` like so:
 ```{r demo-country-colors-ggplot2}
 library("ggplot2")
 
-ggplot(subset(gapminder, continent != "Oceania"),
-       aes(x = year, y = lifeExp, group = country, color = country)) +
-  geom_line(lwd = 1, show.legend = FALSE) + facet_wrap(~ continent) +
+ggplot(
+  subset(gapminder, continent != "Oceania"),
+  aes(x = year, y = lifeExp, group = country, color = country)
+) +
+  geom_line(lwd = 1, show.legend = FALSE) +
+  facet_wrap(~continent) +
   scale_color_manual(values = country_colors) +
-  theme_bw() + theme(strip.text = element_text(size = rel(1.1)))
+  theme_bw() +
+  theme(strip.text = element_text(size = rel(1.1)))
 ```
 
 ### How to use color scheme in base graphics
@@ -119,16 +123,22 @@ ggplot(subset(gapminder, continent != "Oceania"),
 # for convenience, integrate the country colors into the data.frame
 gap_with_colors <-
   data.frame(gapminder,
-             cc = I(country_colors[match(gapminder$country,
-                                         names(country_colors))]))
+    cc = I(country_colors[match(
+      gapminder$country,
+      names(country_colors)
+    )])
+  )
 
 # bubble plot, focus just on Africa and Europe in 2007
-keepers <- with(gap_with_colors,
-                continent %in% c("Africa", "Europe") & year == 2007)
+keepers <- with(
+  gap_with_colors,
+  continent %in% c("Africa", "Europe") & year == 2007
+)
 plot(lifeExp ~ gdpPercap, gap_with_colors,
-     subset = keepers, log = "x", pch = 21,
-     cex = sqrt(gap_with_colors$pop[keepers]/pi)/1500,
-     bg = gap_with_colors$cc[keepers])
+  subset = keepers, log = "x", pch = 21,
+  cex = sqrt(gap_with_colors$pop[keepers] / pi) / 1500,
+  bg = gap_with_colors$cc[keepers]
+)
 ```
 
 ### ISO 3166-1 country codes
@@ -139,9 +149,9 @@ The `country_codes` data frame provides ISO 3166-1 country codes for all the cou
 library(dplyr)
 
 gapminder %>%
- filter(year == 2007, country %in% c("Kenya", "Peru", "Syria")) %>%
- select(country, continent) %>% 
- left_join(country_codes)
+  filter(year == 2007, country %in% c("Kenya", "Peru", "Syria")) %>%
+  select(country, continent) %>%
+  left_join(country_codes)
 ```
 
 ### What is `gapminder` good for?

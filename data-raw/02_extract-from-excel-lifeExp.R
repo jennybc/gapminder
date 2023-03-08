@@ -6,7 +6,7 @@
 #' ---
 
 #' Cleaning history
-#' 
+#'
 #' * 2010: The first time I documented cleaning this dataset. I started with
 #' delimited files I exported from Excel.
 #' * 2014: I re-cleaned the data and (mostly) forced myself to pull it straight
@@ -25,7 +25,8 @@ library(readr)
 #+ warning=FALSE
 le_xls <-
   read_excel("xls/life-expectancy-reference-spreadsheet-20090204-xls-format.xls",
-             sheet = "Data and metadata")
+    sheet = "Data and metadata"
+  )
 ## the DEFINEDNAME thing is described here
 ## https://github.com/hadley/readxl/issues/82#issuecomment-166767220
 ## I am hiding a crapton of warnings
@@ -34,8 +35,10 @@ le_xls %>% str()
 
 #' Select and rename vars.
 le_raw <- le_xls %>%
-  select(country = contains("country"), continent = contains("continent"),
-         year = contains("year"), lifeExp = contains("expectancy"))
+  select(
+    country = contains("country"), continent = contains("continent"),
+    year = contains("year"), lifeExp = contains("expectancy")
+  )
 le_raw %>% str()
 ## 2015: 52416 obs. of 4 variables
 ## 2014: 52419 obs. of 4 variables
@@ -63,7 +66,7 @@ le_raw$year %>% summary()
 #' reveal these rows. If you look carefully, you can see missing row numbers. To
 #' reveal the rows, use 'unset filters'. Regardless, these rows aren't picked up
 #' in 2010 or 2015 and get filtered out no matter what.
-#' 
+#'
 #' Let's look at `lifeExp`.
 le_raw$lifeExp %>% head(100)
 
@@ -83,18 +86,18 @@ unique(le_raw$continent)
 
 #' Let's look further into empty continent and the novel continent FSU.
 (empty_continent <- le_raw %>%
-   filter(is.na(continent)) %>%
-   select(country) %>%
-   unique())
+  filter(is.na(continent)) %>%
+  select(country) %>%
+  unique())
 str(empty_continent)
 #' Wait to fix these after merging pop + lifeExp + gdpPercap.
 
 (fsu_continent <- le_raw %>%
-   filter(continent == "FSU") %>%
-   select(country) %>%
-   unique())
+  filter(continent == "FSU") %>%
+  select(country) %>%
+  unique())
 #' Aha. Former Soviet Union. Handle this after merge.
-#' 
+#'
 #' Is `country` ok as is?
 n_distinct(le_raw$country) # 198
 unique(le_raw$country)
@@ -102,7 +105,8 @@ unique(le_raw$country)
 
 #' Return to year.
 n_distinct(le_raw$year)
-(p <- ggplot(le_raw, aes(x = year)) + geom_histogram(binwidth = 1))
+(p <- ggplot(le_raw, aes(x = year)) +
+  geom_histogram(binwidth = 1))
 p + xlim(c(1945, 2010))
 p + xlim(c(1950, 1960))
 p + xlim(c(2000, 2010))
@@ -116,7 +120,7 @@ le_raw <- le_raw %>%
 le_raw %>% str()
 
 #' Restore variable order from previous cleaning runs to minimize silly diffs.
-le_raw <- le_raw %>% 
+le_raw <- le_raw %>%
   select(country, continent, year, lifeExp)
 
 #' Save for now

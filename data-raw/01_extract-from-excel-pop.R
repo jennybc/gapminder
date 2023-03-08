@@ -6,7 +6,7 @@
 #' ---
 
 #' Cleaning history
-#' 
+#'
 #' * 2010: The first time I documented cleaning this dataset. I started with
 #' delimited files I exported from Excel.
 #' * 2014: I re-cleaned the data and (mostly) forced myself to pull it straight
@@ -63,12 +63,12 @@ pop_raw <- pop_raw %>%
 str(pop_raw)
 
 #' I am the voice from the future: look at India!
-pop_raw %>% 
+pop_raw %>%
   filter(country == "India")
 #' These doubles create problems later. GET RID OF THEM NOW.
 
 #' Force the population to be integer.
-pop_raw <- pop_raw %>% 
+pop_raw <- pop_raw %>%
   mutate(pop = pop %>% as.integer())
 
 #' Save for now
