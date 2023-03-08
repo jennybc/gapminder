@@ -19,7 +19,7 @@ The supplemental data frame \code{\link{gapminder_unfiltered}} was not
 filtered on \code{year} or for complete data and has 3313 rows.
 }
 \source{
-\url{http://www.gapminder.org/data/}
+\url{https://www.gapminder.org/data/}
 }
 \usage{
 gapminder

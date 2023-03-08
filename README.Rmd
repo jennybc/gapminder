@@ -4,8 +4,11 @@ output:
     toc: TRUE
 ---
 
+<!-- badges: start -->
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.594018.svg)](https://doi.org/10.5281/zenodo.594018)
-[![CRAN version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder) ![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
+[![CRAN status](https://www.r-pkg.org/badges/version/gapminder)](https://CRAN.R-project.org/package=gapminder)
+![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
+<!-- badges: end -->
 
 gapminder
 =========
@@ -22,9 +25,9 @@ knitr::opts_chunk$set(
 set.seed(1)
 ```
 
-Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. The main object in this package is the `gapminder` data frame or "tibble". There are other goodies, such as the data in tab delimited form, a larger unfiltered dataset, premade color schemes for the countries and continents, and ISO 3166-1 country codes.
+Excerpt from the [Gapminder](https://www.gapminder.org/data/) data. The main object in this package is the `gapminder` data frame or "tibble". There are other goodies, such as the data in tab delimited form, a larger unfiltered dataset, premade color schemes for the countries and continents, and ISO 3166-1 country codes.
 
-The `gapminder` data frames include six variables, ([Gapminder.org documentation page](http://www.gapminder.org/data/documentation/)):
+The `gapminder` data frames include six variables, ([Gapminder.org documentation page](https://www.gapminder.org/data/documentation/)):
 
 | variable    | meaning                  |
 |:------------|:-------------------------|
@@ -35,7 +38,7 @@ The `gapminder` data frames include six variables, ([Gapminder.org documentation
 | pop         | total population         |
 | gdpPercap   | per-capita GDP           |
 
-Per-capita GDP (Gross domestic product) is given in units of [international dollars](http://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar), "a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time" -- 2005, in this case.
+Per-capita GDP (Gross domestic product) is given in units of [international dollars](https://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar), "a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time" -- 2005, in this case.
 
 Package contains two main data frames or tibbles:
 
@@ -156,7 +159,7 @@ gapminder %>%
 
 ### What is `gapminder` good for?
 
-I have used this excerpt in [STAT 545](http://stat545-ubc.github.io) since 2008 and, more recently, in [R-flavored Software Carpentry Workshops](http://jennybc.github.io/2014-05-12-ubc/) and a [`ggplot2` tutorial](https://github.com/jennybc/ggplot2-tutorial). `gapminder` is very useful for teaching novices data wrangling and visualization in R.
+This excerpt has been used in [STAT 545](https://stat545.com/), in [R-flavored Software Carpentry Workshops](http://jennybc.github.io/2014-05-12-ubc/) and a [`ggplot2` tutorial](https://github.com/jennybc/ggplot2-tutorial). `gapminder` is very useful for teaching novices data wrangling and visualization in R.
 
 Description:
 
@@ -181,7 +184,7 @@ Visualization of the temporal trends in life expectancy, by country, is particul
 
 <blockquote class="twitter-tweet" lang="en"><p>Data cleaning code cannot be clean. It&#39;s a sort of sin eater.</p>&mdash; Stat Fact (@StatFact) <a href="https://twitter.com/StatFact/status/492753200190341120">July 25, 2014</a></blockquote>
 
-The [`data-raw`](data-raw/) directory contains the Excel spreadsheets downloaded from [Gapminder](http://www.gapminder.org) in 2008 and 2009 and all the scripts necessary to create everything in this package, in raw and "compiled notebook" form.
+The [`data-raw`](data-raw/) directory contains the Excel spreadsheets downloaded from [Gapminder](https://www.gapminder.org/) in 2008 and 2009 and all the scripts necessary to create everything in this package, in raw and "compiled notebook" form.
 
 ### Plain text delimited files
 

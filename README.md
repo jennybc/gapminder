@@ -23,21 +23,24 @@
   - <a href="#license" id="toc-license">License</a>
   - <a href="#citation" id="toc-citation">Citation</a>
 
+<!-- badges: start -->
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.594018.svg)](https://doi.org/10.5281/zenodo.594018)
 [![CRAN
-version](http://www.r-pkg.org/badges/version/gapminder)](http://cran.r-project.org/package=gapminder)
+status](https://www.r-pkg.org/badges/version/gapminder)](https://CRAN.R-project.org/package=gapminder)
 ![](http://cranlogs.r-pkg.org/badges/grand-total/gapminder)
+<!-- badges: end -->
 
 # gapminder
 
-Excerpt from the [Gapminder](http://www.gapminder.org/data/) data. The
+Excerpt from the [Gapminder](https://www.gapminder.org/data/) data. The
 main object in this package is the `gapminder` data frame or “tibble”.
 There are other goodies, such as the data in tab delimited form, a
 larger unfiltered dataset, premade color schemes for the countries and
 continents, and ISO 3166-1 country codes.
 
 The `gapminder` data frames include six variables, ([Gapminder.org
-documentation page](http://www.gapminder.org/data/documentation/)):
+documentation page](https://www.gapminder.org/data/documentation/)):
 
 | variable  | meaning                  |
 |:----------|:-------------------------|
@@ -50,7 +53,7 @@ documentation page](http://www.gapminder.org/data/documentation/)):
 
 Per-capita GDP (Gross domestic product) is given in units of
 [international
-dollars](http://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar), “a
+dollars](https://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar), “a
 hypothetical unit of currency that has the same purchasing power parity
 that the U.S. dollar had in the United States at a given point in time”
 – 2005, in this case.
@@ -216,8 +219,8 @@ gapminder %>%
 
 ### What is `gapminder` good for?
 
-I have used this excerpt in [STAT 545](http://stat545-ubc.github.io)
-since 2008 and, more recently, in [R-flavored Software Carpentry
+This excerpt has been used in [STAT 545](https://stat545.com/), in
+[R-flavored Software Carpentry
 Workshops](http://jennybc.github.io/2014-05-12-ubc/) and a [`ggplot2`
 tutorial](https://github.com/jennybc/ggplot2-tutorial). `gapminder` is
 very useful for teaching novices data wrangling and visualization in R.
@@ -264,7 +267,7 @@ Data cleaning code cannot be clean. It's a sort of sin eater.
 </blockquote>
 
 The [`data-raw`](data-raw/) directory contains the Excel spreadsheets
-downloaded from [Gapminder](http://www.gapminder.org) in 2008 and 2009
+downloaded from [Gapminder](https://www.gapminder.org/) in 2008 and 2009
 and all the scripts necessary to create everything in this package, in
 raw and “compiled notebook” form.
 
@@ -346,7 +349,8 @@ citation("gapminder")
 #> To cite package 'gapminder' in publications use:
 #> 
 #>   Bryan J (????). _gapminder: Data from Gapminder_.
-#>   https://github.com/jennybc/gapminder, http://www.gapminder.org/data/,
+#>   https://github.com/jennybc/gapminder,
+#>   https://www.gapminder.org/data/,
 #>   https://doi.org/10.5281/zenodo.594018,
 #>   https://jennybc.github.io/gapminder/.
 #> 
@@ -355,7 +359,7 @@ citation("gapminder")
 #>   @Manual{,
 #>     title = {gapminder: Data from Gapminder},
 #>     author = {Jennifer Bryan},
-#>     note = {https://github.com/jennybc/gapminder, http://www.gapminder.org/data/,
+#>     note = {https://github.com/jennybc/gapminder, https://www.gapminder.org/data/,
 #> https://doi.org/10.5281/zenodo.594018,
 #> https://jennybc.github.io/gapminder/},
 #>   }
