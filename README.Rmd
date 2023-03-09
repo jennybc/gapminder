@@ -1,8 +1,19 @@
 ---
-output:
-  github_document:
-    toc: TRUE
+output: github_document
 ---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# gapminder
 
 <!-- badges: start -->
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.594018.svg)](https://doi.org/10.5281/zenodo.594018)
@@ -11,44 +22,12 @@ output:
 [![R-CMD-check](https://github.com/jennybc/gapminder/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jennybc/gapminder/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-gapminder
-=========
+The is a data package with an excerpt from the [Gapminder](https://www.gapminder.org/data/) data.
+The main object in this package is the `gapminder` data frame or "tibble".
+There are other goodies, such as the data in tab delimited form, a larger unfiltered dataset, premade color schemes for the countries and continents, and ISO 3166-1 country codes.
+The primary use case is for teaching and writing examples.
 
-```{r setup, include = FALSE, cache = FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE,
-  dpi = 300,
-  out.width = "100%",
-  comment = "#>",
-  fig.path = "man/figures/README-"
-)
-## so jittered figs don't always appear to be changed
-set.seed(1)
-```
-
-Excerpt from the [Gapminder](https://www.gapminder.org/data/) data. The main object in this package is the `gapminder` data frame or "tibble". There are other goodies, such as the data in tab delimited form, a larger unfiltered dataset, premade color schemes for the countries and continents, and ISO 3166-1 country codes.
-
-The `gapminder` data frames include six variables, ([Gapminder.org documentation page](https://www.gapminder.org/data/documentation/)):
-
-| variable    | meaning                  |
-|:------------|:-------------------------|
-| country     |                          |
-| continent   |                          |
-| year        |                          |
-| lifeExp     | life expectancy at birth |
-| pop         | total population         |
-| gdpPercap   | per-capita GDP           |
-
-Per-capita GDP (Gross domestic product) is given in units of [international dollars](https://en.wikipedia.org/wiki/Geary%E2%80%93Khamis_dollar), "a hypothetical unit of currency that has the same purchasing power parity that the U.S. dollar had in the United States at a given point in time" -- 2005, in this case.
-
-Package contains two main data frames or tibbles:
-
-  * `gapminder`: 12 rows for each country (1952, 1957, ..., 2007). It's a subset of ...
-  * `gapminder_unfiltered`: more lightly filtered and therefore about twice as many rows.
-  
-**Note: this package exists for the purpose of teaching and making code examples. It is an excerpt of data found in specific spreadsheets on Gapminder.org circa 2010. It is not a definitive source of socioeconomic data and I don't update it. Use other data sources if it's important to have the current best estimate of these statistics.**
-
-### Install and test drive
+## Installation
 
 Install `gapminder` from CRAN:
 
@@ -56,168 +35,23 @@ Install `gapminder` from CRAN:
 install.packages("gapminder")
 ```
 
-Load it and test drive with some data aggregation and plotting:
+## Quick look
 
-```{r test-drive, message = FALSE, warning = FALSE}
-library("gapminder")
+Here we do a bit of data aggregation and plotting with the `gapminder` data:
+
+```{r test-drive, message = FALSE, warning = FALSE, out.width = "60%"}
+library(gapminder)
+library(dplyr)
+library(ggplot2)
 
 aggregate(lifeExp ~ continent, gapminder, median)
 
-library("dplyr")
 gapminder %>%
   filter(year == 2007) %>%
   group_by(continent) %>%
   summarise(lifeExp = median(lifeExp))
 
-library("ggplot2")
 ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_boxplot(outlier.colour = "hotpink") +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1 / 4)
-```
-
-### Color schemes for countries and continents
-
-`country_colors` and `continent_colors` are provided as character vectors where elements are hex colors and the names are countries or continents.
-
-```{r}
-head(country_colors, 4)
-head(continent_colors)
-```
-
-```{r echo = FALSE}
-knitr::include_graphics("man/figures/gapminder-color-scheme-ggplot2.png")
-```
-
-The country scheme is available in this repo as
-
-  * [PNG](data-raw/gapminder-color-scheme-ggplot2.png) or [PDF](data-raw/gapminder-color-scheme-base.pdf)
-  * [`continent-colors.tsv`](inst/extdata/continent-colors.tsv) and [`country-colors.tsv`](inst/extdata/country-colors.tsv)
-
-### How to use color scheme in `ggplot2`
-
-Provide `country_colors` to `scale_color_manual()` like so:
-
-```{r scale-color-manual, eval = FALSE}
-... + scale_color_manual(values = country_colors) + ...
-```
-
-```{r demo-country-colors-ggplot2}
-library("ggplot2")
-
-ggplot(
-  subset(gapminder, continent != "Oceania"),
-  aes(x = year, y = lifeExp, group = country, color = country)
-) +
-  geom_line(lwd = 1, show.legend = FALSE) +
-  facet_wrap(~continent) +
-  scale_color_manual(values = country_colors) +
-  theme_bw() +
-  theme(strip.text = element_text(size = rel(1.1)))
-```
-
-### How to use color scheme in base graphics
-
-```{r demo-country-colors-base}
-# for convenience, integrate the country colors into the data.frame
-gap_with_colors <-
-  data.frame(gapminder,
-    cc = I(country_colors[match(
-      gapminder$country,
-      names(country_colors)
-    )])
-  )
-
-# bubble plot, focus just on Africa and Europe in 2007
-keepers <- with(
-  gap_with_colors,
-  continent %in% c("Africa", "Europe") & year == 2007
-)
-plot(lifeExp ~ gdpPercap, gap_with_colors,
-  subset = keepers, log = "x", pch = 21,
-  cex = sqrt(gap_with_colors$pop[keepers] / pi) / 1500,
-  bg = gap_with_colors$cc[keepers]
-)
-```
-
-### ISO 3166-1 country codes
-
-The `country_codes` data frame provides ISO 3166-1 country codes for all the countries in the `gapminder` and `gapminder_unfiltered` data frames. This can be used to practice joining or merging.
-
-```{r message = FALSE}
-library(dplyr)
-
-gapminder %>%
-  filter(year == 2007, country %in% c("Kenya", "Peru", "Syria")) %>%
-  select(country, continent) %>%
-  left_join(country_codes)
-```
-
-### What is `gapminder` good for?
-
-This excerpt has been used in [STAT 545](https://stat545.com/), in [R-flavored Software Carpentry Workshops](http://jennybc.github.io/2014-05-12-ubc/) and a [`ggplot2` tutorial](https://github.com/jennybc/ggplot2-tutorial). `gapminder` is very useful for teaching novices data wrangling and visualization in R.
-
-Description:
-
-  * `r nrow(gapminder)` observations; fills a size niche between `iris` (150 rows) and the likes of `diamonds` (54K rows)
-  * `r ncol(gapminder)` variables
-    - `country` a factor with `r nlevels(gapminder$country)` levels
-    - `continent`, a factor with `r nlevels(gapminder$continent)` levels
-    - `year`: going from 1952 to 2007 in increments of 5 years
-    - `pop`: population
-    - `gdpPercap`: GDP per capita
-    - `lifeExp`: life expectancy
-
-There are 12 rows for each country in `gapminder`, i.e. complete data for 1952, 1955, ..., 2007.
-
-The two factors provide opportunities to demonstrate factor handling, in aggregation and visualization, for factors with very few and very many levels.
-
-The four quantitative variables are generally quite correlated with each other and these trends have interesting relationships to `country` and `continent`, so you will find that simple plots and aggregations tell a reasonable story and are not completely boring.
-
-Visualization of the temporal trends in life expectancy, by country, is particularly rewarding, since there are several countries with sharp drops due to political upheaval. This then motivates more systematic investigations via data aggregation to proactively identify all countries whose data exhibits certain properties.
-
-### How this sausage was made
-
-<blockquote class="twitter-tweet" lang="en"><p>Data cleaning code cannot be clean. It&#39;s a sort of sin eater.</p>&mdash; Stat Fact (@StatFact) <a href="https://twitter.com/StatFact/status/492753200190341120">July 25, 2014</a></blockquote>
-
-The [`data-raw`](data-raw/) directory contains the Excel spreadsheets downloaded from [Gapminder](https://www.gapminder.org/) in 2008 and 2009 and all the scripts necessary to create everything in this package, in raw and "compiled notebook" form.
-
-### Plain text delimited files
-
-If you want to practice importing from file, various tab delimited files are included:
-
-  * [`gapminder.tsv`](inst/extdata/gapminder.tsv): the same dataset available via `library("gapminder"); gapminder`
-  * [`gapminder-unfiltered.tsv`](inst/extdata/gapminder-unfiltered.tsv): the larger dataset available via `library("gapminder"); gapminder_unfiltered`.
-  * [`continent-colors.tsv`](inst/extdata/continent-colors.tsv) and [`country-colors.tsv`](inst/extdata/country-colors.tsv): color schemes
-  
-Here in the source, these delimited files can be found:
-
-  * in the [`inst/extdata/`](inst/extdata/) sub-directory
-  
-Once you've installed the `gapminder` package they can be found locally and used like so:
-  
-```{r}
-gap_tsv <- system.file("extdata", "gapminder.tsv", package = "gapminder")
-gap_tsv <- read.delim(gap_tsv)
-str(gap_tsv)
-gap_tsv %>% # Bhutan did not make the cut because data for only 8 years :(
-  filter(country == "Bhutan")
-
-gap_bigger_tsv <-
-  system.file("extdata", "gapminder-unfiltered.tsv", package = "gapminder")
-gap_bigger_tsv <- read.delim(gap_bigger_tsv)
-str(gap_bigger_tsv)
-gap_bigger_tsv %>% # Bhutan IS here though! :)
-  filter(country == "Bhutan")
-```
-
-## License
-
-Gapminder's data is released under the Creative Commons Attribution 3.0 Unported license. See their [terms of use](https://docs.google.com/document/pub?id=1POd-pBMc5vDXAmxrpGjPLaCSDSWuxX6FLQgq5DhlUhM). 
-
-## Citation
-
-Run this command to get info on how to cite this package. If you've installed gapminder from CRAN, the year will be populated and populated correctly (unlike below).
-
-```{r warning = FALSE}
-citation("gapminder")
 ```
