@@ -55,3 +55,5 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
   geom_boxplot(outlier.colour = "hotpink") +
   geom_jitter(position = position_jitter(width = 0.1, height = 0), alpha = 1 / 4)
 ```
+
+For more, see the [Get started](https://jennybc.github.io/gapminder/articles/gapminder.html) vignette.

@@ -65,3 +65,7 @@ ggplot(gapminder, aes(x = continent, y = lifeExp)) +
 ```
 
 <img src="man/figures/README-test-drive-1.png" width="60%" />
+
+For more, see the [Get
+started](https://jennybc.github.io/gapminder/articles/gapminder.html)
+vignette.
