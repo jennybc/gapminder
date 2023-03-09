@@ -2,3 +2,5 @@ url: https://jennybc.github.io/gapminder/
 template:
   bootstrap: 5
 
+development:
+  mode: auto
