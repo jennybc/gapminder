@@ -2,6 +2,8 @@
 
 * The 3-letter and numeric country codes for "Korea, Dem. Rep." (Democratic People's Republic of Korea, a.k.a. North Korea) have been corrected to "PRK" (was "KOR") and 408 (was 410). Previously, this country was erroneously getting the codes for "Korea, Rep." (Republic of Korea, a.k.a. South Korea).
 
+* The release of version 1.0.0 formalizes the fact that this data package is unlikely to see much (or any) change in the future.
+
 # gapminder 0.3.0
 
 * `country_codes` is a new data frame that contains ISO 3166-1 country codes (#16 @jrebane).
