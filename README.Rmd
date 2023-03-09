@@ -11,6 +11,8 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+## so jittered figs don't always appear to be changed
+set.seed(1)
 ```
 
 # gapminder
