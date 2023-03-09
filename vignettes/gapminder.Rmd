@@ -182,9 +182,9 @@ The [`data-raw`](https://github.com/jennybc/gapminder/tree/main/data-raw#readme)
 
 If you want to practice importing from file, various tab delimited files are included:
 
-  * [`gapminder.tsv`](https://github.com/jennybc/gapminder/tree/main/inst/extdata/gapminder.tsv): the same dataset available via `library("gapminder"); gapminder`
-  * [`gapminder-unfiltered.tsv`](https://github.com/jennybc/gapminder/tree/main/inst/extdata/gapminder-unfiltered.tsv): the larger dataset available via `library("gapminder"); gapminder_unfiltered`.
-  * [`continent-colors.tsv`](https://github.com/jennybc/gapminder/tree/main/inst/extdata/continent-colors.tsv) and [`country-colors.tsv`](https://github.com/jennybc/gapminder/tree/main/inst/extdata/country-colors.tsv): color schemes
+  * [`gapminder.tsv`](https://github.com/jennybc/gapminder/blob/main/inst/extdata/gapminder.tsv): the same dataset available via `library("gapminder"); gapminder`
+  * [`gapminder-unfiltered.tsv`](https://github.com/jennybc/gapminder/blob/main/inst/extdata/gapminder-unfiltered.tsv): the larger dataset available via `library("gapminder"); gapminder_unfiltered`.
+  * [`continent-colors.tsv`](https://github.com/jennybc/gapminder/blob/main/inst/extdata/continent-colors.tsv) and [`country-colors.tsv`](https://github.com/jennybc/gapminder/blob/main/inst/extdata/country-colors.tsv): color schemes
   
 In the package's GitHub repo, these delimited files can be found:
 
