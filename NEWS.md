@@ -1,3 +1,5 @@
+# gapminder (development version)
+
 # gapminder 1.0.0
 
 * The 3-letter and numeric country codes for "Korea, Dem. Rep." (Democratic People's Republic of Korea, a.k.a. North Korea) have been corrected to "PRK" (was "KOR") and 408 (was 410). Previously, this country was erroneously getting the codes for "Korea, Rep." (Republic of Korea, a.k.a. South Korea).
