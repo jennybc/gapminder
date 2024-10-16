@@ -12,7 +12,7 @@ status](https://www.r-pkg.org/badges/version/gapminder)](https://CRAN.R-project.
 [![R-CMD-check](https://github.com/jennybc/gapminder/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jennybc/gapminder/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The is a data package with an excerpt from the
+This repo is a data package with an excerpt from the
 [Gapminder](https://www.gapminder.org/data/) data. The main object in
 this package is the `gapminder` data frame or “tibble”. There are other
 goodies, such as the data in tab delimited form, a larger unfiltered

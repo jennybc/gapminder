@@ -24,7 +24,7 @@ set.seed(1)
 [![R-CMD-check](https://github.com/jennybc/gapminder/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jennybc/gapminder/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The is a data package with an excerpt from the [Gapminder](https://www.gapminder.org/data/) data.
+This repo is a data package with an excerpt from the [Gapminder](https://www.gapminder.org/data/) data.
 The main object in this package is the `gapminder` data frame or "tibble".
 There are other goodies, such as the data in tab delimited form, a larger unfiltered dataset, premade color schemes for the countries and continents, and ISO 3166-1 country codes.
 The primary use case is for teaching and writing examples.
