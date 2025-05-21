@@ -1,9 +1,9 @@
 pandoc: 3.1.11
-pkgdown: 2.1.1
+pkgdown: 2.1.2
 pkgdown_sha: ~
 articles:
   gapminder: gapminder.html
-last_built: 2024-10-16T15:20Z
+last_built: 2025-05-21T14:52Z
 urls:
   reference: https://jennybc.github.io/gapminder/reference
   article: https://jennybc.github.io/gapminder/articles
