@@ -18,7 +18,7 @@ Imports:
     tibble
 Suggests:
     dplyr,
-    ggplot2,
+    ggplot2 (>= 3.0.0),
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
