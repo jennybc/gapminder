@@ -3,7 +3,7 @@ pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   gapminder: gapminder.html
-last_built: 2025-06-12T09:30Z
+last_built: 2025-06-12T15:03Z
 urls:
   reference: https://jennybc.github.io/gapminder/reference
   article: https://jennybc.github.io/gapminder/articles
