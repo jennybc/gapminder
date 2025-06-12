@@ -1,4 +1,4 @@
-# gapminder (development version)
+# gapminder 1.0.1
 
 * Example code has been updated for current ggplot2. The deprecated `show_guide` argument is no longer used, in favor of the more modern `show.legend` (#42 @teunbrand).
 

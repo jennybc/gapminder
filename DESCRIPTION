@@ -1,6 +1,6 @@
 Package: gapminder
 Title: Data from Gapminder
-Version: 1.0.0.9000
+Version: 1.0.1
 Authors@R: 
     person("Jennifer", "Bryan", , "jenny@posit.co", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-6983-2759"))
